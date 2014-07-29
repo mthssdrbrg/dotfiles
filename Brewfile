@@ -47,4 +47,7 @@ pin zookeeper
 install zeromq32 --universal
 pin zeromq32
 
+install elasticsearch
+pin elasticsearch
+
 cleanup
