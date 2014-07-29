@@ -13,6 +13,9 @@ set laststatus=2  " Always display the status line
 set t_Co=256      " Set number of colors, boom.
 set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
 
+set mouse-=a  " Disable mouse
+set mousehide " Hide mouse after chars typed
+
 " Apparently this stops Vim from adding a new line at the end of each file.
 " See: http://vimhelp.appspot.com/vim_faq.txt.html#faq-5.4
 set binary
@@ -37,10 +40,13 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 augroup END
 
-" Softtabs, 2 spaces
-set expandtab
-set tabstop=2
-set shiftwidth=2
+" tabs to spaces
+set tabstop=2    " Set the default tabstop
+set softtabstop=2
+set shiftwidth=2 " Set the default shift width for indents
+set expandtab    " Make tabs into spaces (set by tabstop)
+set smarttab     " Smarter tab levels
+
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
