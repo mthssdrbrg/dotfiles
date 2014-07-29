@@ -11,6 +11,7 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set t_Co=256      " Set number of colors, boom.
+set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
 
 " Apparently this stops Vim from adding a new line at the end of each file.
 " See: http://vimhelp.appspot.com/vim_faq.txt.html#faq-5.4
