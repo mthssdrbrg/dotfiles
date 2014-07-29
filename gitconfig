@@ -1,0 +1,32 @@
+[user]
+  name = Mathias Söderberg
+  email = mathias.soederberg@gmail.com
+
+[core]
+  excludesfile = /Users/dist/.gitignore
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
+[branch]
+  autosetuprebase = always
+
+[branch "master"]
+  mergeoptions = --no-ff
+
+[init]
+  templatedir = ~/.git_template
+
+[push]
+  default = tracking
+
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true

@@ -1,0 +1,23 @@
+brew install caskroom/cask/brew-cask
+
+cask install google-chrome
+cask install evernote
+cask install iterm2
+cask install vagrant
+cask install virtualbox
+cask install alfred
+cask install dropbox
+cask install bartender
+cask install onepassword
+cask install skype
+cask install firefox
+cask install boom
+cask install transmit
+cask install gitx-rowanj
+cask install slate
+cask install spotify
+cask install vlc
+cask install clipmenu
+cask install keyremap4macbook
+
+cask alfred link
