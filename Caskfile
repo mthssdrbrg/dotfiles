@@ -19,5 +19,6 @@ cask install spotify
 cask install vlc
 cask install clipmenu
 cask install karabiner
+cask install seil
 
 cask alfred link
