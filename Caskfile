@@ -18,6 +18,6 @@ cask install slate
 cask install spotify
 cask install vlc
 cask install clipmenu
-cask install keyremap4macbook
+cask install karabiner
 
 cask alfred link
