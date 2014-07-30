@@ -13,3 +13,7 @@ fi
 if [ ! -e $HOME/.oh-my-zsh ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
+
+if [ ! -e  $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
+  ln -nfs $HOME/.dotfiles/karabiner/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
+fi
