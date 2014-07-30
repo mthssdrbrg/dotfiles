@@ -2,8 +2,8 @@
 
 # Bundle all of the apps
 if [ command -v brew > /dev/null 2>&1 ]; then
-  brew bundle $HOME/.Brewfile
-  # brew $HOME/.Caskfile
+  brew bundle $HOME/.dotfiles/Brewfile
+  brew bundle $HOME/.dotfiles/Caskfile
 fi
 
 # Getting Vim plugins set up
