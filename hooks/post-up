@@ -1,12 +1,10 @@
 #!/bin/sh
 
-# Bundle all of the apps
 if [ command -v brew > /dev/null 2>&1 ]; then
   brew bundle $HOME/.dotfiles/Brewfile
   brew bundle $HOME/.dotfiles/Caskfile
 fi
 
-# Getting Vim plugins set up
 if [ ! -e $HOME/.vim/bundle/vundle ]; then
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/vundle
   vim -u $HOME/.vimrc.bundles +PluginInstall +qa
