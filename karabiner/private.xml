@@ -23,7 +23,6 @@
       KeyCode::VK_NONE
     </autogen>
   </item>
-
   <item>
     <name>Disable Sysdiagnose COMMA Key</name>
     <appendix>Disable Sysdiagnose COMMA Key</appendix>
@@ -35,7 +34,6 @@
       KeyCode::VK_NONE
     </autogen>
   </item>
-
   <item>
     <name>Disable Sysdiagnose Foward Slash Key</name>
     <appendix>Disable Sysdiagnose FORWARD SLASH Key</appendix>
