@@ -100,8 +100,8 @@ let g:html_indent_tags = 'li\|p'
 " Set syntax highlighting for specific file types
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.ru set filetype=ruby
-au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
 " Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
