@@ -103,10 +103,6 @@ au BufRead,BufNewFile *.ru set filetype=ruby
 au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
-
-" Enable spellchecking for Markdown
-" au BufRead,BufNewFile *.md setlocal spell
-
 " Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
