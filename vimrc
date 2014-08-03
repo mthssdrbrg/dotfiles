@@ -4,13 +4,13 @@ let mapleader = " "
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set t_Co=256      " Set number of colors, boom.
+set noswapfile     " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=50     " Length of history
+set ruler          " show the cursor position all the time
+set showcmd        " display incomplete commands
+set incsearch      " do incremental searching
+set laststatus=2   " Always display the status line
+set t_Co=256       " Set number of colors, boom.
 set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
 
 set mouse-=a  " Disable mouse
