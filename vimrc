@@ -12,14 +12,32 @@ set incsearch      " do incremental searching
 set laststatus=2   " Always display the status line
 set t_Co=256       " Set number of colors, boom.
 set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
-
-set mouse-=a  " Disable mouse
-set mousehide " Hide mouse after chars typed
-
+set mouse-=a       " Disable mouse
+set mousehide      " Hide mouse after chars typed
+" Tabs to spaces
+set tabstop=2    " Set the default tabstop
+set softtabstop=2
+set shiftwidth=2 " Set the default shift width for indents
+set expandtab    " Make tabs into spaces (set by tabstop)
+set smarttab     " Smarter tab levels
 " Apparently this stops Vim from adding a new line at the end of each file.
 " See: http://vimhelp.appspot.com/vim_faq.txt.html#faq-5.4
 set binary
 set noeol
+" Numbers
+set number
+set numberwidth=5
+" Folding settings
+set foldmethod=indent " Fold based on indent
+set foldnestmax=10    " Deepest fold is 10 levels
+set nofoldenable      " Don't fold by default
+set foldlevel=3
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+" Encodings
+set fileencodings=utf-8,latin1
+set encoding=utf-8
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -40,26 +58,8 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 augroup END
 
-" tabs to spaces
-set tabstop=2    " Set the default tabstop
-set softtabstop=2
-set shiftwidth=2 " Set the default shift width for indents
-set expandtab    " Make tabs into spaces (set by tabstop)
-set smarttab     " Smarter tab levels
-
-
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
-
-" Numbers
-set number
-set numberwidth=5
-
-"folding settings
-set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=3         "this is just what i use
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
@@ -109,14 +109,6 @@ au BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 " Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
-
-" Open new split panes to right and bottom, which feels more natural
-set splitbelow
-set splitright
-
-" encodings...
-set fileencodings=utf-8,latin1
-set encoding=utf-8
 
 " Themein'
 set background=dark
