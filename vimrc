@@ -75,8 +75,6 @@ map <leader>t :NERDTreeToggle<CR>
 
 " Mac OSX fix for navigating NERDTree properly
 let g:NERDTreeDirArrows=0
-" Always show NERDtree tab
-let g:nerdtree_tabs_open_on_console_startup=1
 
 " Quit vim if NERDTree is the only buffer left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
