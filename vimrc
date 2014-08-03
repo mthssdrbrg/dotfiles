@@ -76,9 +76,6 @@ map <leader>t :NERDTreeToggle<CR>
 " Mac OSX fix for navigating NERDTree properly
 let g:NERDTreeDirArrows=0
 
-" Quit vim if NERDTree is the only buffer left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " Due to a bug / "feature" w/ `set binary` this is needed to ensure that when
 " files are "reloaded", tabs are still exanded to spaces
 autocmd FileChangedShellPost * set expandtab
