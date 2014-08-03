@@ -134,10 +134,3 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Apparently needed for textobj-rubyblock
 runtime macros/matchit.vim
-
-" macVim options
-set fileencodings=utf-8,latin1
-set guifont=Menlo\ Regular:h11
-set guioptions=egm
-set guitablabel=%M%t
-set termencoding=utf-8
