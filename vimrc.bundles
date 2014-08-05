@@ -26,4 +26,4 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
 
 call vundle#end()
-filetype plugin indent on
+filetype plugin on
