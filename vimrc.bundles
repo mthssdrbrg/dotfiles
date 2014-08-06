@@ -25,4 +25,4 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 
 call vundle#end()
-filetype plugin on
+filetype plugin indent on
