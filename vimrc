@@ -71,9 +71,10 @@ map <leader>t :NERDTreeToggle<CR>
 " Mac OSX fix for navigating NERDTree properly
 let g:NERDTreeDirArrows=0
 
-" Due to a bug / "feature" w/ `set binary` this is needed to ensure that when
-" files are "reloaded", tabs are still exanded to spaces
-autocmd FileChangedShellPost * set expandtab
+" Attempt to explicitly enforce tabs as two (2) spaces,
+" all of the goddamn time
+autocmd FileChangedShellPost * set tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
