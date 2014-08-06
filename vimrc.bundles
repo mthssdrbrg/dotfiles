@@ -22,7 +22,6 @@ Plugin 'tsaleh/vim-matchit'
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'bling/vim-airline'
 
 call vundle#end()
