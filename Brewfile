@@ -22,7 +22,7 @@ install wget
 install lesspipe
 install htop-osx
 install zsh-completions
-install geopip
+install geoip
 install gnupg
 install gnutls
 
