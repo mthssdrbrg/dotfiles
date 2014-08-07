@@ -28,6 +28,7 @@ install python
 
 install vim --override-system-vi
 install macvim
+install reattach-to-user-namespace
 
 install mongodb24
 pin mongodb24
