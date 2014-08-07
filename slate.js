@@ -24,6 +24,26 @@ var terminalFullScreen = slate.operation('move', {
   'height' : 'screenSizeY-4'
 });
 
+var launchOrFocus = function (app) {
+  return function (win) {
+    var running = false;
+    var focus = slate.operation('focus', {'app' : app});
+    var launch = slate.operation('shell', {
+      'command' : '/Users/dist/bin/launch ' + app,
+      'wait' : true
+    });
+    slate.eachApp(function (a) {
+      if (a.name() == app) {
+        running = true;
+      }
+    });
+    if (!running) {
+      launch.run();
+    }
+    focus.run();
+  }
+};
+
 slate.bind('f:cmd;alt', function(win) {
   var appName = win.app().name();
 
@@ -80,15 +100,16 @@ slate.bind('down:ctrl;alt',  slate.operation('nudge', { 'x' : '+0',  'y' : '+5%'
 slate.bind('right:ctrl;alt;cmd', slate.operation('push', { 'direction' : 'right' }));
 slate.bind('left:ctrl;alt;cmd',  slate.operation('push', { 'direction' : 'left'  }));
 
-slate.bind(hyper('i'), slate.operation('focus', { 'app' : 'iTerm'         }));
-slate.bind(hyper('c'), slate.operation('focus', { 'app' : 'Google Chrome' }));
-slate.bind(hyper('m'), slate.operation('focus', { 'app' : 'MacVim'        }));
-slate.bind(hyper('e'), slate.operation('focus', { 'app' : 'Evernote'      }));
-slate.bind(hyper('s'), slate.operation('focus', { 'app' : 'Spotify'       }));
-slate.bind(hyper('t'), slate.operation('focus', { 'app' : 'Twitter'       }));
-slate.bind(hyper('x'), slate.operation('focus', { 'app' : 'GitX'          }));
-slate.bind(hyper('p'), slate.operation('focus', { 'app' : 'Propane'       }));
-slate.bind(hyper('g'), slate.operation('focus', { 'app' : 'Burtcorp Mail' }));
+slate.bind(hyper('i'), launchOrFocus('iTerm'));
+slate.bind(hyper('c'), launchOrFocus('Google Chrome'));
+slate.bind(hyper('e'), launchOrFocus('Evernote'));
+slate.bind(hyper('s'), launchOrFocus('Spotify'));
+slate.bind(hyper('t'), launchOrFocus('Twitter'));
+slate.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
+
+slate.bind(hyper('p'), slate.operation('focus', { 'app' : 'Propane' }));
+slate.bind(hyper('x'), slate.operation('focus', { 'app' : 'GitX' }));
+slate.bind(hyper('m'), slate.operation('focus', { 'app' : 'MacVim' }));
 
 slate.bind(hyper('up'),    slate.operation('resize', { 'width' : '+0', 'height'  : '-5%' }));
 slate.bind(hyper('down'),  slate.operation('resize', { 'width' : '+0', 'height'  : '+5%' }));

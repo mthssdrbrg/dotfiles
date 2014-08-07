@@ -1,1 +1,1 @@
-EXCLUDES=README.md Brewfile Caskfile karabiner
+EXCLUDES=README.md Brewfile Caskfile karabiner bin
