@@ -12,8 +12,7 @@ jo() { env JAVA_OPTS="-Xmn512m -Xms2g -Xmx2g" "$@" }
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew github ruby osx vi-mode forklift z cp extract colored-man colorize wd)
+plugins=(git brew github vi-mode z colored-man colorize)
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
