@@ -12,7 +12,7 @@ jo() { env JAVA_OPTS="-Xmn512m -Xms2g -Xmx2g" "$@" }
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git brew github vi-mode z colored-man colorize)
+plugins=(git brew github vi-mode z colored-man colorize knife)
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
