@@ -30,7 +30,7 @@ install python
 
 install vim --override-system-vi
 install macvim
-install reattach-to-user-namespace
+install reattach-to-user-namespace --wrap-launchctl --wrap-pbcopy-and-pbpaste
 install tmux
 
 install mongodb24
