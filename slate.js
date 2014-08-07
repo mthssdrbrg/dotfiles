@@ -1,4 +1,4 @@
-slate.configAll({
+S.configAll({
   'defaultToCurrentScreen' : true,
   'secondsBetweenRepeat' : 0.1,
   'checkDefaultsOnLoad' : true,
@@ -10,14 +10,14 @@ var hyper = function(key) {
   return key + ':' + 'ctrl;shift;alt;cmd';
 };
 
-var fullScreen = slate.operation('move', {
+var fullScreen = S.op('move', {
   'x' : 'screenOriginX',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX',
   'height' : 'screenSizeY'
 });
 
-var terminalFullScreen = slate.operation('move', {
+var terminalFullScreen = S.op('move', {
   'x' : 'screenOriginX+6',
   'y' : 'screenOriginY+4',
   'width' : 'screenSizeX-6',
@@ -27,12 +27,12 @@ var terminalFullScreen = slate.operation('move', {
 var launchOrFocus = function (app) {
   return function (win) {
     var running = false;
-    var focus = slate.operation('focus', {'app' : app});
-    var launch = slate.operation('shell', {
+    var focus = S.op('focus', {'app' : app});
+    var launch = S.op('shell', {
       'command' : '/Users/dist/bin/launch ' + app,
       'wait' : true
     });
-    slate.eachApp(function (a) {
+    S.eachApp(function (a) {
       if (a.name() == app) {
         running = true;
       }
@@ -44,7 +44,7 @@ var launchOrFocus = function (app) {
   }
 };
 
-slate.bind('f:cmd;alt', function(win) {
+S.bind('f:cmd;alt', function(win) {
   var appName = win.app().name();
 
   if (appName == 'iTerm' || appName == 'MacVim') {
@@ -54,74 +54,74 @@ slate.bind('f:cmd;alt', function(win) {
   }
 });
 
-slate.bind('left:cmd;alt', slate.operation('move', {
+S.bind('left:cmd;alt', S.op('move', {
   'x' : 'screenOriginX',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX/2',
   'height' : 'screenSizeY'
 }));
-slate.bind('right:cmd;alt', slate.operation('move', {
+S.bind('right:cmd;alt', S.op('move', {
   'x' : 'screenOriginX+screenSizeX/2',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX/2',
   'height' : 'screenSizeY'
 }));
-slate.bind('up:cmd;alt', slate.operation('move', {
+S.bind('up:cmd;alt', S.op('move', {
   'x' : 'screenOriginX',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX',
   'height' : 'screenSizeY/2'
 }));
-slate.bind('down:cmd;alt', slate.operation('move', {
+S.bind('down:cmd;alt', S.op('move', {
   'x' : 'screenOriginX',
   'y' : 'screenOriginY+(screenSizeY/2)',
   'width' : 'screenSizeX',
   'height' : 'screenSizeY/2'
 }));
 
-slate.bind('left:cmd;alt;shift', slate.operation('move', {
+S.bind('left:cmd;alt;shift', S.op('move', {
   'x' : 'screenOriginX',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX/3',
   'height' : 'screenSizeY'
 }));
-slate.bind('right:cmd;alt;shift', slate.operation('move', {
+S.bind('right:cmd;alt;shift', S.op('move', {
   'x' : 'screenOriginX+screenSizeX',
   'y' : 'screenOriginY',
   'width' : 'screenSizeX/3',
   'height' : 'screenSizeY'
 }));
 
-slate.bind('right:ctrl;alt', slate.operation('nudge', { 'x' : '+5%', 'y' : '+0'  }));
-slate.bind('left:ctrl;alt',  slate.operation('nudge', { 'x' : '-5%', 'y' : '+0'  }));
-slate.bind('up:ctrl;alt',    slate.operation('nudge', { 'x' : '+0',  'y' : '-5%' }));
-slate.bind('down:ctrl;alt',  slate.operation('nudge', { 'x' : '+0',  'y' : '+5%' }));
+S.bind('right:ctrl;alt', S.op('nudge', { 'x' : '+5%', 'y' : '+0'  }));
+S.bind('left:ctrl;alt',  S.op('nudge', { 'x' : '-5%', 'y' : '+0'  }));
+S.bind('up:ctrl;alt',    S.op('nudge', { 'x' : '+0',  'y' : '-5%' }));
+S.bind('down:ctrl;alt',  S.op('nudge', { 'x' : '+0',  'y' : '+5%' }));
 
-slate.bind('right:ctrl;alt;cmd', slate.operation('push', { 'direction' : 'right' }));
-slate.bind('left:ctrl;alt;cmd',  slate.operation('push', { 'direction' : 'left'  }));
+S.bind('right:ctrl;alt;cmd', S.op('push', { 'direction' : 'right' }));
+S.bind('left:ctrl;alt;cmd',  S.op('push', { 'direction' : 'left'  }));
 
-slate.bind(hyper('i'), launchOrFocus('iTerm'));
-slate.bind(hyper('c'), launchOrFocus('Google Chrome'));
-slate.bind(hyper('e'), launchOrFocus('Evernote'));
-slate.bind(hyper('s'), launchOrFocus('Spotify'));
-slate.bind(hyper('t'), launchOrFocus('Twitter'));
-slate.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
+S.bind(hyper('i'), launchOrFocus('iTerm'));
+S.bind(hyper('c'), launchOrFocus('Google Chrome'));
+S.bind(hyper('e'), launchOrFocus('Evernote'));
+S.bind(hyper('s'), launchOrFocus('Spotify'));
+S.bind(hyper('t'), launchOrFocus('Twitter'));
+S.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
 
-slate.bind(hyper('p'), slate.operation('focus', { 'app' : 'Propane' }));
-slate.bind(hyper('x'), slate.operation('focus', { 'app' : 'GitX' }));
-slate.bind(hyper('m'), slate.operation('focus', { 'app' : 'MacVim' }));
+S.bind(hyper('p'), S.op('focus', { 'app' : 'Propane' }));
+S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
+S.bind(hyper('m'), S.op('focus', { 'app' : 'MacVim' }));
 
-slate.bind(hyper('up'),    slate.operation('resize', { 'width' : '+0', 'height'  : '-5%' }));
-slate.bind(hyper('down'),  slate.operation('resize', { 'width' : '+0', 'height'  : '+5%' }));
-slate.bind(hyper('left'),  slate.operation('resize', { 'width' : '-5%', 'height' : '+0'  }));
-slate.bind(hyper('right'), slate.operation('resize', { 'width' : '+5%', 'height' : '+0'  }));
+S.bind(hyper('up'),    S.op('resize', { 'width' : '+0', 'height'  : '-5%' }));
+S.bind(hyper('down'),  S.op('resize', { 'width' : '+0', 'height'  : '+5%' }));
+S.bind(hyper('left'),  S.op('resize', { 'width' : '-5%', 'height' : '+0'  }));
+S.bind(hyper('right'), S.op('resize', { 'width' : '+5%', 'height' : '+0'  }));
 
-slate.bind('l:cmd;shift', slate.operation('focus', { 'direction' : 'right' }));
-slate.bind('h:cmd;shift', slate.operation('focus', { 'direction' : 'left'  }));
-slate.bind('k:cmd;shift', slate.operation('focus', { 'direction' : 'up'    }));
-slate.bind('j:cmd;shift', slate.operation('focus', { 'direction' : 'down'  }));
+S.bind('l:cmd;shift', S.op('focus', { 'direction' : 'right' }));
+S.bind('h:cmd;shift', S.op('focus', { 'direction' : 'left'  }));
+S.bind('k:cmd;shift', S.op('focus', { 'direction' : 'up'    }));
+S.bind('j:cmd;shift', S.op('focus', { 'direction' : 'down'  }));
 
-slate.bind(hyper('r'), slate.operation('relaunch'));
-slate.bind(hyper('f'), slate.operation('hint', { 'characters' : 'ASDFGHJKL' }));
-slate.bind('g:cmd;alt', slate.operation('grid'));
-slate.bind('z:cmd;alt', slate.operation('undo'));
+S.bind(hyper('r'), S.op('relaunch'));
+S.bind(hyper('f'), S.op('hint', { 'characters' : 'ASDFGHJKL' }));
+S.bind('g:cmd;alt', S.op('grid'));
+S.bind('z:cmd;alt', S.op('undo'));
