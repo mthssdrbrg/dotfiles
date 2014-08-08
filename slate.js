@@ -106,6 +106,7 @@ S.bind(hyper('e'), launchOrFocus('Evernote'));
 S.bind(hyper('s'), launchOrFocus('Spotify'));
 S.bind(hyper('t'), launchOrFocus('Twitter'));
 S.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
+S.bind(hyper('w'), launchOrFocus('Wunderlist'));
 
 S.bind(hyper('p'), S.op('focus', { 'app' : 'Propane' }));
 S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
