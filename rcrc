@@ -1,1 +1,1 @@
-EXCLUDES=README.md homebrew karabiner bin
+EXCLUDES="README.md karabiner bin homebrew"

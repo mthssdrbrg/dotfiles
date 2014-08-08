@@ -1,25 +1,25 @@
 #!/bin/sh
 
-if [ command -v brew > /dev/null 2>&1 ]; then
+if command -v brew > /dev/null 2>&1; then
   chug="$HOME/.dotfiles/homebrew/chug"
-  sh "$chug" $HOME/.dotfiles/Brewfile
+  sh "$chug" $HOME/.dotfiles/homebrew/Brewfile
   # sh "$chug" $HOME/.dotfiles/Caskfile
 fi
 
-if [ ! -e $HOME/.vim/bundle/vundle ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/vundle
+if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
   vim -u $HOME/.vimrc.bundles +PluginInstall +qa
 fi
 
-if [ ! -e $HOME/.oh-my-zsh ]; then
+if [ ! -e "$HOME/.oh-my-zsh" ]; then
   curl -L http://install.ohmyz.sh | sh
 fi
 
-if [ ! -e  $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
+if [ ! -e "$HOME/Library/Application\ Support/Karabiner/private.xml" ]; then
   ln -nfs $HOME/.dotfiles/karabiner/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 fi
 
 mkdir -p $HOME/bin
-if [ ! -e  $HOME/bin/launch ]; then
+if [ ! -e  "$HOME/bin/launch" ]; then
   ln -nfs $HOME/.dotfiles/bin/launch $HOME/bin/launch
 fi
