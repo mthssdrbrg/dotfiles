@@ -12,8 +12,6 @@ install jq
 install ncdu
 install parallel
 install pv
-install zsh
-install zsh-syntax-highlighting
 install openssl
 install openssh
 install git
@@ -21,10 +19,13 @@ install curl
 install wget
 install lesspipe
 install htop-osx
-install zsh-completions
 install geoip
 install gnupg
 install gnutls
+
+install zsh
+install zsh-syntax-highlighting
+install zsh-completions
 
 install python
 
@@ -53,5 +54,3 @@ pin zeromq32
 
 install elasticsearch
 pin elasticsearch
-
-cleanup

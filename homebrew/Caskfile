@@ -1,4 +1,4 @@
-brew install caskroom/cask/brew-cask
+install caskroom/cask/brew-cask
 
 cask install google-chrome
 cask install evernote

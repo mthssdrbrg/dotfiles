@@ -1,8 +1,9 @@
 #!/bin/sh
 
 if [ command -v brew > /dev/null 2>&1 ]; then
-  brew bundle $HOME/.dotfiles/Brewfile
-  brew bundle $HOME/.dotfiles/Caskfile
+  chug="$HOME/.dotfiles/homebrew/chug"
+  sh "$chug" $HOME/.dotfiles/Brewfile
+  # sh "$chug" $HOME/.dotfiles/Caskfile
 fi
 
 if [ ! -e $HOME/.vim/bundle/vundle ]; then
