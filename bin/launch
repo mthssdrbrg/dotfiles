@@ -1,3 +1,4 @@
 #!/bin/sh
-/usr/bin/osascript -e "launch application \"$1\""
+app="$@"
+/usr/bin/osascript -e "launch application \"$app\""
 sleep 1
