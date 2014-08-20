@@ -105,7 +105,7 @@ S.bind(hyper('c'), launchOrFocus('Google Chrome'));
 S.bind(hyper('e'), launchOrFocus('Evernote'));
 S.bind(hyper('s'), launchOrFocus('Spotify'));
 S.bind(hyper('t'), launchOrFocus('Twitter'));
-S.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
+S.bind(hyper('g'), launchOrFocus('Mailbox (Beta)'));
 S.bind(hyper('w'), launchOrFocus('Wunderlist'));
 S.bind(hyper('z'), launchOrFocus('Slack'));
 
