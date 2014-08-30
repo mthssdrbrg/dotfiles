@@ -28,6 +28,7 @@ install zsh-syntax-highlighting
 install zsh-completions
 
 install python
+install go
 
 install vim --override-system-vi
 install macvim
