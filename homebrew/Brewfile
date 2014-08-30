@@ -29,6 +29,8 @@ install zsh-completions
 
 install python
 install go
+install node
+install npm
 
 install vim --override-system-vi
 install macvim
