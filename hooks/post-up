@@ -23,3 +23,11 @@ mkdir -p $HOME/bin
 if [ ! -e  "$HOME/bin/launch" ]; then
   ln -nfs $HOME/.dotfiles/bin/launch $HOME/bin/launch
 fi
+
+if ! pip list | grep csvkit > /dev/null 2>&1; then
+  pip install csvkit
+fi
+
+if ! command -v xml2json > /dev/null 2>&1; then
+  sudo npm install -g xml2json-command
+fi
