@@ -7,9 +7,6 @@ export AWS_REGION="eu-west-1"
 
 export PGDATA="/usr/local/var/postgres/data"
 
-export EDITOR="mvim -f"
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/Dev/burt/tools/bin:/usr/local/share/npm/bin:$PATH"
-
 export JRUBY_OPTS="--1.9"
 export REDIRECT_LOG="no"
 
@@ -22,3 +19,6 @@ export _Z_CMD="j"
 
 export GOROOT="$(brew --prefix go)/libexec"
 export GOPATH="$HOME/.go"
+
+export EDITOR="mvim -f"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/Dev/burt/tools/bin:/usr/local/share/npm/bin:$GOPATH/bin:$PATH"
