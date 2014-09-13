@@ -1,4 +1,4 @@
-export HIVE_HOME="/usr/local/Cellar/hive/0.10.0/libexec"
+export HIVE_HOME="$(brew --prefix hive)/libexec"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
 export AWS_ELB_HOME="/usr/local/Library/LinkedKegs/elb-tools/jars"
