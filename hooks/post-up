@@ -31,3 +31,7 @@ fi
 if ! command -v xml2json > /dev/null 2>&1; then
   sudo npm install -g xml2json-command
 fi
+
+if ! command -v json2csv > /dev/null 2>&1; then
+  go get github.com/jehiah/json2csv
+fi
