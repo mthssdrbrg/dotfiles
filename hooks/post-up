@@ -19,7 +19,6 @@ if [ ! -e "$HOME/Library/Application\ Support/Karabiner/private.xml" ]; then
   ln -nfs $HOME/.dotfiles/karabiner/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 fi
 
-mkdir -p $HOME/bin
 if [ ! -e  "$HOME/bin/launch" ]; then
   ln -nfs $HOME/.dotfiles/bin/launch $HOME/bin/launch
 fi
