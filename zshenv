@@ -1,7 +1,8 @@
 export HIVE_HOME="$(brew --prefix hive)/libexec"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
-export AWS_ELB_HOME="/usr/local/Library/LinkedKegs/elb-tools/jars"
+export EC2_HOME="$(brew --prefix ec2-api-tools)/libexec"
+export AWS_ELB_HOME="$(brew --prefix elb-tools)/libexec"
 export AWS_REGION="eu-west-1"
 
 export PGDATA="/usr/local/var/postgres/data"

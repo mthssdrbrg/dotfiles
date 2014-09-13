@@ -37,6 +37,10 @@ install macvim
 install reattach-to-user-namespace --wrap-launchctl --wrap-pbcopy-and-pbpaste
 install tmux
 
+install awscli
+install elb-tools
+install ec2-api-tools
+
 install mongodb24
 pin mongodb24
 

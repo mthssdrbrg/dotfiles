@@ -54,6 +54,9 @@ source ~/bin/base16-tomorrow.dark.sh
 # Syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# awscli zsh completion
+source /usr/local/share/zsh/site-functions/_aws
+
 # added by travis gem
 source ~/.travis/travis.sh
 
