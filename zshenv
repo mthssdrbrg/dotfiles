@@ -10,8 +10,6 @@ export PGDATA="/usr/local/var/postgres/data"
 export EDITOR="mvim -f"
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/Dev/burt/tools/bin:/usr/local/share/npm/bin:$PATH"
 
-export SSL_CERT_FILE="/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
-
 export JRUBY_OPTS="--1.9"
 export REDIRECT_LOG="no"
 
