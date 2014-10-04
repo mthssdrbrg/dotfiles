@@ -1,8 +1,9 @@
-export HIVE_HOME="$(brew --prefix hive)/libexec"
+export BREW_PREFIX="$(brew --prefix)"
+export HIVE_HOME="$BREW_PREFIX/opt/hive/libexec"
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
-export EC2_HOME="$(brew --prefix ec2-api-tools)/libexec"
-export AWS_ELB_HOME="$(brew --prefix elb-tools)/libexec"
+export EC2_HOME="$BREW_PREFIX/opt/ec2-api-tools/libexec"
+export AWS_ELB_HOME="$BREW_PREFIX/opt/elb-tools/libexec"
 export AWS_REGION="eu-west-1"
 
 export PGDATA="/usr/local/var/postgres/data"
@@ -17,7 +18,7 @@ export LANG="en_US.UTF-8"
 export DOCKER_HOST="tcp://localhost:4243"
 export _Z_CMD="j"
 
-export GOROOT="$(brew --prefix go)/libexec"
+export GOROOT="$BREW_PREFIX/opt/go/libexec"
 export GOPATH="$HOME/.go"
 
 export EDITOR="mvim -f"
