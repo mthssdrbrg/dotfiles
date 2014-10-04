@@ -24,6 +24,7 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()
 filetype plugin indent on
