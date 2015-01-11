@@ -17,13 +17,6 @@ var fullScreen = S.op('move', {
   'height' : 'screenSizeY'
 });
 
-var terminalFullScreen = S.op('move', {
-  'x' : 'screenOriginX+6',
-  'y' : 'screenOriginY+4',
-  'width' : 'screenSizeX-6',
-  'height' : 'screenSizeY-4'
-});
-
 var launchOrFocus = function (app) {
   return function (win) {
     var running = false;
@@ -45,13 +38,7 @@ var launchOrFocus = function (app) {
 };
 
 S.bind('f:cmd;alt', function(win) {
-  var appName = win.app().name();
-
-  if (appName == 'iTerm' || appName == 'MacVim') {
-    win.doOperation(terminalFullScreen);
-  } else {
-    win.doOperation(fullScreen);
-  }
+  win.doOperation(fullScreen);
 });
 
 S.bind('left:cmd;alt', S.op('move', {
