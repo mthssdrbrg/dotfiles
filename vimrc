@@ -33,7 +33,6 @@ set smarttab     " Smarter tab levels
 " Apparently this stops Vim from adding a new line at the end of each file.
 " See: http://vimhelp.appspot.com/vim_faq.txt.html#faq-5.4
 set binary
-set noeol
 " Numbers
 set number
 set numberwidth=5
@@ -94,6 +93,7 @@ au BufRead,BufNewFile *.ru set filetype=ruby
 au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
+au BufRead,BufNewFile Makefile set noexpandtab
 " Automatically wrap at 80 characters for Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
