@@ -1,26 +1,39 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Load Antigen
+source ~/.dotfiles/antigen/antigen.zsh
 
-# Set name of the theme to load
-ZSH_THEME="sorin"
+antigen use oh-my-zsh
+antigen bundle brew
+antigen bundle colored-man
+antigen bundle colorize
+antigen bundle gem
+antigen bundle git
+antigen bundle ruby
+antigen bundle rupa/z
+antigen bundle vi-mode
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+antigen theme robbyrussell/oh-my-zsh themes/sorin
 
-# Some more juice for Java apps
-jo() { env JAVA_OPTS="-Xmn512m -Xms2g -Xmx2g" "$@" }
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(brew colored-man colorize gem git github knife vi-mode z)
+antigen apply
 
 fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Terminal colors
+source ~/bin/base16-tomorrow.dark.sh
+
+# awscli zsh completion
+source /usr/local/share/zsh/site-functions/_aws
+
+source ~/.zshalias
 
 # Enable ^R emacs behaviour in vi-mode
 bindkey '\C-R' history-incremental-search-backward
 
+# Some more juice for Java apps
+function jo() { env JAVA_OPTS="-Xmn512m -Xms2g -Xmx2g" "$@" }
+
 function flip() {
-perl -C3 -Mutf8 -lpe '$_=reverse;y/a-zA-Z.['\'',({?!\"<_;‿⁅∴\r/ɐqɔpǝɟƃɥıɾʞ|ɯuodbɹsʇnʌʍxʎzɐqɔpǝɟƃɥıɾʞ|ɯuodbɹsʇnʌʍxʎz˙],'\'')}¿¡,>‾؛⁀⁆∵\n/' <<< "$1"
+  perl -C3 -Mutf8 -lpe '$_=reverse;y/a-zA-Z.['\'',({?!\"<_;‿⁅∴\r/ɐqɔpǝɟƃɥıɾʞ|ɯuodbɹsʇnʌʍxʎzɐqɔpǝɟƃɥıɾʞ|ɯuodbɹsʇnʌʍxʎz˙],'\'')}¿¡,>‾؛⁀⁆∵\n/' <<< "$1"
 }
 
 function fuck() {
@@ -45,19 +58,3 @@ function fuck() {
   fi
 }
 
-# Load the goodies
-source $ZSH/oh-my-zsh.sh
-
-# Terminal colors
-source ~/bin/base16-tomorrow.dark.sh
-
-# Syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# awscli zsh completion
-source /usr/local/share/zsh/site-functions/_aws
-
-# added by travis gem
-source ~/.travis/travis.sh
-
-source ~/.zshalias

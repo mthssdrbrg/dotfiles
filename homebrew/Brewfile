@@ -24,7 +24,6 @@ install gnupg
 install gnutls
 
 install zsh
-install zsh-syntax-highlighting
 install zsh-completions
 
 install python
