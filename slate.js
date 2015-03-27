@@ -100,10 +100,10 @@ S.bind(hyper('p'), S.op('focus', { 'app' : 'Propane' }));
 S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
 S.bind(hyper('m'), S.op('focus', { 'app' : 'MacVim' }));
 
-S.bind(hyper('up'),    S.op('resize', { 'width' : '+0', 'height'  : '-5%' }));
-S.bind(hyper('down'),  S.op('resize', { 'width' : '+0', 'height'  : '+5%' }));
-S.bind(hyper('left'),  S.op('resize', { 'width' : '-5%', 'height' : '+0'  }));
-S.bind(hyper('right'), S.op('resize', { 'width' : '+5%', 'height' : '+0'  }));
+S.bind(hyper('k'),    S.op('resize', { 'width' : '+0', 'height'  : '-5%' }));
+S.bind(hyper('j'),  S.op('resize', { 'width' : '+0', 'height'  : '+5%' }));
+S.bind(hyper('h'),  S.op('resize', { 'width' : '-5%', 'height' : '+0'  }));
+S.bind(hyper('l'), S.op('resize', { 'width' : '+5%', 'height' : '+0'  }));
 
 S.bind('l:cmd;shift', S.op('focus', { 'direction' : 'right' }));
 S.bind('h:cmd;shift', S.op('focus', { 'direction' : 'left'  }));
