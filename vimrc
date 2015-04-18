@@ -78,8 +78,8 @@ autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <silent><D-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><D-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Switch between light / dark background
 map <leader>s :let &background = ( &background == "dark"? "light" : "dark" )<CR>
