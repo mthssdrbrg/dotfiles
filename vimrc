@@ -21,7 +21,7 @@ set showcmd        " display incomplete commands
 set incsearch      " do incremental searching
 set laststatus=2   " Always display the status line
 set t_Co=256       " Set number of colors, boom.
-set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
+set timeoutlen=500 " Time to wait after ESC (default causes an annoying delay)
 set mouse-=a       " Disable mouse
 set mousehide      " Hide mouse after chars typed
 " Tabs to spaces
@@ -83,6 +83,35 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Switch between light / dark background
 map <leader>s :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+" Bindings for making fugitive a bit easier to use
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gca :Gcommit --amend<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+nnoremap <space>gbl :Gblame<CR>
+" nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+" nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
+
+" RSpec mappings
+nnoremap <Leader>rt :call RunCurrentSpecFile()<CR>
+nnoremap <Leader>rs :call RunNearestSpec()<CR>
+nnoremap <Leader>rl :call RunLastSpec()<CR>
+nnoremap <Leader>ra :call RunAllSpecs()<CR>
+
+let g:rspec_runner = "os_x_iterm"
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
