@@ -50,7 +50,7 @@ function fuck() {
     echo "┬─┬﻿ ︵ /(.□. \）"; echo
   fi
 }
-function gt () {
+
+function gt() {
   cd $(git rev-parse --show-cdup);
 }
-
