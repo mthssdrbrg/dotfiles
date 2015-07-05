@@ -2,12 +2,8 @@
 source ~/.dotfiles/antigen/antigen.zsh
 
 antigen use oh-my-zsh
-antigen bundle brew
 antigen bundle colored-man
 antigen bundle colorize
-antigen bundle gem
-antigen bundle git
-antigen bundle ruby
 antigen bundle rupa/z
 antigen bundle vi-mode
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -20,9 +16,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Terminal colors
 source ~/bin/base16-tomorrow.dark.sh
-
-# awscli zsh completion
-source /usr/local/share/zsh/site-functions/_aws
 
 source ~/.zshalias
 
