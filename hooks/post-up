@@ -11,8 +11,8 @@ if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
   vim -u $HOME/.vimrc.bundles +PluginInstall +qa
 fi
 
-if [ ! -e "$HOME/.oh-my-zsh" ]; then
-  curl -L http://install.ohmyz.sh | sh
+if [ ! -e "$HOME/.zprezto" ]; then
+  git clone --recursive https://github.com/mthssdrbrg/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
 if [ ! -e "$HOME/Library/Application\ Support/Karabiner/private.xml" ]; then

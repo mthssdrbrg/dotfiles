@@ -1,16 +1,5 @@
-# Load Antigen
-source ~/.dotfiles/antigen/antigen.zsh
-
-antigen use oh-my-zsh
-antigen bundle colored-man
-antigen bundle colorize
-antigen bundle rupa/z
-antigen bundle vi-mode
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen theme robbyrussell/oh-my-zsh themes/sorin
-
-antigen apply
+# Load Prezto
+source ~/.zprezto/init.zsh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 

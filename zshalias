@@ -20,3 +20,5 @@ alias v="nocorrect vim"
 alias brewssl="$(brew --prefix openssl)/bin/openssl"
 alias t="tig --all"
 alias bru='brew update && brew upgrade --all'
+alias rm='nocorrect rm'
+alias gst='git status'
