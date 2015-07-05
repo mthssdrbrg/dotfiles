@@ -14,7 +14,7 @@ cask install firefox
 cask install boom
 cask install transmit
 cask install gitx-rowanj
-cask install slate
+cask install mattr-slate
 cask install spotify
 cask install vlc
 cask install clipmenu
