@@ -92,11 +92,10 @@ S.bind(hyper('c'), launchOrFocus('Google Chrome'));
 S.bind(hyper('e'), launchOrFocus('Evernote'));
 S.bind(hyper('s'), launchOrFocus('Spotify'));
 S.bind(hyper('t'), launchOrFocus('Twitter'));
-S.bind(hyper('g'), launchOrFocus('Burtcorp Mail'));
+S.bind(hyper('g'), launchOrFocus('Kiwi for Gmail'));
 S.bind(hyper('w'), launchOrFocus('Wunderlist'));
 S.bind(hyper('z'), launchOrFocus('Slack'));
 
-S.bind(hyper('p'), S.op('focus', { 'app' : 'Propane' }));
 S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
 S.bind(hyper('m'), S.op('focus', { 'app' : 'MacVim' }));
 
