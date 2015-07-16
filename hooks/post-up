@@ -1,36 +1,78 @@
-#!/bin/sh
+#!/bin/bash
+
+# Redirect output to stderr
+exec 1>&2
+
+function log_done {
+  echo -e "[ \033[0;34mpost-up\033[0m:\033[0;32m$1\033[0m ] up-to-date"
+}
+
+function log_do {
+  echo -e "[ \033[0;34mpost-up\033[0m:$1 ] $2"
+}
+
+log_do "init" "starting"
+
+if ! command -v brew > /dev/null 2>&1; then
+  log_do "homebrew" "installing"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  log_done "homebrew"
+fi
 
 if command -v brew > /dev/null 2>&1; then
+  log_do "homebrew" "installing packages from Brewfile and Caskfile"
   chug="$HOME/.dotfiles/homebrew/chug"
-  sh "$chug" $HOME/.dotfiles/homebrew/Brewfile
-  # sh "$chug" $HOME/.dotfiles/Caskfile
+  bash "$chug" $HOME/.dotfiles/homebrew/Brewfile
+  bash "$chug" $HOME/.dotfiles/Caskfile
 fi
 
 if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
+  log_do "vim" "installing Vundle and plugins"
   git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
   vim -u $HOME/.vimrc.bundles +PluginInstall +qa
+else
+  log_done "vim"
 fi
 
 if [ ! -e "$HOME/.zprezto" ]; then
+  log_do "zprezto" "installing"
   git clone --recursive https://github.com/mthssdrbrg/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+else
+  log_done "zprezto"
 fi
 
-if [ ! -e "$HOME/Library/Application\ Support/Karabiner/private.xml" ]; then
+if [ ! -e $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
+  log_do "karabiner" "linking configuration"
   ln -nfs $HOME/.dotfiles/karabiner/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
+else
+  log_done "karabiner"
 fi
 
 if [ ! -e  "$HOME/bin/launch" ]; then
+  log_do "launch" "linking script"
   ln -nfs $HOME/.dotfiles/bin/launch $HOME/bin/launch
+else
+  log_done "launch"
 fi
 
 if ! pip list | grep csvkit > /dev/null 2>&1; then
+  log_do "csvkit" "installing using pip"
   pip install csvkit
+else
+  log_done "csvkit"
 fi
 
 if ! command -v xml2json > /dev/null 2>&1; then
+  log_do "xml2json" "installing using npm"
   sudo npm install -g xml2json-command
+else
+  log_done "xml2json"
 fi
 
 if ! command -v json2csv > /dev/null 2>&1; then
+  log_do "json2csv" "installing using go"
   go get github.com/jehiah/json2csv
+else
+  log_done "json2csv"
 fi
