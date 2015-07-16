@@ -28,6 +28,10 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'tpope/vim-dispatch'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'jlanzarotta/bufexplorer'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-classpath'
+Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
 
 call vundle#end()
 filetype plugin indent on
