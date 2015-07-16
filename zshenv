@@ -25,3 +25,5 @@ export GOPATH="$HOME/.go"
 
 export EDITOR="mvim -f"
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/Dev/burt/tools/bin:/usr/local/share/npm/bin:$GOPATH/bin:$PATH"
+
+export GIT_TEMPLATE_DIR="$HOME/.git_templates"
