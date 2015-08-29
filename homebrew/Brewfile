@@ -1,8 +1,8 @@
 update
 
 tap caskroom/cask
-tap homebrew/binary
 tap homebrew/dupes
+tap homebrew/services
 tap homebrew/versions
 tap thoughtbot/formulae
 
@@ -12,60 +12,45 @@ install rbenv-builder
 install rbenv-binstubs
 
 install ack
-install apple-gcc42
 install jq
 install ncdu
 install parallel
 install pv
 install openssl
 install openssh
-install git
+install git --with-brewed-curl --with-brewed-openssl
 install tig
 install curl
 install wget
 install lesspipe
 install htop-osx
-install geoip
-install gnupg
-install gnutls
+
+install consul
+install docker
+install peco
+install postgresql
 
 install zsh
 install zsh-completions
+install istat-menus
 
 install python
 install go
 install node
 install npm
+install ant
 
-install vim --override-system-vi
-install macvim
-install reattach-to-user-namespace --wrap-launchctl --wrap-pbcopy-and-pbpaste
+install macvim --with-python --with-override-system-vim
+install reattach-to-user-namespace --with-wrap-launchctl --with-wrap-pbcopy-and-pbpaste
 install tmux
 
 install awscli
-install elb-tools
-install ec2-api-tools
+install ccm
 
 install mongodb24
-pin mongodb24
-
-install cassandra
-pin cassandra
-
 install rabbitmq30
-pin rabbitmq30
-
 install redis
-pin redis
-
 install zookeeper
-pin zookeeper
-
 install kafka
-pin kafka
-
 install zeromq32 --universal
-pin zeromq32
-
 install elasticsearch
-pin elasticsearch

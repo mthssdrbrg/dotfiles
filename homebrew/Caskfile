@@ -1,25 +1,16 @@
 install caskroom/cask/brew-cask
 
-cask install google-chrome
-cask install evernote
-cask install iterm2
-cask install vagrant
-cask install virtualbox
 cask install alfred
-cask install dropbox
 cask install bartender
-cask install onepassword
-cask install skype
-cask install firefox
 cask install boom
-cask install transmit
+cask install dockertoolbox
+cask install dropbox
 cask install gitx-rowanj
+cask install iterm2
+cask install karabiner
 cask install mattr-slate
 cask install spotify
-cask install vlc
-cask install clipmenu
-cask install karabiner
 cask install seil
-cask install slack
-
-cask alfred link
+cask install transmit
+cask install vagrant
+cask install virtualbox
