@@ -50,31 +50,3 @@ if [ ! -e $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
 else
   log_done "karabiner"
 fi
-
-if [ ! -e  "$HOME/bin/launch" ]; then
-  log_do "launch" "linking script"
-  ln -nfs $HOME/.dotfiles/bin/launch $HOME/bin/launch
-else
-  log_done "launch"
-fi
-
-if ! pip list | grep csvkit > /dev/null 2>&1; then
-  log_do "csvkit" "installing using pip"
-  pip install csvkit
-else
-  log_done "csvkit"
-fi
-
-if ! command -v xml2json > /dev/null 2>&1; then
-  log_do "xml2json" "installing using npm"
-  sudo npm install -g xml2json-command
-else
-  log_done "xml2json"
-fi
-
-if ! command -v json2csv > /dev/null 2>&1; then
-  log_do "json2csv" "installing using go"
-  go get github.com/jehiah/json2csv
-else
-  log_done "json2csv"
-fi
