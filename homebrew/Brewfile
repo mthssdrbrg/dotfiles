@@ -61,6 +61,9 @@ pin redis
 install zookeeper
 pin zookeeper
 
+install kafka
+pin kafka
+
 install zeromq32 --universal
 pin zeromq32
 
