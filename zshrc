@@ -7,6 +7,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 source ~/bin/base16-tomorrow.dark.sh
 
 source ~/.zshalias
+source ~/.peco/peco.sh
 
 # Enable ^R emacs behaviour in vi-mode
 bindkey '\C-R' history-incremental-search-backward
