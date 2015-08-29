@@ -13,18 +13,20 @@ function log_do {
 
 log_do "init" "starting"
 
-if ! command -v brew > /dev/null 2>&1; then
-  log_do "homebrew" "installing"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-else
-  log_done "homebrew"
-fi
+if [ -z "$RCM_SKIP_BREW" ]; then
+  if ! command -v brew > /dev/null 2>&1; then
+    log_do "homebrew" "installing"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    log_done "homebrew"
+  fi
 
-if command -v brew > /dev/null 2>&1; then
-  log_do "homebrew" "installing packages from Brewfile and Caskfile"
-  chug="$HOME/.dotfiles/homebrew/chug"
-  bash "$chug" $HOME/.dotfiles/homebrew/Brewfile
-  bash "$chug" $HOME/.dotfiles/Caskfile
+  if command -v brew > /dev/null 2>&1; then
+    log_do "homebrew" "installing packages from Brewfile and Caskfile"
+    chug="$HOME/.dotfiles/homebrew/chug"
+    bash "$chug" $HOME/.dotfiles/homebrew/Brewfile
+    bash "$chug" $HOME/.dotfiles/Caskfile
+  fi
 fi
 
 if [ ! -e "$HOME/.vim/bundle/Vundle.vim" ]; then
