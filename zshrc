@@ -4,9 +4,11 @@ source ~/.zprezto/init.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Terminal colors
-source ~/.dotfiles/colors/base16-tomorrow.dark.sh
+source "$DOTFILES_HOME/colors/base16-tomorrow.dark.sh"
 source ~/.zshalias
 source ~/.peco/peco.sh
+source /usr/local/opt/rbenv/completions/rbenv.zsh
+source "$BOOL_HOME/boolrc.sh"
 
 # Enable ^R emacs behaviour in vi-mode
 bindkey '\C-R' history-incremental-search-backward
