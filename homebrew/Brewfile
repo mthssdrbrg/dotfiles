@@ -6,6 +6,11 @@ tap homebrew/dupes
 tap homebrew/versions
 tap thoughtbot/formulae
 
+install rbenv
+install ruby-build
+install rbenv-builder
+install rbenv-binstubs
+
 install ack
 install apple-gcc42
 install jq
