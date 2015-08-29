@@ -4,8 +4,7 @@ source ~/.zprezto/init.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Terminal colors
-source ~/bin/base16-tomorrow.dark.sh
-
+source ~/.dotfiles/colors/base16-tomorrow.dark.sh
 source ~/.zshalias
 source ~/.peco/peco.sh
 
