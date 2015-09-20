@@ -129,7 +129,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " Themein'
 set background=dark
 let base16colorspace=256
-colorscheme base16-tomorrow
+colorscheme base16-eighties
 
 " Highlight whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
