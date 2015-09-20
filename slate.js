@@ -22,7 +22,7 @@ var launchOrFocus = function (app) {
     var running = false;
     var focus = S.op('focus', {'app' : app});
     var launch = S.op('shell', {
-      'command' : '/Users/dist/bin/launch ' + app,
+      'command' : '/Users/dist/.dotfiles/bin/launch ' + app,
       'wait' : true
     });
     S.eachApp(function (a) {
