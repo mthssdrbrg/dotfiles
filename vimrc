@@ -102,16 +102,6 @@ nnoremap <space>go :Git checkout<Space>
 nnoremap <space>gps :Dispatch! git push<CR>
 nnoremap <space>gpl :Dispatch! git pull<CR>
 nnoremap <space>gbl :Gblame<CR>
-" nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
-" nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
-
-" RSpec mappings
-nnoremap <Leader>rt :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>rs :call RunNearestSpec()<CR>
-nnoremap <Leader>rl :call RunLastSpec()<CR>
-nnoremap <Leader>ra :call RunAllSpecs()<CR>
-
-let g:rspec_runner = "os_x_iterm"
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
