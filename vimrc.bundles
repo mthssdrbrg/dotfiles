@@ -24,6 +24,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-dispatch'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-scripts/paredit.vim'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on
