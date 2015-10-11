@@ -1,6 +1,5 @@
 alias n="find . -type f | wc -l"
 alias chmox="chmod +x"
-alias knife="nocorrect knife"
 alias kitchen="nocorrect bundle exec kitchen"
 alias howdoi="nocorrect howdoi"
 alias cpr="cp -r -vv"
