@@ -95,6 +95,7 @@ S.bind(hyper('t'), launchOrFocus('Twitter'));
 S.bind(hyper('g'), launchOrFocus('Kiwi for Gmail'));
 S.bind(hyper('w'), launchOrFocus('Wunderlist'));
 S.bind(hyper('z'), launchOrFocus('Slack'));
+S.bind(hyper('q'), launchOrFocus('Quiver'));
 
 S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
 S.bind(hyper('m'), S.op('focus', { 'app' : 'MacVim' }));
