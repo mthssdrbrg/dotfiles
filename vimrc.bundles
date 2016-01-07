@@ -25,6 +25,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'lervag/vimtex'
+Plugin 'derekwyatt/vim-scala'
 
 call vundle#end()
 filetype plugin indent on
