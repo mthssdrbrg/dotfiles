@@ -45,3 +45,5 @@ function fuck() {
 function gt() {
   cd $(git rev-parse --show-cdup);
 }
+
+eval "$(rbenv init -)"

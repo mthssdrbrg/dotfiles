@@ -47,6 +47,8 @@ set splitright
 " Encodings
 set fileencodings=utf-8,latin1
 set encoding=utf-8
+set regexpengine=1
+let g:ruby_path=system('echo $HOME/.rbenv/shims')
 
 augroup vimrcEx
   au!
