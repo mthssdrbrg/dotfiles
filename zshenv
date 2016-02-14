@@ -16,7 +16,7 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 export EDITOR="mvim -f"
-export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES_HOME/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES_HOME/bin:$PATH:$GOPATH/bin"
 export HISTFILE="$HOME/.zhistory"
 
 source "$DOTFILES_HOME/other/aws.sh"
