@@ -3,7 +3,7 @@ export BREW_PREFIX="/usr/local"
 export HIVE_HOME="$BREW_PREFIX/opt/hive/libexec"
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
 
-export PGDATA="/usr/local/var/postgres/data"
+export PGDATA="/usr/local/var/postgres"
 
 export _Z_CMD="j"
 
