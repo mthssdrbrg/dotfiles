@@ -89,20 +89,18 @@ S.bind('left:ctrl;alt;cmd',  S.op('push', { 'direction' : 'left'  }));
 
 S.bind(hyper('i'), launchOrFocus('iTerm'));
 S.bind(hyper('c'), launchOrFocus('Google Chrome'));
-S.bind(hyper('e'), launchOrFocus('Evernote'));
 S.bind(hyper('s'), launchOrFocus('Spotify'));
 S.bind(hyper('t'), launchOrFocus('Twitter'));
 S.bind(hyper('g'), launchOrFocus('Kiwi for Gmail'));
 S.bind(hyper('w'), launchOrFocus('Wunderlist'));
 S.bind(hyper('z'), launchOrFocus('Slack'));
 S.bind(hyper('q'), launchOrFocus('Quiver'));
-
 S.bind(hyper('x'), S.op('focus', { 'app' : 'GitX' }));
 S.bind(hyper('m'), S.op('focus', { 'app' : 'MacVim' }));
 
-S.bind(hyper('k'),    S.op('resize', { 'width' : '+0', 'height'  : '-5%' }));
-S.bind(hyper('j'),  S.op('resize', { 'width' : '+0', 'height'  : '+5%' }));
-S.bind(hyper('h'),  S.op('resize', { 'width' : '-5%', 'height' : '+0'  }));
+S.bind(hyper('k'), S.op('resize', { 'width' : '+0', 'height'  : '-5%' }));
+S.bind(hyper('j'), S.op('resize', { 'width' : '+0', 'height'  : '+5%' }));
+S.bind(hyper('h'), S.op('resize', { 'width' : '-5%', 'height' : '+0'  }));
 S.bind(hyper('l'), S.op('resize', { 'width' : '+5%', 'height' : '+0'  }));
 
 S.bind('l:cmd;shift', S.op('focus', { 'direction' : 'right' }));
