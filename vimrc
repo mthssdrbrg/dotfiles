@@ -70,6 +70,9 @@ let g:NERDTreeDirArrows=0
 " all of the goddamn time
 autocmd FileChangedShellPost * set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
+" Well, almost all of the goddamn time
+autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType make setlocal noexpandtab
 
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
