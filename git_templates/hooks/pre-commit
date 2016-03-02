@@ -8,10 +8,14 @@ LOCKFILE="Gemfile.lock"
 VERSIONFILE="lib/$REPO/version.rb"
 
 if [[ -f $LOCKFILE && -f $VERSIONFILE ]]; then
-  version=$(grep -oE "(\d+\.\d+\.\d+)" $VERSIONFILE)
-  match=$(grep -qE "$REPO \($version.*\)" $LOCKFILE)
-  if [ $? -ne 0 ]; then
-    echo -e "[ \033[0;31mpre-commit\033[0m ]: Version in $VERSIONFILE does not match version in $LOCKFILE, do the \`bundle\`"
-    exit 1
+  if ! grep "$REPO" "$LOCK_FILE" &> /dev/null; then
+    exit 0
+  else
+    version=$(grep -oE "(\d+\.\d+\.\d+)" $VERSIONFILE)
+    match=$(grep -qE "$REPO \($version.*\)" $LOCKFILE)
+    if [ $? -ne 0 ]; then
+      echo -e "[ \033[0;31mpre-commit\033[0m ]: Version in $VERSIONFILE does not match version in $LOCKFILE, do the \`bundle\`"
+      exit 1
+    fi
   fi
 fi
