@@ -27,6 +27,7 @@ Plugin 'vim-scripts/paredit.vim'
 Plugin 'lervag/vimtex'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'hashivim/vim-terraform'
+Plugin 'tbastos/vim-lua'
 
 call vundle#end()
 filetype plugin indent on
