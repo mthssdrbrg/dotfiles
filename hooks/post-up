@@ -51,9 +51,9 @@ else
   log_done "karabiner"
 fi
 
-if [ ! -e "$HOME/.dotfiles/other" ]; then
-  log_do "other" "linking"
-  ln -s "$HOME/Dropbox/dotfiles" "$HOME/.dotfiles/other"
+if [ ! -e "$HOME/.dotfiles/dropbox" ]; then
+  log_do "dropbox" "linking"
+  ln -s "$HOME/Dropbox/dotfiles" "$HOME/.dotfiles/dropbox"
 else
-  log_done "other"
+  log_done "dropbox"
 fi
