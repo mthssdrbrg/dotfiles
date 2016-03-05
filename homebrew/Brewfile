@@ -46,6 +46,7 @@ install tmux
 
 install awscli
 install ccm
+install distribution
 
 install mongodb24
 install rabbitmq30
