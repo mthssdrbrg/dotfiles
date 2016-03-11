@@ -45,3 +45,26 @@ hs.hotkey.bind({'cmd', 'alt'}, 'F', function()
   local win, f, max = windowSetup()
   win:setFrame(f)
 end)
+
+-- Resize and center window
+hs.hotkey.bind({'cmd', 'alt'}, 'C', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.w = (max.w * 0.85)
+  f.h = (max.h * 0.85)
+  f.x = (max.w / 2) - (f.w / 2)
+  f.y = (max.h / 2) - (f.h / 2)
+  win:setFrame(f)
+end)
+
+-- Maximize height and center window
+hs.hotkey.bind({'ctrl', 'alt'}, 'C', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.h = max.h
+  f.x = (max.w / 2) - (f.w / 2)
+  f.y = (max.h / 2) - (f.h / 2)
+  win:setFrame(f)
+end)
