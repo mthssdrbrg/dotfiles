@@ -3,8 +3,10 @@
 function ejectExternalDrivesWatcher(eventType)
   if (eventType == hs.caffeinate.watcher.systemWillSleep) then
     for path, volume in pairs(hs.fs.volume.allVolumes()) do
-      if volume.NSURLVolumeIsEjectableKey and not volume.NSURLVolumeIsInternalKey then
+      if volume.NSURLVolumeIsEjectableKey then
         hs.fs.volume.eject(path)
+      elseif not volume.NSURLVolumeIsInternalKey then
+        hs.execute('diskutil umount "' .. path .. '"')
       end
     end
   end
