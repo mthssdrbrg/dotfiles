@@ -39,6 +39,11 @@ hs.hotkey.bind({'cmd', 'alt'}, 'V', function()
   hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
 
+-- Show the Hammerspoon Console
+hs.hotkey.bind(hyper, 'H', function()
+  hs.toggleConsole()
+end)
+
 -- Set up app shortcuts
 hs.fnutils.each(appKeybindings, function(config)
   hs.hotkey.bind(hyper, config.key, function()
