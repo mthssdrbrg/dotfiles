@@ -12,3 +12,43 @@ function ejectExternalDrivesWatcher(eventType)
   end
 end
 hs.caffeinate.watcher.new(ejectExternalDrivesWatcher):start()
+
+-- Don't know any better way to declare or deal with this
+local previousPosition = nil
+-- Move or resize window depending on modifier keys pressed
+local moveOrResizeWindow = function(event)
+  local modifiers = event:getFlags()
+  if modifiers.shift and (modifiers.cmd or modifiers.alt) then
+    local win = hs.window.focusedWindow()
+    local app = win:application()
+    local eventType = event:getType()
+    if eventType == hs.eventtap.event.types.leftMouseDown then
+      previousPosition = hs.mouse.getRelativePosition()
+    elseif eventType == hs.eventtap.event.types.leftMouseDragged then
+      local currentPosition = hs.mouse.getRelativePosition()
+      local diff_x = currentPosition.x - previousPosition.x
+      local diff_y = currentPosition.y - previousPosition.y
+      local f = win:frame()
+      if modifiers.cmd then
+        f.x = f.x + diff_x
+        f.y = f.y + diff_y
+      elseif modifiers.alt then
+        f.w = f.w + diff_x
+        f.h = f.h + diff_y
+      end
+      previousPosition = currentPosition
+      win:setFrame(f)
+      return true, {event}
+    elseif eventType == hs.eventtap.event.types.leftMouseUp then
+      previousPosition = nil
+    end
+    return true
+  end
+end
+
+moveWindowTap = hs.eventtap.new({
+  hs.eventtap.event.types.leftMouseDown,
+  hs.eventtap.event.types.leftMouseDragged,
+  hs.eventtap.event.types.leftMouseUp,
+}, moveOrResizeWindow)
+moveWindowTap:start()
