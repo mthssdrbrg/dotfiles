@@ -1,6 +1,6 @@
 -- Get rid of pesky warnings from OS X when putting computer
 -- to sleep and then disconnecting external drives
-function ejectExternalDrivesWatcher(eventType)
+local ejectExternalDrives = function(eventType)
   if (eventType == hs.caffeinate.watcher.systemWillSleep) then
     for path, volume in pairs(hs.fs.volume.allVolumes()) do
       if volume.NSURLVolumeIsEjectableKey then
@@ -11,7 +11,7 @@ function ejectExternalDrivesWatcher(eventType)
     end
   end
 end
-hs.caffeinate.watcher.new(ejectExternalDrivesWatcher):start()
+hs.caffeinate.watcher.new(ejectExternalDrives):start()
 
 -- Don't know any better way to declare or deal with this
 local previousPosition = nil
