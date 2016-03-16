@@ -17,7 +17,6 @@ hyper = {'cmd', 'alt', 'ctrl', 'shift'}
 
 require 'watchers'
 require 'window'
-require 'util'
 
 -- Toggle VPN
 hs.hotkey.bind(hyper, 'v', function()
