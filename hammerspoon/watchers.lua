@@ -23,9 +23,9 @@ local moveOrResizeWindow = function(event)
     local app = win:application()
     local eventType = event:getType()
     if eventType == hs.eventtap.event.types.leftMouseDown then
-      previousPosition = hs.mouse.getRelativePosition()
+      previousPosition = hs.mouse.getAbsolutePosition()
     elseif eventType == hs.eventtap.event.types.leftMouseDragged then
-      local currentPosition = hs.mouse.getRelativePosition()
+      local currentPosition = hs.mouse.getAbsolutePosition()
       local diff_x = currentPosition.x - previousPosition.x
       local diff_y = currentPosition.y - previousPosition.y
       local f = win:frame()
