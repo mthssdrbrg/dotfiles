@@ -14,6 +14,9 @@ appKeybindings = {
   {key = 'M', app = 'MacVim', focus = true }
 }
 hyper = {'cmd', 'alt', 'ctrl', 'shift'}
+appUpDownMappings = {
+  {app = 'Slack', down = 'pagedown', up = 'pageup'}
+}
 
 require 'watchers'
 require 'window'
@@ -56,3 +59,16 @@ hs.fnutils.each(appKeybindings, function(config)
     end
   end)
 end)
+
+-- Use Ctrl+{j,k} to scroll up or down in applications
+local scrollUpOrDown = function(direction)
+  local app = hs.application.frontmostApplication()
+  local mapping = appUpDownMappings[app:name()]
+  if mapping then
+    direction = mapping[direction]
+  end
+  hs.eventtap.event.newKeyEvent({}, direction, true):post()
+end
+
+hs.hotkey.bind({'ctrl'}, 'j', function() scrollUpOrDown('down') end)
+hs.hotkey.bind({'ctrl'}, 'k', function() scrollUpOrDown('up') end)
