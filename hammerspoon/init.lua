@@ -42,7 +42,7 @@ hs.hotkey.bind({'cmd', 'alt'}, 'V', function()
 end)
 
 -- Show the Hammerspoon Console
-hs.hotkey.bind(hyper, 'H', function()
+hs.hotkey.bind({'cmd', 'shift'}, 'H', function()
   hs.toggleConsole()
 end)
 
