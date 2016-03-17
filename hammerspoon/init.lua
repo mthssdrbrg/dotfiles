@@ -63,7 +63,7 @@ end)
 -- Use Ctrl+{j,k} to scroll up or down in applications
 local scrollUpOrDown = function(direction)
   local app = hs.application.frontmostApplication()
-  local mapping = appUpDownMappings[app:name()]
+  local mapping = hs.fnutils.find(appUpDownMappings, function(c) return app:name() == c.app end)
   if mapping then
     direction = mapping[direction]
   end
