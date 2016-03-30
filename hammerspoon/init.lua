@@ -18,6 +18,7 @@ appUpDownMappings = {
   {app = 'Slack', down = 'pagedown', up = 'pageup'}
 }
 
+require 'ext'
 require 'watchers'
 require 'window'
 
@@ -62,13 +63,14 @@ end)
 
 -- Use Ctrl+{j,k} to scroll up or down in applications
 local scrollUpOrDown = function(direction)
-  local app = hs.application.frontmostApplication()
-  local mapping = hs.fnutils.find(appUpDownMappings, function(c) return app:name() == c.app end)
-  if mapping then
-    direction = mapping[direction]
+  return function()
+    local app = hs.application.frontmostApplication()
+    local mapping = hs.fnutils.find(appUpDownMappings, function(c) return app:name() == c.app end)
+    local actualDirection = direction
+    if mapping then actualDirection = mapping[direction] end
+    hs.eventtap.event.newKeyEvent({}, actualDirection, true):post()
   end
-  hs.eventtap.event.newKeyEvent({}, direction, true):post()
 end
 
-hs.hotkey.bind({'ctrl'}, 'j', function() scrollUpOrDown('down') end)
-hs.hotkey.bind({'ctrl'}, 'k', function() scrollUpOrDown('up') end)
+hs.hotkey.bindRepeated({'ctrl'}, 'j', scrollUpOrDown('down'))
+hs.hotkey.bindRepeated({'ctrl'}, 'k', scrollUpOrDown('up'))

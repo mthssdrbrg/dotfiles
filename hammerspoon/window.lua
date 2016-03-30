@@ -68,3 +68,65 @@ hs.hotkey.bind({'ctrl', 'alt'}, 'C', function()
   f.y = (max.h / 2) - (f.h / 2)
   win:setFrame(f)
 end)
+
+hs.hotkey.bindRepeated(hyper, 'h', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local w = f.w * 0.95
+  f.w = w
+  f.x = f.x - (f.w - w)
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated(hyper, 'j', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  f.h = f.h * 1.05
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated(hyper, 'k', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  f.h = f.h * 0.95
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated(hyper, 'l', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  f.w = f.w * 1.05
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated({'cmd', 'alt'}, 'h', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.x = f.x - (0.02 * max.w)
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated({'cmd', 'alt'}, 'j', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.y = f.y + (0.02 * max.h)
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated({'cmd', 'alt'}, 'k', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.y = f.y - (0.02 * max.h)
+  win:setFrame(f)
+end)
+
+hs.hotkey.bindRepeated({'cmd', 'alt'}, 'l', function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  f.x = f.x + (0.02 * max.w)
+  win:setFrame(f)
+end)
