@@ -1,3 +1,10 @@
+if [[ "$PROFILE_STARTUP" == true ]]; then
+  startlog=/tmp/startlog.$$
+  PS4='%D{%s.%6.} %N:%i> '
+  exec 3>&2 2> >(tee "$startlog")
+  setopt xtrace prompt_subst
+fi
+
 # Load Prezto
 source ~/.zprezto/init.zsh
 
@@ -47,3 +54,8 @@ function gt() {
 }
 
 eval "$(rbenv init -)"
+if [[ "$PROFILE_STARTUP" == true ]]; then
+  unsetopt xtrace
+  exec 2>&3 3>&-
+  echo "Wrote profiling info to $startlog" >&2
+fi
