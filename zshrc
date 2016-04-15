@@ -11,7 +11,6 @@ source ~/.zprezto/init.zsh
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Terminal colors
-source "$DOTFILES_HOME/colors/base16-tomorrow.dark.sh"
 source "$DOTFILES_HOME/dropbox/burt.sh"
 source ~/.zshalias
 source ~/.peco/peco.sh
@@ -53,7 +52,6 @@ function gt() {
   cd $(git rev-parse --show-cdup);
 }
 
-eval "$(rbenv init -)"
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
   exec 2>&3 3>&-

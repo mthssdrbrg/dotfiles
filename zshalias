@@ -14,7 +14,6 @@ alias gx="gitx"
 alias m="nocorrect mvim"
 alias b="bundle"
 alias v="nocorrect vim"
-alias brewssl="$(brew --prefix openssl)/bin/openssl"
 alias t="tig"
 alias ta="tig --all"
 alias bru='brew update && brew upgrade --all'
