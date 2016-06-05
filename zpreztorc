@@ -16,12 +16,10 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'archive' \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \
   'history' \
-  'osx' \
   'ruby' \
   'fasd' \
   'terminal' \
