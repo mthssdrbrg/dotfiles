@@ -28,6 +28,7 @@ Plugin 'lervag/vimtex'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'hashivim/vim-terraform'
 Plugin 'tbastos/vim-lua'
+Plugin 'mhinz/vim-signify'
 
 call vundle#end()
 filetype plugin indent on
