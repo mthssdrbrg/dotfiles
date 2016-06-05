@@ -23,9 +23,9 @@ if [ -z "$RCM_SKIP_BREW" ]; then
 
   if command -v brew > /dev/null 2>&1; then
     log_do "homebrew" "installing packages from Brewfile and Caskfile"
-    chug="$HOME/.dotfiles/homebrew/chug"
-    bash "$chug" $HOME/.dotfiles/homebrew/Brewfile
-    bash "$chug" $HOME/.dotfiles/Caskfile
+    brew update
+    brew tap "homebrew/bundle"
+    brew bundle check --file="$HOME/.dotfiles/homebrew/Brewfile"
   fi
 fi
 
