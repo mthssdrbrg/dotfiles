@@ -10,8 +10,7 @@ source ~/.zprezto/init.zsh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-# Terminal colors
-source "$DOTFILES_HOME/dropbox/burt.sh"
+source "$HOME/Dropbox/dotfiles/burt.sh"
 source ~/.zshalias
 source ~/.peco/peco.sh
 source /usr/local/opt/rbenv/completions/rbenv.zsh

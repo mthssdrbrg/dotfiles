@@ -14,14 +14,14 @@ function log_do {
 log_do "init" "starting"
 
 if [ -z "$RCM_SKIP_BREW" ]; then
-  if ! command -v brew > /dev/null 2>&1; then
+  if ! command -v brew &> /dev/null; then
     log_do "homebrew" "installing"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   else
     log_done "homebrew"
   fi
 
-  if command -v brew > /dev/null 2>&1; then
+  if command -v brew &> /dev/null; then
     log_do "homebrew" "installing packages from Brewfile and Caskfile"
     brew update
     brew tap "homebrew/bundle"
@@ -51,9 +51,12 @@ else
   log_done "karabiner"
 fi
 
-if [ ! -e "$HOME/.dotfiles/dropbox" ]; then
-  log_do "dropbox" "linking"
-  ln -s "$HOME/Dropbox/dotfiles" "$HOME/.dotfiles/dropbox"
-else
-  log_done "dropbox"
+if [ -e "$HOME/Dropbox/dotfiles/bin" ]; then
+  for path in $HOME/Dropbox/dotfiles/bin/*; do
+    dot_bin_path="$HOME/.bin/$(basename "$path")"
+    if [ ! -e "$dot_bin_path" ]; then
+      log_do "dropbox-bin" "$path -> $dot_bin_path"
+      ln -s "$path" "$dot_bin_path"
+    fi
+  done
 fi
