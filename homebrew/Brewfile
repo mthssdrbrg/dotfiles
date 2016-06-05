@@ -83,6 +83,7 @@ brew 'libmpdclient'
 brew 'libvo-aacenc'
 brew 'macvim', args: ['with-override-system-vim']
 brew 'mariadb'
+brew 'mas'
 brew 'maven'
 brew 'ncdu'
 brew 'taglib'
@@ -150,3 +151,17 @@ cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'vlc'
+mas 'Xcode', id: 497799835
+mas 'Keynote', id: 409183694
+mas 'Twitter', id: 409789998
+mas 'Skitch', id: 425955336
+mas '1Password', id: 443987910
+mas 'CopyClip 2', id: 1020812363
+mas 'Quiver', id: 866773894
+mas 'Wunderlist', id: 410628904
+mas 'Slack', id: 803453959
+mas 'Pocket', id: 568494494
+mas 'Pages', id: 409201541
+mas 'Marked', id: 448925439
+mas 'Messages for WhatsApp', id: 1050148555
+mas 'Numbers', id: 409203825
