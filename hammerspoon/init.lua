@@ -15,7 +15,8 @@ appKeybindings = {
 }
 hyper = {'cmd', 'alt', 'ctrl', 'shift'}
 appUpDownMappings = {
-  {app = 'Slack', down = 'pagedown', up = 'pageup'}
+  {app = 'Slack', down = 'pagedown', up = 'pageup'},
+  {app = 'Kiwi for Gmail', down = 'pagedown', up = 'pageup'}
 }
 
 require 'ext'
