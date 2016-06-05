@@ -112,8 +112,6 @@ au BufRead,BufNewFile *.json set filetype=javascript
 au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
-" Automatically wrap at 80 characters for Markdown
-au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Themein'
 set background=dark
