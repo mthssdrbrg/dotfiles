@@ -51,6 +51,42 @@ function gt() {
   cd $(git rev-parse --show-cdup);
 }
 
+function cqlsh() {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    docker exec -it cassandra cqlsh
+  else
+    docker exec -it "cassandra$version" cqlsh
+  fi
+}
+
+function mongo() {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    docker exec -it mongo mongo
+  else
+    docker exec -it "mongo$version" mongo
+  fi
+}
+
+fuction redis-cli() {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    docker exec -it redis redis-cli
+  else
+    docker exec -it "redis$version" redis-cli
+  fi
+}
+
+function zkcli() {
+  local version="$1"
+  if [[ -z "$version" ]]; then
+    docker exec -it zookeeper /opt/zookeeper/bin/zkCli.sh
+  else
+    docker exec -it "zookeeper$version" /opt/zookeeper/bin/zkCli.sh
+  fi
+}
+
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
   exec 2>&3 3>&-
