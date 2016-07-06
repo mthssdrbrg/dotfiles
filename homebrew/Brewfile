@@ -104,7 +104,6 @@ brew 'rbenv'
 brew 'rbenv-binstubs'
 brew 'rbenv-bundler'
 brew 'reattach-to-user-namespace', args: ['with-wrap-launchctl', 'with-wrap-pbcopy-and-pbpaste']
-brew 'rebar'
 brew 's3cmd'
 brew 'shellcheck'
 brew 'terraform'
