@@ -18,3 +18,5 @@ export LANG="en_US.UTF-8"
 export EDITOR="mvim -f"
 export PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$HOME/.bin:$PATH:$GOPATH/bin"
 export HISTFILE="$HOME/.zhistory"
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
