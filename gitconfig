@@ -36,3 +36,7 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[alias]
+	please = push --force-with-lease
+	commend = commit --amend --no-edit
+	merc = merge --no-ff --no-edit
