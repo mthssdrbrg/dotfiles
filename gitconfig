@@ -40,3 +40,6 @@
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 	merc = merge --no-ff --no-edit
+
+[ghq]
+	root = /Users/dist/Dev/src

@@ -1,3 +1,6 @@
 #!/bin/bash
 
-mkdir -p $HOME/.go
+mkdir -p "$DEV_HOME"
+mkdir -p "$DEV_BIN"
+mkdir -p "$DEV_SRC"
+mkdir -p "$DEV_PKG"
