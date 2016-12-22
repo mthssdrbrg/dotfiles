@@ -2,3 +2,5 @@
 vendor
 --ignore-dir
 coverage
+--ignore-dir
+.bundle
