@@ -30,16 +30,24 @@
 
 [merge]
 	tool = vimdiff
+
 [rebase]
 	autosquash = true
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+
 [alias]
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 	merc = merge --no-ff --no-edit
+	rebi = rebase --interactive master
+	fix = commit --fixup
+	rebc = rebase --continue
+	wip = commit -m \"WIP\"
+	rebm = rebase master
 
 [ghq]
 	root = /Users/dist/Dev/src
