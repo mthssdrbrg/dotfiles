@@ -44,13 +44,6 @@ else
   log_done "zprezto"
 fi
 
-if [ ! -e $HOME/Library/Application\ Support/Karabiner/private.xml ]; then
-  log_do "karabiner" "linking"
-  ln -s $HOME/.dotfiles/karabiner/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
-else
-  log_done "karabiner"
-fi
-
 if [ -e "$HOME/Dropbox/dotfiles/bin" ]; then
   for path in $HOME/Dropbox/dotfiles/bin/*; do
     dot_bin_path="$HOME/.bin/$(basename "$path")"
