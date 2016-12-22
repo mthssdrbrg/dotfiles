@@ -3,7 +3,7 @@
   email = mathias.soederberg@gmail.com
 
 [core]
-  excludesfile = /Users/dist/.gitignore
+  excludesfile = ~/.gitignore
 
 [color]
   branch = auto
@@ -50,4 +50,4 @@
 	rebm = rebase master
 
 [ghq]
-	root = /Users/dist/Dev/src
+	root = ~/Dev/src
