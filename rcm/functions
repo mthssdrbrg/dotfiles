@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+declare -r dotfiles_dir="$(readlink -f $(dirname $(readlink -f $0))/../)"
+
+function _vim {
+  if command -v vim &> /dev/null; then
+    command vim "$@"
+  elif command -v nvim &> /dev/null; then
+    command nvim "$@"
+  fi
+}
+
+function determine-tag {
+  if uname -s | grep -q Linux; then
+    echo "lnx"
+  elif uname -s | grep -q Darwin; then
+    echo "mac"
+  fi
+}
+
+function tag-hook-run {
+  local tag hook
+  hook=$1
+  tag=$(determine-tag)
+  hook_file=$(readlink -f "$dotfiles_dir/tag-$tag/hooks/$hook")
+  [[ -f "$hook_file" ]] && "$hook_file"
+}

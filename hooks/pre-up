@@ -1,6 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-mkdir -p "$DEV_HOME"
-mkdir -p "$DEV_BIN"
-mkdir -p "$DEV_SRC"
-mkdir -p "$DEV_PKG"
+# redirect output to stderr
+exec 1>&2
+
+set -e
+
+declare -r rcm_functions="$(readlink -f $(dirname $(readlink -f $0))/../rcm/functions)"
+
+[[ -n "$RC_DEBUG" ]] && set -x
+[[ -f "$rcm_functions" ]] && . "$rcm_functions"
+
+mkdir -p "$DEV_HOME" "$DEV_BIN" "$DEV_SRC" "$DEV_PKG"
+
+tag-hook-run "pre-up"
