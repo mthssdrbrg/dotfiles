@@ -46,4 +46,4 @@
   wip = commit -m \"WIP\"
 
 [ghq]
-  root = ~/Dev/src
+	root = ~/dev/src
