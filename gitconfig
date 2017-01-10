@@ -24,31 +24,26 @@
   default = tracking
 
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 
 [rebase]
-	autosquash = true
-
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  autosquash = true
 
 [alias]
-	please = push --force-with-lease
-	commend = commit --amend --no-edit
-	merc = merge --no-ff --no-edit
-	rebim = rebase --interactive master
-	rebi = rebase --interactive
-	fix = commit --fixup
-	rebc = rebase --continue
-	wip = commit -m \"WIP\"
-	rebm = rebase master
+  please = push --force-with-lease
+  commend = commit --amend --no-edit
+  merc = merge --no-ff --no-edit
+  rbim = rebase --interactive master
+  rbi = rebase --interactive
+  rbm = rebase master
+  rbc = rebase --continue
+  fix = commit --fixup
+  wip = commit -m \"WIP\"
 
 [ghq]
-	root = ~/Dev/src
+  root = ~/Dev/src
