@@ -13,7 +13,8 @@ appKeybindings = {
   {key = 'X', app = 'GitX', focus = true },
   {key = 'M', app = 'MacVim', focus = true }
 }
-hyper = {'cmd', 'alt', 'ctrl', 'shift'}
+-- hyper = {'cmd', 'alt', 'ctrl', 'shift'}
+hyper = {'alt'}
 appUpDownMappings = {
   {app = 'Slack', down = 'pagedown', up = 'pageup'},
   {app = 'Kiwi for Gmail', down = 'pagedown', up = 'pageup'}
