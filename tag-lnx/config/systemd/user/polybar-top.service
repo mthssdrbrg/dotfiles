@@ -1,0 +1,10 @@
+[Unit]
+Description=Top bar
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/polybar top
+
+[Install]
+WantedBy=graphical.target

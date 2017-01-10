@@ -1,0 +1,133 @@
+[colors]
+; Background  #282a36   40 42 54  231° 15% 18%
+; Current Line  #44475a   68 71 90  232° 14% 31%
+; Selection   #44475a   68 71 90  232° 14% 31%
+; Foreground  #f8f8f2   248 248 242   60° 30% 96%
+; Comment   #6272a4   98 114 164  225° 27% 51%
+; Cyan  #8be9fd   139 233 253   191° 97% 77%
+; Green   #50fa7b   80 250 123  135° 94% 65%
+; Orange  #ffb86c   255 184 108   31° 100% 71%
+; Pink  #ff79c6   255 121 198   326° 100% 74%
+; Purple  #bd93f9   189 147 249   265° 89% 78%
+; Red   #ff5555   255 85 85   0° 100% 67%
+; Yellow  #f1fa8c   241 250 140   65° 92% 76%
+background   = #282a36
+current_line = #44475a
+selection    = #44475a
+foreground   = #f8f8f2
+comment      = #6272a4
+cyan         = #8be9fd
+green        = #50fa7b
+orange       = #ffb86c
+pink         = #ff79c6
+purple       = #bd93f9
+red          = #ff5555
+yellow       = #f1fa8c
+
+[bar/top]
+width = 100%
+height = 24
+override-redirect = false
+spacing = 0
+module-margin-left = 1
+underline-size = 2
+tray-position = right
+tray-maxsize = 16
+tray-padding = 2
+tray-background = ${colors.background}
+screenchange-reload = true
+monitor = LVDS1
+background = ${colors.background}
+foreground = ${colors.foreground}
+font-0 = Terminus:size=8;0
+font-1 = Font Awesome:size=8;0
+font-2 = Material Design Icons:size=9;0
+
+modules-left = i3 mpd
+modules-right = ovpn wireless battery volume date
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = ${colors.selection}
+label-mode-foreground = ${colors.red}
+label-focused = %name%
+label-focused-foreground = ${colors.purple}
+label-focused-background = ${colors.selection}
+label-focused-underline = ${colors.orange}
+label-focused-padding = 2
+label-unfocused = %name%
+label-unfocused-foreground = ${colors.background}
+label-unfocused-background = #021215
+label-unfocused-underline = #586e75
+label-unfocused-padding = 2
+label-urgent = %name%
+label-urgent-foreground = ${colors.background}
+label-urgent-background = #021215
+label-urgent-underline = ${colors.red}
+label-urgent-padding = 2
+
+[module/mpd]
+type = internal/mpd
+label-song = "%artist% - %title%"
+format-online = "%{F#50FA7B}%{F-}  <label-song>"
+format-offline = "%{F#ff5555}%{F-}"
+
+[module/wireless]
+type = internal/network
+interface = wls3
+interval = 3.0
+ping_interval = 10
+format-connected = <ramp-signal> <label-connected>
+label-connected = %essid% (%signal%)
+label-disconnected =  not connected
+label-disconnected-foreground = ${colors.red}
+ramp-signal-0 = 
+ramp-signal-0-foreground = ${colors.red}
+ramp-signal-1 = 
+ramp-signal-1-foreground = ${colors.orange}
+ramp-signal-2 = 
+ramp-signal-2-foreground = ${colors.green}
+
+[module/ovpn]
+type = custom/script
+exec = /home/dist/ovpn-status
+interval = 60
+
+[module/date]
+type = internal/date
+date =  %H:%M:%S
+
+[module/volume]
+type = internal/volume
+master-mixer = Master
+label-muted =  %percentage%
+label-volume =  %percentage%
+label-muted-foreground = ${colors.comment}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC
+poll-interval = 5
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.red}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.orange}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.green}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.green}
+format-charging =   <label-charging>
+format-charging-foreground = ${colors.yellow}
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage% (%time%)
+label-discharging = %percentage% (%time%)
+time-format = %H:%M
