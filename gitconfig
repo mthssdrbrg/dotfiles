@@ -43,7 +43,8 @@
 	please = push --force-with-lease
 	commend = commit --amend --no-edit
 	merc = merge --no-ff --no-edit
-	rebi = rebase --interactive master
+	rebim = rebase --interactive master
+	rebi = rebase --interactive
 	fix = commit --fixup
 	rebc = rebase --continue
 	wip = commit -m \"WIP\"
