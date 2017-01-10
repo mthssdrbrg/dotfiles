@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+[[ -n "$RC_DEBUG" ]] && set -x
+
+sudo -v || exit 1
+
+systemctl --user daemon-reload

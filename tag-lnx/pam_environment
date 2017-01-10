@@ -1,0 +1,14 @@
+XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
+XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
+DEV_HOME        DEFAULT=@{HOME}/dev
+DEV_BIN         DEFAULT=${DEV_HOME}/bin
+DEV_SRC         DEFAULT=${DEV_HOME}/src
+DEV_PKG         DEFAULT=${DEV_HOME}/pkg
+LANG            DEFAULT=en_US.UTF-8
+LC_CTYPE        DEFAULT=${LANG}
+LC_ALL          DEFAULT=${LANG}
+RCRC            DEFAULT=@{HOME}/.rcrc
+EDITOR          DEFAULT=nvim
+BROWSER         DEFAULT=google-chrome
+TERMINAL        DEFAULT=termite
