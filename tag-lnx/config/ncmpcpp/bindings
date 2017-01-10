@@ -19,3 +19,15 @@ def_key "h"
 
 def_key "d"
   delete_playlist_items
+
+def_key "4"
+  dummy
+
+def_key "5"
+  dummy
+
+def_key "6"
+  dummy
+
+def_key "8"
+  dummy

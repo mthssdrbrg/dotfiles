@@ -5,3 +5,5 @@
 sudo -v || exit 1
 
 systemctl --user daemon-reload
+systemctl --user enable ssh-agent.service
+systemctl --user enable mopidy.service

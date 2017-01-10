@@ -1,0 +1,4 @@
+!! TODO: this should probably be an Xorg config...
+remove Lock = Caps_Lock
+keysym Caps_Lock = Escape
+keycode 108 = Multi_key

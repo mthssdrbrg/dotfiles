@@ -1,0 +1,9 @@
+[Unit]
+Description=Disk management using udiskie
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie --automount --notify --no-file-manager
+
+[Install]
+WantedBy=default.target

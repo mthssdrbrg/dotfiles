@@ -32,6 +32,8 @@ Plugin 'mhinz/vim-signify'
 Plugin 'godlygeek/tabular'
 Plugin 'fatih/vim-go'
 Plugin 'idanarye/vim-merginal'
+Plugin 'dracula/vim'
+Plugin 'PotatoesMaster/i3-vim-syntax'
 
 call vundle#end()
 filetype plugin indent on

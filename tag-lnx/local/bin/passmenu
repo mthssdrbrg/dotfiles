@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+typeit=0
+if [[ $1 == "--type" ]]; then
+  typeit=1
+  shift
+fi
+
+rofi_args="-dmenu -p pass: -i -lines 15 -fixed-num-lines"
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+# shellcheck disable=SC2086
+password=$(printf "%s\n" "${password_files[@]}" |
+  rofi $rofi_args \
+  -kb-custom-1 "Control+s" \
+  -kb-custom-2 "Control+l" \
+  -kb-custom-3 "Control+u" \
+  -mesg "[^s]how, [^l]ogin, [^u]rl" "$@")
+val=$?
+
+[[ -n $password ]] || exit
+
+if (( val >= 10 )); then
+  entry="password: $(pass show "$password")"
+  if (( val == 10 )); then
+    # shellcheck disable=SC2086
+    val=$(printf %s "$entry" | rofi $rofi_args)
+    if printf %s "$val" | grep -E "^password:" &> /dev/null; then
+      pass show -c "$password" 2> /dev/null
+    elif printf %s "$val" | grep -E "^(login|url):" &> /dev/null; then
+      printf %s "$val" | cut -d' ' -f2- | xclip -rmlastnl -selection clipboard
+    fi
+  elif (( val == 11 )); then
+    printf %s "$entry" | grep -P -o "login: (\K.+)" |
+      xclip -rmlastnl -selection clipboard
+  elif (( val == 12 )); then
+    printf %s "$entry" | grep -P -o "url: (\K.+)" |
+      xclip -rmlastnl -selection clipboard
+  fi
+elif (( typeit == 0 )); then
+  pass show -c "$password" 2>/dev/null
+else
+  pass show "$password" | { read -r pass; printf %s "$pass"; } |
+    xdotool type --clearmodifiers --file -
+fi

@@ -1,0 +1,17 @@
+# vim:filetype=xdefaults
+rofi.kb-row-down:			Down,Control+j
+rofi.kb-row-up:				Up,Control+k
+rofi.kb-accept-entry: Return,KP_Enter
+rofi.kb-remove-to-eol: Alt+k
+
+! Rofi Dracula color theme
+rofi.color-enabled: true
+rofi.color-window: #272935, #BC92F8, #272935
+rofi.color-normal: #272935, #F7F7F1, #272935, #FE5454, #272935
+rofi.color-active: #272935, #F7F7F7, #272935, #FE5454, #272935
+rofi.color-urgent: #272935, #F7F7F7, #272935, #FE5454, #272935
+rofi.font: Meslo LG S DZ 8
+rofi.dpi: 96
+
+rofi.modi: combi
+rofi.combi-modi: window,drun

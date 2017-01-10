@@ -1,0 +1,11 @@
+[Unit]
+Description=Lightweight and customizable notification daemon
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/dunst
+
+[Install]
+WantedBy=default.target
