@@ -6,9 +6,6 @@
 # set modifier
 set $mod Mod4
 
-# set terminal
-set $terminal termite
-
 # all the borders
 for_window [class="^.*"] border pixel 2
 
@@ -30,7 +27,7 @@ floating_modifier $mod
 default_orientation vertical
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,7 +39,7 @@ bindsym $mod+space exec --no-startup-id rofi -show combi
 bindsym $mod+u [urgent=latest] focus
 
 # htop (activity manager)
-bindsym $mod+Shift+a exec --no-startup-id $terminal -t htop -e htop
+bindsym $mod+Shift+a exec --no-startup-id i3-sensible-terminal -t htop -e htop
 
 # move to last used workspace
 bindsym $mod+Escape workspace back_and_forth
@@ -156,7 +153,7 @@ mode "applications" {
   bindsym c exec --no-startup-id chromium; mode "default"
   bindsym s exec --no-startup-id spotify; mode "default"
   bindsym z exec --no-startup-id franz; mode "default"
-  bindsym n exec --no-startup-id $terminal -t ncmpcpp -e ncmpcpp; mode "default"
+  bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
 
   bindsym Escape mode "default"
 }
