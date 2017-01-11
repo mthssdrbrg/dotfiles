@@ -206,4 +206,5 @@ exec --no-startup-id systemctl --user start dropbox
 exec --no-startup-id systemctl --user start udiskie
 exec --no-startup-id systemctl --user start redshift
 exec --no-startup-id systemctl --user start autolock
-exec --no-startup-id systemctl --user start polybar-top
+exec --no-startup-id systemctl --user start compton
+exec_always --no-startup-id systemctl --user restart polybar-top

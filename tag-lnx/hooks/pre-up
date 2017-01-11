@@ -104,6 +104,7 @@ pkg 'ttf-hack'
 pkg 'ttf-inconsolata'
 pkg 'feh'
 pkg 'archlinux-wallpaper'
+pkg 'compton'
 
 # aur packages
 aur 'dunst-git'

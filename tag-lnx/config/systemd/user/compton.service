@@ -1,0 +1,11 @@
+[Unit]
+Description=Composite effects using Compton
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/compton --config %h/.config/compton/config
+
+[Install]
+WantedBy=default.target
