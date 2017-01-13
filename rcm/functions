@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-declare -r dotfiles_dir="$(readlink -f $(dirname $(readlink -f $0))/../)"
+# shellcheck disable=SC2155
+declare -r dotfiles_dir="$(readlink -f "$(dirname "$(readlink -f "$0")")"/../)"
 
 function _vim {
   if command -v vim &> /dev/null; then
@@ -23,5 +24,9 @@ function tag-hook-run {
   hook=$1
   tag=$(determine-tag)
   hook_file=$(readlink -f "$dotfiles_dir/tag-$tag/hooks/$hook")
-  [[ -f "$hook_file" ]] && "$hook_file"
+  if [[ -f "$hook_file" ]]; then
+    pushd "$(dirname "$hook_file")" > /dev/null
+    "./$(basename "$hook_file")"
+    popd > /dev/null
+  fi
 }
