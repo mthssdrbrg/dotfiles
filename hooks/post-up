@@ -5,7 +5,7 @@ exec 1>&2
 
 set -e
 
-declare -r rcm_functions="$(readlink -f $(dirname $(readlink -f $0))/../rcm/functions)"
+declare -r rcm_functions="$(realpath $(dirname $(realpath $0))/../rcm/functions)"
 
 [[ -n "$RC_DEBUG" ]] && set -x
 [[ -f "$rcm_functions" ]] && . "$rcm_functions"
