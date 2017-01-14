@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if (( $# > 1 )); then
+  echo "too many arguments: $*" >&2
+  exit 1
+elif (( $# == 1 )); then
+  exec -- "$TERMINAL" --title c --directory "$(ghq root)/$1" --exec "$SHELL -i"
+else
+  ghq list
+fi
