@@ -1,2 +1,2 @@
 TAGS="mac"
-EXCLUDES="README.md homebrew colors"
+EXCLUDES="README.md Makefile rcm homebrew colors"
