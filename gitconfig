@@ -1,6 +1,6 @@
 [user]
   name = Mathias Söderberg
-  email = mathias.soederberg@gmail.com
+  email = mths@sdrbrg.se
 
 [core]
   excludesfile = ~/.gitignore
