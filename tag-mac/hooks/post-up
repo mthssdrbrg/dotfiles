@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Redirect output to stderr
+exec 1>&2
+
+if [[ -z "$RC_SKIP_BREW" ]]; then
+  if ! command -v brew &> /dev/null; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if command -v brew &> /dev/null; then
+    brew update
+    brew tap "homebrew/bundle"
+    brew bundle check --file="$HOME/.dotfiles/homebrew/Brewfile"
+  fi
+fi

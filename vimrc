@@ -112,11 +112,6 @@ au BufRead,BufNewFile Guardfile set filetype=ruby
 au BufRead,BufNewFile Vagrantfile set filetype=ruby
 au BufRead,BufNewFile Makefile set noexpandtab
 
-" Themein'
-set background=dark
-let base16colorspace=256
-colorscheme base16-eighties
-
 " Highlight whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 au ColorScheme * highlight ExtraWhitespace guibg=red
@@ -141,3 +136,8 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Apparently needed for textobj-rubyblock
 runtime macros/matchit.vim
+
+" load (OS) specifics
+if filereadable(expand("~/.vimrc.specifics"))
+  source ~/.vimrc.specifics
+endif

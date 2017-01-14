@@ -10,10 +10,10 @@ source ~/.zprezto/init.zsh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-source "$HOME/Dropbox/dotfiles/burt.sh"
+[ -e "$HOME/Dropbox/dotfiles/burt.sh" ] && source "$HOME/Dropbox/dotfiles/burt.sh"
 source ~/.zshalias
-source ~/.peco/peco.sh
-source /usr/local/opt/rbenv/completions/rbenv.zsh
+[ -e ~/.peco/peco.sh ] && source ~/.peco/peco.sh
+[ -e /usr/local/opt/rbenv/completions/rbenv.zsh ] && source /usr/local/opt/rbenv/completions/rbenv.zsh
 
 # Enable ^R emacs behaviour in vi-mode
 bindkey '\C-R' history-incremental-search-backward
