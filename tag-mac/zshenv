@@ -7,7 +7,7 @@ export PGDATA="$BREW_PREFIX/var/postgres"
 
 export _Z_CMD="j"
 
-export DEV_HOME="$HOME/Dev"
+export DEV_HOME="$HOME/dev"
 export DEV_BIN="$DEV_HOME/bin"
 export DEV_SRC="$DEV_HOME/src"
 export DEV_PKG="$DEV_HOME/pkg"
