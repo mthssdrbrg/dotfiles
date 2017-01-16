@@ -29,7 +29,7 @@ width = 100%
 height = 24
 override-redirect = false
 spacing = 0
-module-margin-left = 1
+module-margin-left = 3
 underline-size = 2
 tray-position = right
 tray-maxsize = 16
@@ -44,7 +44,7 @@ font-1 = Font Awesome:size=8;0
 font-2 = Material Design Icons:size=9;0
 
 modules-left = i3 mpd
-modules-right = ovpn wireless battery volume date
+modules-right = wireless battery volume date
 
 [module/i3]
 type = internal/i3
@@ -82,7 +82,7 @@ interface = wls3
 interval = 3.0
 ping_interval = 10
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid% (%signal%)
+label-connected = %essid% (%signal%%)
 label-disconnected =  not connected
 label-disconnected-foreground = ${colors.red}
 ramp-signal-0 = 
@@ -92,11 +92,6 @@ ramp-signal-1-foreground = ${colors.orange}
 ramp-signal-2 = 
 ramp-signal-2-foreground = ${colors.green}
 
-[module/ovpn]
-type = custom/script
-exec = /home/dist/ovpn-status
-interval = 60
-
 [module/date]
 type = internal/date
 date =  %H:%M:%S
@@ -104,8 +99,8 @@ date =  %H:%M:%S
 [module/volume]
 type = internal/volume
 master-mixer = Master
-label-muted =  %percentage%
-label-volume =  %percentage%
+label-muted =  %percentage%%
+label-volume =  %percentage%%
 label-muted-foreground = ${colors.comment}
 
 [module/battery]
@@ -124,10 +119,10 @@ ramp-capacity-3 = 
 ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4 = 
 ramp-capacity-4-foreground = ${colors.green}
-format-charging =   <label-charging>
+format-charging =  <label-charging>
 format-charging-foreground = ${colors.yellow}
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
-label-charging = %percentage% (%time%)
-label-discharging = %percentage% (%time%)
+label-charging = %percentage%% (%time%)
+label-discharging = %percentage%% (%time%)
 time-format = %H:%M
