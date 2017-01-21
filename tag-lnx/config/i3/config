@@ -67,7 +67,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -93,6 +93,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="^htop$"] floating enable
 for_window [title="Tree Style Tab Configuration"] floating enable
+for_window [class="Gitg"] floating enable
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -105,14 +106,29 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+Shift+l workspace next_on_output
 bindsym $mod+Shift+h workspace prev_on_output
-# bindsym $mod+Shift+l workspace next
-# bindsym $mod+Shift+h workspace prev
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# switch workspace
+mode "workspace" {
+  bindsym a workspace $ws1; mode "default"
+  bindsym s workspace $ws2; mode "default"
+  bindsym d workspace $ws3; mode "default"
+  bindsym f workspace $ws4; mode "default"
+  bindsym j workspace $ws5; mode "default"
+  bindsym k workspace $ws6; mode "default"
+  bindsym l workspace $ws7; mode "default"
+  bindsym semicolon workspace $ws8; mode "default"
+
+  bindsym Escape mode "default"
+}
+bindsym $mod+w mode "workspace"
 
 # resize (window) mode
 mode "resize" {
@@ -145,7 +161,7 @@ mode "move" {
   bindsym 8 move container to workspace $ws8; mode "default"
 
   # move focused container ...
-  bindsym h move left ; mode "default"
+  bindsym h move left; mode "default"
   bindsym j move down; mode "default"
   bindsym k move up; mode "default"
   bindsym l move right; mode "default"
