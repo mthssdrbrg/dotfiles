@@ -44,6 +44,8 @@
   rbc = rebase --continue
   fix = commit --fixup
   wip = commit -m \"WIP\"
+  rpo = remote prune origin
+  rpod = remote prune origin --dry-run
 
 [ghq]
 	root = ~/dev/src
