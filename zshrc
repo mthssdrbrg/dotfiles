@@ -91,6 +91,10 @@ function c() {
   cd "$DEV_SRC/$(ghq list --full-path | sed -e "s,$DEV_SRC/,,g" | peco --select-1)"
 }
 
+function gx() {
+  gitg &!
+}
+
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
   exec 2>&3 3>&-
