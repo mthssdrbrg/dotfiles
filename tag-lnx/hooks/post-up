@@ -23,3 +23,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable lightdm.service
 sudo systemctl enable openvpn-sleep.service
 sudo systemctl enable "suspend@$USER.service"
+
+if ! groups | grep -q 'docker' &> /dev/null; then
+  sudo gpasswd -a $(whoami) docker
+  newgrp docker
+fi
