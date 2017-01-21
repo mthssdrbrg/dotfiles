@@ -44,7 +44,12 @@ font-1 = Font Awesome:size=8;0
 font-2 = Material Design Icons:size=9;0
 
 modules-left = i3 mpd
-modules-right = wireless battery volume date
+modules-right = xkb wireless battery volume date
+
+[module/xkb]
+type = internal/xkeyboard
+format = <label-layout>
+format-foreground = ${colors.cyan}
 
 [module/i3]
 type = internal/i3
