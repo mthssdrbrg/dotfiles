@@ -8,12 +8,12 @@ fi
 # Load Prezto
 source ~/.zprezto/init.zsh
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
+[ -e /usr/local/share/zsh-completions ] && fpath=(/usr/local/share/zsh-completions $fpath)
 [ -e "$HOME/Dropbox/dotfiles/burt.sh" ] && source "$HOME/Dropbox/dotfiles/burt.sh"
 source ~/.zshalias
 [ -e ~/.peco/peco.sh ] && source ~/.peco/peco.sh
 [ -e /usr/local/opt/rbenv/completions/rbenv.zsh ] && source /usr/local/opt/rbenv/completions/rbenv.zsh
+[ -e /usr/lib/rbenv/completions/rbenv.zsh ] && source /usr/lib/rbenv/completions/rbenv.zsh
 
 # Enable ^R emacs behaviour in vi-mode
 bindkey '\C-R' history-incremental-search-backward
