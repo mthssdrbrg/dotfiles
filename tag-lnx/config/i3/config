@@ -165,6 +165,8 @@ mode "move" {
   bindsym j move down; mode "default"
   bindsym k move up; mode "default"
   bindsym l move right; mode "default"
+
+  bindsym Escape mode "default"
 }
 bindsym $mod+m mode "move"
 
