@@ -94,6 +94,7 @@ for_window [title="Event Tester"] floating enable
 for_window [title="^htop$"] floating enable
 for_window [title="Tree Style Tab Configuration"] floating enable
 for_window [class="Gitg"] floating enable
+for_window [class="Enpass"] floating enable
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -175,8 +176,9 @@ mode "applications" {
   bindsym f exec --no-startup-id firefox; mode "default"
   bindsym c exec --no-startup-id chromium; mode "default"
   bindsym s exec --no-startup-id spotify; mode "default"
-  bindsym z exec --no-startup-id franz; mode "default"
+  bindsym z exec --no-startup-id franz-bin; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
+  bindsym e exec --no-startup-id enpass; mode "default"
 
   bindsym Escape mode "default"
 }
