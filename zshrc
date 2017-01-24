@@ -88,7 +88,10 @@ function zkcli() {
 }
 
 function c() {
-  cd "$DEV_SRC/$(ghq list --full-path | sed -e "s,$DEV_SRC/,,g" | peco --select-1)"
+  local repo="$(ghq list --full-path | sed -e "s,$DEV_SRC/,,g" | peco --select-1)"
+  if [[ -n "$repo" ]]; then
+    cd "$DEV_SRC/$repo"
+  fi
 }
 
 function gx() {
