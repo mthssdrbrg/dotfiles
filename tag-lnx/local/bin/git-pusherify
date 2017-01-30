@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+git config user.email "mathias@pusher.com"
+git config commit.gpgsign true
+git config user.signingkey "2DC98CFAA0905E31"
