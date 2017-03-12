@@ -60,6 +60,14 @@ function c() {
   [[ -n "$repo" ]] && cd "$DEV_SRC/$repo"
 }
 
+function m() {
+  if (( $# == 0 )); then
+    nvim .
+  else
+    nvim "$@"
+  fi
+}
+
 function gx() {
   gitg &!
 }
