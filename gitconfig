@@ -49,5 +49,9 @@
 
 [ghq]
 	root = ~/dev/src
+
+[ghq "ssh://git@gitlab.com/"]
+  vcs = git
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
