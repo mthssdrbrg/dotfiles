@@ -5,13 +5,17 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
   setopt xtrace prompt_subst
 fi
 
-# Load Prezto
 source ~/.zprezto/init.zsh
-
-[ -e /usr/local/share/zsh-completions ] && fpath=(/usr/local/share/zsh-completions $fpath)
-[ -e "$HOME/Dropbox/dotfiles/burt.sh" ] && source "$HOME/Dropbox/dotfiles/burt.sh"
 source ~/.zshalias
+
+if [ -d ~/Dropbox/dotfiles ]; then
+  for f in ~/Dropbox/dotfiles/*.sh; do
+    source "$f"
+  done
+fi
+
 [ -e ~/.peco/peco.sh ] && source ~/.peco/peco.sh
+[ -e /usr/local/share/zsh-completions ] && fpath=(/usr/local/share/zsh-completions $fpath)
 [ -e /usr/local/opt/rbenv/completions/rbenv.zsh ] && source /usr/local/opt/rbenv/completions/rbenv.zsh
 [ -e /usr/lib/rbenv/completions/rbenv.zsh ] && source /usr/lib/rbenv/completions/rbenv.zsh
 
@@ -51,52 +55,16 @@ function gt() {
   cd $(git rev-parse --show-cdup);
 }
 
-function cqlsh() {
-  local version="$1"
-  if [[ -z "$version" ]]; then
-    docker exec -it cassandra cqlsh
-  else
-    docker exec -it "cassandra$version" cqlsh
-  fi
-}
-
-function mongo() {
-  local version="$1"
-  if [[ -z "$version" ]]; then
-    docker exec -it mongo mongo
-  else
-    docker exec -it "mongo$version" mongo
-  fi
-}
-
-fuction redis-cli() {
-  local version="$1"
-  if [[ -z "$version" ]]; then
-    docker exec -it redis redis-cli
-  else
-    docker exec -it "redis$version" redis-cli
-  fi
-}
-
-function zkcli() {
-  local version="$1"
-  if [[ -z "$version" ]]; then
-    docker exec -it zookeeper /opt/zookeeper/bin/zkCli.sh
-  else
-    docker exec -it "zookeeper$version" /opt/zookeeper/bin/zkCli.sh
-  fi
-}
-
 function c() {
   local repo="$(ghq list --full-path | sed -e "s,$DEV_SRC/,,g" | peco --select-1)"
-  if [[ -n "$repo" ]]; then
-    cd "$DEV_SRC/$repo"
-  fi
+  [[ -n "$repo" ]] && cd "$DEV_SRC/$repo"
 }
 
 function gx() {
   gitg &!
 }
+
+eval "$(direnv hook zsh)"
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace
