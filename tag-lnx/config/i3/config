@@ -35,6 +35,10 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+space exec --no-startup-id rofi -show combi
 
+# alt-tab switcher
+bindsym Mod1+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+
 # quickly move to (latest) urgent workspace
 bindsym $mod+u [urgent=latest] focus
 
@@ -88,13 +92,14 @@ assign [class="Firefox"] $ws1
 assign [class="Franz"] $ws4
 assign [class="^URxvt$" instance="^c$"] $ws3
 assign [title="^ncmpcpp$"] $ws2
+assign [class="Enpass"] $ws5
+for_window [class="feh"] floating enable
 for_window [class="Spotify"] move to workspace $ws2
 for_window [class="Lxappearance"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="^htop$"] floating enable
 for_window [title="Tree Style Tab Configuration"] floating enable
 for_window [class="Gitg"] floating enable
-for_window [class="Enpass"] floating enable
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -167,14 +172,16 @@ mode "move" {
   bindsym k move up; mode "default"
   bindsym l move right; mode "default"
 
+  bindsym d move workspace to output DP1; mode "default"
+  bindsym e move workspace to output eDP1; mode "default"
+
   bindsym Escape mode "default"
 }
 bindsym $mod+m mode "move"
 
 # applications mode
 mode "applications" {
-  bindsym f exec --no-startup-id firefox; mode "default"
-  bindsym c exec --no-startup-id chromium; mode "default"
+  bindsym c exec --no-startup-id $BROWSER; mode "default"
   bindsym s exec --no-startup-id spotify; mode "default"
   bindsym z exec --no-startup-id franz-bin; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
@@ -192,6 +199,8 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2.5
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2.5
 
 # Power control mode
 set $power_control "[l]ock log[o]ut [s]uspend [h]ibernate [r]eboot [p]oweroff"
@@ -225,11 +234,9 @@ bindsym $mod+p mode $power_control
 # }
 
 # autostart applications
-exec --no-startup-id feh --recursive --randomize --bg-scale ~/Dropbox/Wallpapers
+exec --no-startup-id feh --bg-fill ~/Dropbox/Wallpapers/forkbomb.png
 exec --no-startup-id systemctl --user start dunst
-exec --no-startup-id systemctl --user start dropbox
 exec --no-startup-id systemctl --user start udiskie
 exec --no-startup-id systemctl --user start redshift
 exec --no-startup-id systemctl --user start autolock
 exec --no-startup-id systemctl --user start compton
-exec_always --no-startup-id systemctl --user restart polybar-top
