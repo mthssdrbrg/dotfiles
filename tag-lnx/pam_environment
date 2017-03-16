@@ -10,5 +10,5 @@ LC_CTYPE        DEFAULT=${LANG}
 LC_ALL          DEFAULT=${LANG}
 RCRC            DEFAULT=@{HOME}/.rcrc
 EDITOR          DEFAULT=nvim
-BROWSER         DEFAULT=google-chrome
+BROWSER         DEFAULT=google-chrome-stable
 TERMINAL        DEFAULT=termite
