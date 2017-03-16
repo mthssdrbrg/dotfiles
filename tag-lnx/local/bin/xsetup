@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+declare num_outputs
+
+outputs="$(xrandr -q | grep ' connected ' | cut -d' ' -f1)"
+num_outputs="$(xrandr -q | grep -c ' connected ')"
+
+function maybe-set-bg() {
+  [[ -x "$HOME/.fehbg" ]] && "$HOME/.fehbg"
+}
+
+if (( num_outputs == 1 )); then
+  xrandr --output DP1 --off --output eDP1 --primary --mode 1600x900
+  killall polybar || :
+  MONITOR=eDP1 polybar top &
+  maybe-set-bg
+elif (( num_outputs == 2 )); then
+  xrandr --output DP1 --primary --auto --output eDP1 --mode 1600x900 --left-of DP1
+  killall polybar || :
+  MONITOR=DP1 polybar top &
+  MONITOR=eDP1 polybar top &
+  maybe-set-bg
+else
+  echo "Err: don't know what to do with > 2 monitors" >&2
+  exit 1
+fi
