@@ -3,7 +3,7 @@ Description=Disk management using udiskie
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/udiskie --automount --notify --no-file-manager
+ExecStart=/usr/bin/udiskie --automount --notify --smart-tray
 
 [Install]
 WantedBy=default.target
