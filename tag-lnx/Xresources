@@ -1,19 +1,21 @@
-URxvt.font: xft:Meslo LG S DZ:regular:size=8
-URxvt.boldfont: xft:Meslo LG S DZ:bold:size=8
+URxvt.font: xft:Meslo LG S DZ:size=9,style=Regular
+URxvt.boldfont: xft:Meslo LG S DZ:size=9,style=Bold
 URxvt.letterSpace: -1
-! URxvt.cursorBlink: 1
 URxvt.cursorBlock: 1
 URxvt.termName: rxvt-256color
 
 ! Xft settings
-!Xft.lcdfilter: lcddefault
+! Xft.dpi: 192
+! Xft.dpi: 240
 ! Xft.dpi: 96
-! Xft.antialias: true
-! Xft.rgba: rgb
-! Xft.rgba: subpixel
-! Xft.hinting: true
+Xft.rgba: rgb
+
+Xft.lcdfilter: lcddefault
+! Xft.lcdfilter: lcdlight
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintfull
 ! Xft.hintstyle: hintslight
-! Xft.hintstyle: hintfull
 
 ! Dracula Xresources palette
 URxvt.foreground: #F8F8F2
