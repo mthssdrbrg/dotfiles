@@ -72,34 +72,6 @@ function gx() {
   gitg &!
 }
 
-function install-ruby() {
-  local version="$1"
-  [[ -z "$version" ]] && echo "<VERSION> is required" >&2 && return 1
-  if rbenv versions --bare --skip-aliases | grep -q "$version"; then
-    echo "$version is already installed"
-    return 0
-  fi
-  case "$version" in
-    2.2.*)
-      curl -fsSL https://gist.github.com/mislav/055441129184a1512bb5.txt | \
-        rbenv install --patch "$version"
-      ;;
-    1.9.3*)
-      curl -fsSL https://gist.github.com/FiveYellowMice/c50490693d47577cfe7e6ac9fc3bf6cf.txt | \
-        rbenv install --patch "$version"
-      ;;
-    1.8*)
-      echo "Don't even bother..." >&2
-      return 1
-      ;;
-    *)
-      rbenv install "$version"
-      ;;
-  esac
-  RBENV_VERSION="$version" gem install bundler
-  RBENV_VERSION="$version" rbenv rehash
-}
-
 function kubediff() {
   local kubediff_dir="$DEV_SRC/github.com/weaveworks/kubediff"
   "$kubediff_dir/venv/bin/python" "$kubediff_dir/kubediff" "$@"
