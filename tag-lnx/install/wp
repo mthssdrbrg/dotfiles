@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ghq get git@github.com:hugogrochau/wp.git
+virtualenv2 ~/.venv/wp
+source ~/.venv/wp/bin/activate
+pip install -U Pillow
+deactivate

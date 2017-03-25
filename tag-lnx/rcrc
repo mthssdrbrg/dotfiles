@@ -1,2 +1,2 @@
 TAGS="lnx"
-EXCLUDES="README.md Makefile rcm colors hooks etc"
+EXCLUDES="README.md Makefile rcm colors hooks etc install"

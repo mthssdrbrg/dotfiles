@@ -100,6 +100,24 @@ function install-ruby() {
   RBENV_VERSION="$version" rbenv rehash
 }
 
+function kubediff() {
+  local kubediff_dir="$DEV_SRC/github.com/weaveworks/kubediff"
+  "$kubediff_dir/venv/bin/python" "$kubediff_dir/kubediff" "$@"
+}
+
+function wp() {
+  local wallpaper_dir="$XDG_DATA_HOME/wp"
+  local wp_dir="$DEV_SRC/github.com/hugogrochau/wp"
+  mkdir "$wallpaper_dir"
+  source ~/.venv/wp/bin/activate
+  pushd "$wp_dir" &> /dev/null
+  WALLPAPER_DIR="$wallpaper_dir" ./wp "$@"
+  result=$?
+  popd &> /dev/null
+  deactivate
+  return $result
+}
+
 eval "$(direnv hook zsh)"
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
