@@ -172,8 +172,8 @@ mode "move" {
   bindsym k move up; mode "default"
   bindsym l move right; mode "default"
 
-  bindsym d move workspace to output DP1; mode "default"
-  bindsym e move workspace to output eDP1; mode "default"
+  bindsym Shift+greater move workspace to output right; mode "default"
+  bindsym Shift+less move workspace to output left; mode "default"
 
   bindsym Escape mode "default"
 }
