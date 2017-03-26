@@ -29,19 +29,21 @@ width = 100%
 height = 24
 override-redirect = false
 spacing = 0
-module-margin-left = 3
+module-margin-left = 4
 underline-size = 2
 tray-position = right
-tray-maxsize = 16
+tray-maxsize = 20
 tray-padding = 2
 tray-background = ${colors.background}
+tray-scale = 1.0
 screenchange-reload = true
-monitor = LVDS1
+monitor = ${env:MONITOR:eDP1}
 background = ${colors.background}
 foreground = ${colors.foreground}
-font-0 = xos4 Terminus:size=8;0
-font-1 = Font Awesome:size=8;0
-font-2 = Material Design Icons:size=9;0
+
+font-0 = xos4 Terminus:size=8;2
+font-1 = Font Awesome:size=10;3
+font-2 = Material Design Icons:size=10;3
 
 modules-left = i3 mpd
 modules-right = xkb wireless battery volume date
@@ -83,7 +85,7 @@ format-offline = "%{F#ff5555}%{F-}"
 
 [module/wireless]
 type = internal/network
-interface = wls3
+interface = wlp58s0
 interval = 3.0
 ping_interval = 10
 format-connected = <ramp-signal> <label-connected>
@@ -100,6 +102,7 @@ ramp-signal-2-foreground = ${colors.green}
 [module/date]
 type = internal/date
 date =  %H:%M:%S
+label-margin-right = 2
 
 [module/volume]
 type = internal/volume

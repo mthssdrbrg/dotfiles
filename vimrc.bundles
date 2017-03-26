@@ -34,6 +34,7 @@ Plugin 'fatih/vim-go'
 Plugin 'idanarye/vim-merginal'
 Plugin 'dracula/vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'rodjek/vim-puppet'
 
 call vundle#end()
 filetype plugin indent on

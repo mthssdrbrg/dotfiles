@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+declare -r tmpdir=${TMPDIR:-/tmp}
+declare -r img_path="$tmpdir/.i3lock-less-fancy-image.png"
+
+scrot --multidisp --silent "$img_path"
+convert "$img_path" -scale 10% -scale 1000% "$img_path"
+i3lock --no-unlock-indicator --image="$img_path"

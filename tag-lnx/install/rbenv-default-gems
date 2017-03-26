@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if rbenv root &> /dev/null; then
+  declare plugin_dir="$(rbenv root)/plugins/rbenv-default-gems"
+  if [[ ! -d "$plugin_dir" ]]; then
+    git clone https://github.com/rbenv/rbenv-default-gems.git "$plugin_dir"
+    echo "bundler" >> $(rbenv root)/default-gems
+  fi
+fi

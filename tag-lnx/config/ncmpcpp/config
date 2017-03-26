@@ -182,7 +182,7 @@ song_columns_list_format = "(20)[]{A} (6f)[green]{NE} $b(50)[white]{t|f:Title}$/
 ## Note: Custom command that will be executed each
 ## time song changes. Useful for notifications etc.
 ##
-execute_on_song_change = ~/.config/ncmpcpp/song-change
+# execute_on_song_change = ~/.config/ncmpcpp/song-change
 #
 #playlist_show_mpd_host = no
 #
