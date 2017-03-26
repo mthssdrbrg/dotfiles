@@ -19,16 +19,13 @@ done
 
 access_key="$(aws configure get "$profile.aws_access_key_id")"
 secret_key="$(aws configure get "$profile.aws_secret_access_key")"
-if [[ -z "$region" ]]; then
-  region="$(aws configure get "$profile.region" || :)"
-fi
+[[ -z "$region" ]] && region="$(aws configure get "$profile.region" || :)"
 
 if [[ -n "$access_key" && -n "$secret_key" ]]; then
   export AWS_ACCESS_KEY_ID="$access_key" 
   export AWS_SECRET_ACCESS_KEY="$secret_key"
-  if [[ -n "$region" ]]; then
-    export AWS_REGION="$region"
-  fi
+  [[ -n "$region" ]] && export AWS_REGION="$region"
+
   exec "$@"
 else
   echo "missing either access key id or secret access key from aws-cli config" >&2
