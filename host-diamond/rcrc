@@ -1,2 +1,2 @@
-TAGS="zsh lnx vim git ruby peco"
+TAGS="zsh lnx git ruby peco nvim"
 EXCLUDES="README.md Makefile rcm hooks etc install"
