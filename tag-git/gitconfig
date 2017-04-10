@@ -46,6 +46,8 @@
   wip = commit -m \"WIP\"
   rpo = remote prune origin
   rpod = remote prune origin --dry-run
+  undo = reset --soft HEAD^
+  stash-all = stash save --include-untracked
 
 [ghq]
 	root = ~/dev/src
