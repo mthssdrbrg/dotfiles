@@ -13,7 +13,7 @@ function installed {
 
 function pkg_group {
   local pkg_group=$1
-  if comm -23 <(pacman -Sgq "$pkg_group") <(pacman -Qgq "$pkg_group"); then
+  if comm -23 <(pacman -Sgq "$pkg_group" | sort) <(pacman -Qgq "$pkg_group" | sort); then
     echo "package group '$pkg_group' already installed"
   else
     sudo pacman -S "$pkg_group" --noconfirm
@@ -34,8 +34,8 @@ function aur {
   if installed "$pkg_name"; then
     echo "package '$pkg_name' already installed"
   else
-    if command -v packer &> /dev/null; then
-      packer -S "$pkg_name" --noconfirm --noedit
+    if command -v aurget &> /dev/null; then
+      aurget -S "$pkg_name" --noconfirm --noedit
     else
       local pkg_dir="$build_dir/$pkg_name"
       mkdir -p "$pkg_dir"
@@ -49,7 +49,7 @@ function aur {
 }
 
 # first things first
-aur 'packer'
+aur 'aurget'
 
 # package groups
 pkg_group 'xorg'
@@ -67,7 +67,6 @@ pkg 'neovim'
 pkg 'python-neovim'
 pkg 'rxvt-unicode'
 pkg 'openssh'
-pkg 'chromium'
 pkg 'ack'
 pkg 'alsa-utils'
 pkg 'openvpn'
@@ -88,13 +87,13 @@ pkg 'bind-tools'
 pkg 'docker'
 pkg 'rkt'
 pkg 'acpi'
-pkg 'entr'
 pkg 'firefox'
 pkg 'aws-cli'
 pkg 'mopidy'
 aur 'mopidy-spotify'
 aur 'mopidy-mpris'
 pkg 'scrot'
+pkg 'lm_sensors'
 
 # ui-related packages
 pkg 'adobe-source-code-pro-fonts'
@@ -108,20 +107,18 @@ pkg 'archlinux-wallpaper'
 pkg 'compton'
 pkg 'termite'
 pkg 'termite-terminfo'
-pkg 'xrandr'
+pkg 'xorg-xrandr'
 pkg 'htop'
 pkg 'ncmpcpp'
-pkg 'borgbackup'
+pkg 'borg'
 pkg 'bluez'
 pkg 'bluez-utils'
 pkg 'python2-virtualenv'
 pkg 'tlp'
 pkg 'xf86-video-intel'
-# pkg 'lm_sensors'
 
 # aur packages
 aur 'dunst-git'
-aur 'ghq'
 aur 'peco'
 aur 'rbenv'
 aur 'ruby-build'
@@ -139,8 +136,8 @@ aur 'polybar'
 aur 'packer-io'
 aur 'terraform'
 aur 'enpass-bin'
-aur 'wmail-bin'
 aur 'google-chrome'
 aur 'franz-bin'
 aur 'direnv'
-air 'autorandr-git'
+aur 'autorandr-git'
+aur 'wavebox-bin'
