@@ -1,2 +1,3 @@
-TAGS="zsh lnx git ruby peco nvim"
+HOSTNAME="diamond"
+TAGS="zsh git ruby peco nvim"
 EXCLUDES="README.md Makefile rcm hooks etc install"
