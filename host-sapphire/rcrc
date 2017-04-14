@@ -1,3 +1,3 @@
 HOSTNAME="sapphire"
-TAGS="mac"
-EXCLUDES="README.md Makefile rcm homebrew colors"
+TAGS="git peco ruby vim zsh"
+EXCLUDES="README.md rcm homebrew colors"
