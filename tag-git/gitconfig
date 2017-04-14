@@ -1,0 +1,59 @@
+[user]
+  name = Mathias Söderberg
+  email = mths@sdrbrg.se
+
+[core]
+  excludesfile = ~/.gitignore
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+
+[branch]
+  autosetuprebase = always
+
+[branch "master"]
+  mergeoptions = --no-ff
+
+[init]
+  templatedir = ~/.git_template
+
+[push]
+  default = tracking
+
+[filter "media"]
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
+
+[merge]
+  tool = vimdiff
+
+[rebase]
+  autosquash = true
+
+[alias]
+  please = push --force-with-lease
+  commend = commit --amend --no-edit
+  merc = merge --no-ff --no-edit
+  rbim = rebase --interactive master
+  rbi = rebase --interactive
+  rbm = rebase master
+  rbc = rebase --continue
+  fix = commit --fixup
+  wip = commit -m \"WIP\"
+  rpo = remote prune origin
+  rpod = remote prune origin --dry-run
+  undo = reset --soft HEAD^
+  stash-all = stash save --include-untracked
+
+[ghq]
+  root = ~/dev/src
+
+[ghq "ssh://git@gitlab.com/"]
+  vcs = git
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/

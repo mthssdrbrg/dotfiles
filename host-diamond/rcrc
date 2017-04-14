@@ -1,0 +1,3 @@
+HOSTNAME="diamond"
+TAGS="zsh git ruby peco nvim"
+EXCLUDES="README.md rcm hooks etc install"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+if [[ ! -d "$HOME/.zprezto" ]]; then
+  git clone --recursive https://github.com/mthssdrbrg/prezto.git "$HOME/.zprezto"
+fi

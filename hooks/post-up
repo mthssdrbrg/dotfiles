@@ -5,30 +5,17 @@ exec 1>&2
 
 set -e
 
-declare -r rcm_functions="$(realpath $(dirname $(realpath $0))/../rcm/functions)"
+declare -r rcm_functions="$(realpath "$(dirname "$0")"/../rcm/functions)"
 
 [[ -n "$RC_DEBUG" ]] && set -x
 [[ -f "$rcm_functions" ]] && . "$rcm_functions"
 
-if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
-  git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-  _vim -u $HOME/.vimrc.bundles +PluginInstall +qall
-  if [[ -d "$HOME/.vim/bundle/YouCompleteMe" ]]; then
-    pushd "$HOME/.vim/bundle/YouCompleteMe"
-    ./install.py --clang-completer --gocode-completer
-    popd
+if [[ -n $RCRC || -e ~/.rcrc ]]; then
+  source "${RCRC:-~/.rcrc}"
+  for tag in $TAGS; do
+    run-hook "tag-$tag" "post-up"
+  done
+  if [[ -n $HOSTNAME ]]; then
+    run-hook "host-$HOSTNAME" "post-up"
   fi
 fi
-
-if [[ ! -d "$HOME/.zprezto" ]]; then
-  git clone --recursive https://github.com/mthssdrbrg/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-fi
-
-if [[ -d "$HOME/Dropbox/dotfiles/bin" ]]; then
-  for path in $HOME/Dropbox/dotfiles/bin/*; do
-    dot_bin_path="$HOME/.bin/$(basename "$path")"
-    [[ ! -e "$dot_bin_path" ]] && ln -s "$path" "$dot_bin_path"
-  done
-fi
-
-tag-hook-run "post-up"

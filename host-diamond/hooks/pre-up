@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+
+[[ -n "$RC_DEBUG" ]] && set -x
+
+sudo -v || exit 1
+
+declare -r build_dir="/tmp/aur"
+
+function installed {
+  local pkg_name=$1
+  pacman -Qi "$pkg_name" > /dev/null
+}
+
+function pkg_group {
+  local pkg_group=$1
+  if comm -23 <(pacman -Sgq "$pkg_group" | sort) <(pacman -Qgq "$pkg_group" | sort); then
+    echo "package group '$pkg_group' already installed"
+  else
+    sudo pacman -S "$pkg_group" --noconfirm
+  fi
+}
+
+function pkg {
+  local pkg_name=$1
+  if installed "$pkg_name"; then
+    echo "package '$pkg_name' already installed"
+  else
+    sudo pacman -S "$pkg_name" --noconfirm
+  fi
+}
+
+function aur {
+  local pkg_name=$1
+  if installed "$pkg_name"; then
+    echo "package '$pkg_name' already installed"
+  else
+    if command -v aurget &> /dev/null; then
+      aurget -S "$pkg_name" --noconfirm --noedit
+    else
+      local pkg_dir="$build_dir/$pkg_name"
+      mkdir -p "$pkg_dir"
+      pushd "$pkg_dir"
+      git clone "https://aur.archlinux.org/$pkg_name.git"
+      makepkg -si
+      popd
+      rm -rf "$pkg_dir"
+    fi
+  fi
+}
+
+# first things first
+aur 'aurget'
+
+# package groups
+pkg_group 'xorg'
+pkg_group 'i3'
+
+# "core" packages
+pkg 'python'
+pkg 'go'
+pkg 'iw'
+pkg 'wpa_supplicant'
+pkg 'zsh'
+pkg 'zsh-completions'
+pkg 'git'
+pkg 'neovim'
+pkg 'python-neovim'
+pkg 'rxvt-unicode'
+pkg 'openssh'
+pkg 'ack'
+pkg 'alsa-utils'
+pkg 'openvpn'
+pkg 'rofi'
+pkg 'lightdm'
+pkg 'lightdm-gtk-greeter'
+pkg 'udiskie'
+pkg 'pass'
+pkg 'jq'
+pkg 'imagemagick'
+pkg 'strace'
+pkg 'lsof'
+pkg 'libqalculate'
+pkg 'tig'
+pkg 'unzip'
+pkg 'xautolock'
+pkg 'bind-tools'
+pkg 'docker'
+pkg 'rkt'
+pkg 'acpi'
+pkg 'firefox'
+pkg 'aws-cli'
+pkg 'mopidy'
+aur 'mopidy-spotify'
+aur 'mopidy-mpris'
+pkg 'scrot'
+pkg 'lm_sensors'
+
+# ui-related packages
+pkg 'adobe-source-code-pro-fonts'
+pkg 'faenza-icon-theme'
+pkg 'lxappearance'
+pkg 'terminus-font'
+pkg 'ttf-hack'
+pkg 'ttf-inconsolata'
+pkg 'feh'
+pkg 'archlinux-wallpaper'
+pkg 'compton'
+pkg 'termite'
+pkg 'termite-terminfo'
+pkg 'xorg-xrandr'
+pkg 'htop'
+pkg 'ncmpcpp'
+pkg 'borg'
+pkg 'bluez'
+pkg 'bluez-utils'
+pkg 'python2-virtualenv'
+pkg 'tlp'
+pkg 'xf86-video-intel'
+
+# aur packages
+aur 'dunst-git'
+aur 'peco'
+aur 'rbenv'
+aur 'ruby-build'
+aur 'rbenv-binstubs'
+aur 'rcm'
+aur 'slack-desktop'
+aur 'redshift-minimal'
+aur 'ttf-meslo'
+aur 'vimix-gtk-themes-git'
+aur 'zuki-themes-git'
+aur 'dropbox'
+aur 'spotify'
+aur 'ttf-font-awesome'
+aur 'polybar'
+aur 'packer-io'
+aur 'terraform'
+aur 'enpass-bin'
+aur 'google-chrome'
+aur 'franz-bin'
+aur 'direnv'
+aur 'autorandr-git'
+aur 'wavebox-bin'
