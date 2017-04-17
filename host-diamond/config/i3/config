@@ -110,8 +110,6 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+Shift+l workspace next_on_output
-bindsym $mod+Shift+h workspace prev_on_output
 bindsym $mod+Left workspace prev_on_output
 bindsym $mod+Right workspace next_on_output
 
@@ -121,20 +119,22 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# switch workspace
-mode "workspace" {
-  bindsym a workspace $ws1; mode "default"
-  bindsym s workspace $ws2; mode "default"
-  bindsym d workspace $ws3; mode "default"
-  bindsym f workspace $ws4; mode "default"
-  bindsym j workspace $ws5; mode "default"
-  bindsym k workspace $ws6; mode "default"
-  bindsym l workspace $ws7; mode "default"
-  bindsym semicolon workspace $ws8; mode "default"
+# Move windows in and out of the scratchpad with mod+(shift)+t
+bindsym $mod+Shift+t move scratchpad
+bindsym $mod+Ctrl+t scratchpad show
+
+# window/workspace manipulation
+mode "window" {
+  bindsym s split v; mode "default"
+  bindsym v split h; mode "default"
+  bindsym f fullscreen toggle; mode "default"
+
+  bindsym h workspace prev_on_output
+  bindsym l workspace next_on_output
 
   bindsym Escape mode "default"
 }
-bindsym $mod+w mode "workspace"
+bindsym $mod+w mode "window"
 
 # resize (window) mode
 mode "resize" {
