@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-ghq get git@github.com/weaveworks/kubediff
-pushd "$DEV_SRC/github.com/weaveworks/kubediff" &> /dev/null
-virtualenv2 venv
-source venv/bin/activate
-pip install -r requirements.txt
-deactivate
-popd &> /dev/null
