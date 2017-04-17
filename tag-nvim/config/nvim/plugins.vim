@@ -6,7 +6,7 @@ function! BuildYCM(info)
   " - status: 'installed', 'updated', or 'unchanged'
   " - force:  set on PlugInstall! or PlugUpdate!
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    !./install.py --clang-completer --gocode-completer
+    !./install.py --clang-completer --gocode-completer --system-libclang
   endif
 endfunction
 
@@ -34,6 +34,6 @@ Plug 'rodjek/vim-puppet'
 Plug 'bling/vim-airline'
 Plug 'dracula/vim'
 Plug 'chriskempson/base16-vim'
-" Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 
 call plug#end()
