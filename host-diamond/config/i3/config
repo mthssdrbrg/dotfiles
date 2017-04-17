@@ -27,7 +27,7 @@ floating_modifier $mod
 default_orientation vertical
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id st dvtm
 
 # kill focused window
 bindsym $mod+Shift+q kill
