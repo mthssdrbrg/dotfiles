@@ -1,9 +1,10 @@
 [Unit]
-Description=Top bar
+Description=Run Polybar on monitor %i
 
 [Service]
 Type=simple
 Environment=DISPLAY=:0
+Environment=MONITOR=%i
 ExecStart=/usr/bin/polybar top
 
 [Install]
