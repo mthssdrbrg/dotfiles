@@ -6,6 +6,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 
 [[ -f ~/.zprezto/init.zsh ]] && source ~/.zprezto/init.zsh
+[[ -f /etc/profile.d/vte.sh ]] && source /etc/profile.d/vte.sh
 
 for f in ~/.config/zsh/*.zsh; do
   source "$f"
