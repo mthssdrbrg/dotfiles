@@ -4,10 +4,8 @@ let mapleader = " "
 nnoremap <leader><leader> <c-^>
 " Toggle NERDTree
 map <leader>t :NERDTreeToggle<CR>
-" Switch between light / dark background
-" map <leader>s :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 " Search and Replace
-nmap <Leader>s :%s//g<Left><Left>
+nmap <leader>s :%s//g<Left><Left>
 " Use <C-L> to clear the highlighting of :set hlsearch.
 " nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " fugitive
@@ -28,7 +26,10 @@ nnoremap <leader>gpl :Gpull<CR>
 nnoremap <leader>gbl :Gblame<CR>
 nnoremap <leader>m :Merginal<CR>
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+nnoremap <leader>j <C-w>j<CR>
+nnoremap <leader>k <C-w>k<CR>
+nnoremap <leader>h <C-w>h<CR>
+nnoremap <leader>l <C-w>l<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <cr> :
