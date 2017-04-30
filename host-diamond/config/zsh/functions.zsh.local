@@ -1,4 +1,3 @@
-
 function gx() {
   gitg &!
 }
@@ -20,6 +19,28 @@ function wp() {
   deactivate
   return $result
 }
+
+ function despotify() {
+  docker run -d \
+    --rm \
+    -v /etc/fonts:/etc/fonts:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v $HOME/.Xauthority:/home/spotify/.Xauthority:ro \
+    -v $HOME/.config/fontconfig:/home/spotify/.config/fontconfig:ro \
+    -v $HOME/.config/spotify:/home/spotify/.config/spotify \
+    -v $HOME/.cache/spotify:/home/spotify/.cache/spotify \
+    -e DISPLAY \
+    --net host \
+    --security-opt seccomp:unconfined \
+    --device /dev/snd \
+    --device /dev/dri \
+    --group-add audio \
+    --group-add video \
+    --user "$(id -u):$(getent group audio | cut -d: -f3)" \
+    --name spotify \
+    jess/spotify
+ }
 
  function dump-packages() {
   pacman -Qqettm | grep -v "$(pacman -Sgq base base-devel)" | grep -v "$(pacman -Qqettn)" >! ~/.dotfiles/host-diamond/packages/aur.lst
