@@ -20,3 +20,8 @@ function wp() {
   deactivate
   return $result
 }
+
+ function dump-packages() {
+  pacman -Qqettm | grep -v "$(pacman -Sgq base base-devel)" | grep -v "$(pacman -Qqettn)" >! ~/.dotfiles/host-diamond/packages/aur.lst
+  pacman -Qqettn | grep -v "$(pacman -Sgq base base-devel)" | grep -v "$(pacman -Qqettm)" >! ~/.dotfiles/host-diamond/packages/native.lst
+ }
