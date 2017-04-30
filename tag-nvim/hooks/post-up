@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-nvim +PlugInstall +PlugClean! +qa
+nvim +PlugInstall +qa
+nvim +PlugUpdate  +qa
+nvim +PlugClean!  +qa
