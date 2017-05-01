@@ -13,8 +13,8 @@ Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 ! Xft.lcdfilter: lcdlight
 Xft.antialias: true
-Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.hinting: 0
+Xft.hintstyle: hintnone
 ! Xft.hintstyle: hintslight
 
 ! Dracula Xresources palette
