@@ -229,4 +229,4 @@ exec --no-startup-id systemctl --user start dunst
 exec --no-startup-id systemctl --user start udiskie
 exec --no-startup-id systemctl --user start redshift
 exec --no-startup-id systemctl --user start autolock
-exec --no-startup-id autorandr --change --skip-options gamma
+exec_always --no-startup-id autorandr --change
