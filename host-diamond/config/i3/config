@@ -223,23 +223,6 @@ mode $power_control {
 }
 bindsym $mod+p mode $power_control
 
-# barrr
-# bar {
-#   position top
-#   status_command i3status -c ~/.config/i3/status
-#   # status_command i3blocks -c ~/.config/i3/blocks
-#   strip_workspace_numbers yes
-#   colors {
-#     background #282a36
-#     statusline #f8f8f2
-#     # separator #8be9fd
-#     focused_workspace  #bd93f9 #44475a #f8f8f2
-#     active_workspace   #bd93f9 #002b36 #282a36
-#     inactive_workspace #282a36 #021215 #586e75
-#     urgent_workspace   #cb4b16 #dc322f #fdf6e
-#   }
-# }
-
 # autostart applications
 exec --no-startup-id feh --bg-fill ~/Dropbox/Wallpapers/forkbomb.png
 exec --no-startup-id systemctl --user start dunst
