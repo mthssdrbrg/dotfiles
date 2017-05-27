@@ -26,6 +26,8 @@ floating_modifier $mod
 # open new widows at the bottom by default
 default_orientation vertical
 
+workspace_layout tabbed
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
@@ -128,11 +130,13 @@ mode "window" {
   bindsym s split v; mode "default"
   bindsym v split h; mode "default"
   bindsym f fullscreen toggle; mode "default"
+  bindsym a focus parent
 
   bindsym h workspace prev_on_output
   bindsym l workspace next_on_output
 
   bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 bindsym $mod+w mode "window"
 
@@ -150,6 +154,7 @@ mode "resize" {
   bindsym Right resize grow width 2 px or 2 ppt
 
   bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -166,7 +171,6 @@ mode "move" {
   bindsym 7 move container to workspace $ws7; mode "default"
   bindsym 8 move container to workspace $ws8; mode "default"
 
-  # move focused container ...
   bindsym h move left; mode "default"
   bindsym j move down; mode "default"
   bindsym k move up; mode "default"
@@ -176,6 +180,7 @@ mode "move" {
   bindsym Shift+less move workspace to output left; mode "default"
 
   bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 bindsym $mod+m mode "move"
 
@@ -188,6 +193,7 @@ mode "applications" {
   bindsym e exec --no-startup-id enpass; mode "default"
 
   bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 
 bindsym $mod+a mode "applications"
@@ -213,6 +219,7 @@ mode $power_control {
   bindsym p exec --no-startup-id systemctl poweroff; mode "default"
 
   bindsym Escape mode "default"
+  bindsym Return mode "default"
 }
 bindsym $mod+p mode $power_control
 
