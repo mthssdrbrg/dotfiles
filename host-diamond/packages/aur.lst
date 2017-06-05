@@ -1,6 +1,8 @@
+abs
 alacritty-git
 aurget
 autorandr-git
+caps2esc
 direnv
 dropbox-cli
 franz-bin
@@ -24,5 +26,4 @@ ttf-meslo
 twemoji-color-font
 vault-bin
 wavebox-bin
-wmail-bin
 zuki-themes-git
