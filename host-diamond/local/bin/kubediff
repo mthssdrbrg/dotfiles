@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+declare version="latest"
+
+if [[ -z $KUBECONFIG ]]; then
+  echo "KUBECONFIG is not set" >&2
+  exit 1
+fi
+
+if [[ "$1" == "-i" ]]; then
+  version="$2"; shift; shift;
+fi
+exec docker run \
+  --interactive \
+  --tty \
+  --rm \
+  --env KUBECONFIG \
+  --volume "$(pwd):$(pwd)" \
+  --workdir "$(pwd)" \
+  --entrypoint /kubediff \
+  "weaveworks/kubediff:$version" "$*"

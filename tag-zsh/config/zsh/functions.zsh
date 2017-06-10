@@ -55,14 +55,3 @@ function docker-cleanup() {
   images=($(docker images --filter dangling=true -q 2> /dev/null))
   docker rmi "${images[@]}" 2> /dev/null
 }
-
-function kubediff() {
-  local -a configs mounts kubecfg
-  configs=("${(@s/:/)KUBECONFIG}")
-  for cfg in "${configs[@]}"; do
-    md5_name=$(md5sum "$cfg" | cut -d' ' -f1)
-    mounts+=(-v $cfg:/configs/$md5_name)
-    kubecfg+=("/configs/$md5_name")
-  done
-  docker run -it --rm "${mounts[@]}" --entrypoint=/kubediff weaveworks/kubediff:master-771659d --kubeconfig="${(j.:.)kubecfg}"
-}

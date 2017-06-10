@@ -2,11 +2,6 @@ function gx() {
   gitg &!
 }
 
-function kubediff() {
-  local kubediff_dir="$DEV_SRC/github.com/weaveworks/kubediff"
-  "$kubediff_dir/venv/bin/python" "$kubediff_dir/kubediff" "$@"
-}
-
 function wp() {
   local wallpaper_dir="$XDG_DATA_HOME/wp"
   local wp_dir="$DEV_SRC/github.com/hugogrochau/wp"
