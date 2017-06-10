@@ -33,3 +33,10 @@ nnoremap <leader>l <C-w>l<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <cr> :
+" tabs
+nnoremap <leader>t2 :set shiftwidth=2<cr>:set tabstop=2<cr>
+nnoremap <leader>t4 :set shiftwidth=4<cr>:set tabstop=4<cr>
+nnoremap <leader>te :set expandtab<cr>:retab<cr>
+nnoremap <leader>tn :set noexpandtab<cr>:retab<cr>
+" Terminal keys
+tnoremap <leader><ESC> <C-\><C-n>

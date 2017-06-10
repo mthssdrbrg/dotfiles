@@ -5,13 +5,16 @@ set ruler          " show the cursor position all the time
 set showcmd        " display incomplete commands
 set timeoutlen=500 " Time to wait after ESC
 set mousehide      " Hide mouse after chars typed
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+" tabs and such
+set list
+set listchars=tab:▸·,trail:·
+set smarttab
 set expandtab
+set shiftwidth=2
+set tabstop=2
 " Apparently this stops Vim from adding a new line at the end of each file.
 " See: http://vimhelp.appspot.com/vim_faq.txt.html#faq-5.4
-set binary
+" set binary
 " Numbers
 set number
 set numberwidth=4
@@ -30,23 +33,23 @@ set ignorecase " Make searching case insensitive
 set smartcase " ... unless the query has capital letters.
 set gdefault " Use 'g' flag by default with :s/foo/bar/.
 set magic " Use 'magic' patterns (extended regular expressions).
-" Forcefully apply some options
-autocmd FileType * set expandtab
+highlight TermCursor ctermfg=red guifg=red
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType make setlocal noexpandtab
 " Set syntax highlighting for specific file types
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.ru set filetype=ruby
+autocmd BufRead,BufNewFile config.ru set filetype=ruby
 autocmd BufRead,BufNewFile *.json set filetype=javascript
-autocmd BufRead,BufNewFile Guardfile set filetype=ruby
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
-autocmd BufWritePost .vimrc source $MYVIMRC
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 " Ctrl+P
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:terminal_scrollback_buffer_size = 1000000
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep

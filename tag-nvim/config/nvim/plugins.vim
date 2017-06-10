@@ -10,11 +10,9 @@ function! BuildYCM(info)
   endif
 endfunction
 
-Plug 'idanarye/vim-merginal'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown'
