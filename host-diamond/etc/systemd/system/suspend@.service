@@ -8,7 +8,7 @@ User=%I
 Environment=DISPLAY=:0
 ExecStartPre=-/usr/bin/amixer set Master mute
 ExecStart=-/usr/bin/xautolock -locknow
-ExecStartPost=-/usr/bin/sleep 3
+ExecStartPre=-/usr/bin/xset dpms force suspend
 
 [Install]
 WantedBy=sleep.target
