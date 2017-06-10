@@ -39,7 +39,6 @@ bindsym $mod+space exec --no-startup-id rofi -show combi
 
 # alt-tab switcher
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
-bindsym $mod+Tab exec --no-startup-id rofi -show window
 
 # quickly move to (latest) urgent workspace
 bindsym $mod+u [urgent=latest] focus
@@ -48,7 +47,7 @@ bindsym $mod+u [urgent=latest] focus
 bindsym $mod+Shift+a exec --no-startup-id i3-sensible-terminal -t htop -e htop
 
 # move to last used workspace
-bindsym $mod+Escape workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # password manager
 bindsym $mod+Ctrl+l exec --no-startup-id ~/.local/bin/passmenu
@@ -191,6 +190,8 @@ mode "applications" {
   bindsym z exec --no-startup-id franz-bin; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
   bindsym e exec --no-startup-id enpass; mode "default"
+  bindsym t exec --no-startup-id alacritty; mode "default"
+  bindsym Shift+t exec --no-startup-id alacritty -e tmux; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
