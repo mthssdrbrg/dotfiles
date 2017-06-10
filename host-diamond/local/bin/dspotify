@@ -1,20 +1,30 @@
 #!/usr/bin/env bash
-exec docker run -d \
+
+declare uid audio_gid dbus_path
+
+uid="$(id -u)"
+audio_gid="$(getent group audio | cut -d: -f3)"
+dbus_path="$(echo "$DBUS_SESSION_BUS_ADDRESS" | cut -d= -f2)"
+
+exec docker run \
+  --detach \
   --rm \
-  -v /etc/fonts:/etc/fonts:ro \
-  -v /etc/localtime:/etc/localtime:ro \
-  -v /tmp/.X11-unix:/tmp/.X11-unix \
-  -v $HOME/.Xauthority:/home/spotify/.Xauthority:ro \
-  -v $HOME/.config/fontconfig:/home/spotify/.config/fontconfig:ro \
-  -v $HOME/.config/spotify:/home/spotify/.config/spotify \
-  -v $HOME/.cache/spotify:/home/spotify/.cache/spotify \
-  -e DISPLAY \
+  --volume /etc/fonts:/etc/fonts:ro \
+  --volume /etc/localtime:/etc/localtime:ro \
+  --volume /tmp/.X11-unix:/tmp/.X11-unix \
+  --volume "$dbus_path:$dbus_path" \
+  --volume "$HOME/.Xauthority:/home/spotify/.Xauthority:ro" \
+  --volume "$HOME/.config/fontconfig:/home/spotify/.config/fontconfig:ro" \
+  --volume "$HOME/.config/spotify:/home/spotify/.config/spotify" \
+  --volume "$HOME/.cache/spotify:/home/spotify/.cache/spotify" \
+  --env DISPLAY \
+  --env DBUS_SESSION_BUS_ADDRESS \
   --net host \
-  --security-opt seccomp:unconfined \
+  --security-opt seccomp=unconfined \
   --device /dev/snd \
   --device /dev/dri \
   --group-add audio \
   --group-add video \
-  --user "$(id -u):$(getent group audio | cut -d: -f3)" \
+  --user "$uid:$audio_gid" \
   --name spotify \
-  jess/spotify
+  mthssdrbrg/spotify
