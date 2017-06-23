@@ -45,13 +45,3 @@ function m() {
     $EDITOR "$@"
   fi
 }
-
-function docker-cleanup() {
-  set -x
-  local -a containers images
-  containers=($(docker ps --filter status=exited -q 2> /dev/null))
-  docker rm "${containers[@]}" 2> /dev/null
-  docker rm -v "${containers[@]}" 2> /dev/null
-  images=($(docker images --filter dangling=true -q 2> /dev/null))
-  docker rmi "${images[@]}" 2> /dev/null
-}
