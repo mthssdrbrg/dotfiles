@@ -5,10 +5,14 @@ set -xe
 function docker-cleanup() {
   local -a containers images
   containers=($(docker ps --filter status=exited -q 2> /dev/null))
-  docker rm "${containers[@]}" 2> /dev/null
-  docker rm -v "${containers[@]}" 2> /dev/null
+  if (( ${#containers[@]} > 0 )); then
+    docker rm "${containers[@]}" 2> /dev/null
+    docker rm -v "${containers[@]}" 2> /dev/null || :
+  fi
   images=($(docker images --filter dangling=true -q 2> /dev/null))
-  docker rmi "${images[@]}" 2> /dev/null
+  if (( ${#images[@]} > 0 )); then
+    docker rmi "${images[@]}" 2> /dev/null
+  fi
 }
 
 docker-cleanup
