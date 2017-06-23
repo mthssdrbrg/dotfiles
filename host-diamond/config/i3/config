@@ -29,7 +29,7 @@ default_orientation vertical
 workspace_layout tabbed
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -190,8 +190,6 @@ mode "applications" {
   bindsym z exec --no-startup-id franz-bin; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
   bindsym e exec --no-startup-id enpass; mode "default"
-  bindsym t exec --no-startup-id alacritty; mode "default"
-  bindsym Shift+t exec --no-startup-id alacritty -e tmux; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
