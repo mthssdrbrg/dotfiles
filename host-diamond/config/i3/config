@@ -49,11 +49,8 @@ bindsym $mod+Shift+a exec --no-startup-id i3-sensible-terminal -t htop -e htop
 # move to last used workspace
 bindsym $mod+Tab workspace back_and_forth
 
-# password manager
-bindsym $mod+Ctrl+l exec --no-startup-id ~/.local/bin/passmenu
-
-# open project
-bindsym $mod+c exec --no-startup-id rofi -show c:~/.local/bin/rofi-c
+# pasteeee
+bindsym $mod+v exec --no-startup-id gpaste-menu -i -lines 30 -fixed-num-lines -p paste:
 
 # change focus
 bindsym $mod+h focus left
@@ -228,4 +225,5 @@ exec --no-startup-id systemctl --user start dunst
 exec --no-startup-id systemctl --user start udiskie
 exec --no-startup-id systemctl --user start redshift
 exec --no-startup-id systemctl --user start autolock
+exec --no-startup-id systemctl --user start org.gnome.GPaste
 exec_always --no-startup-id autorandr --change
