@@ -2,3 +2,4 @@
 *.txt
 .bundle
 /**/vendor/**/bundle/
+worktrees
