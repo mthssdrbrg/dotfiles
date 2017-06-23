@@ -6,8 +6,8 @@ nnoremap <leader><leader> <c-^>
 map <leader>t :NERDTreeToggle<CR>
 " Search and Replace
 nmap <leader>s :%s//g<Left><Left>
-" Use <C-L> to clear the highlighting of :set hlsearch.
-" nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+" Clear search highlight
+nnoremap <silent> <leader>hl :nohlsearch<CR>
 " fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
@@ -33,6 +33,16 @@ nnoremap <leader>l <C-w>l<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <cr> :
+" Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
 " tabs
 nnoremap <leader>t2 :set shiftwidth=2<cr>:set tabstop=2<cr>
 nnoremap <leader>t4 :set shiftwidth=4<cr>:set tabstop=4<cr>
