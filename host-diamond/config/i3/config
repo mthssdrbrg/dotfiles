@@ -93,6 +93,7 @@ assign [title="^ncmpcpp$"] $ws2
 assign [class="Enpass"] $ws5
 for_window [class="feh"] floating enable
 for_window [class="Spotify"] move to workspace $ws2
+for_window [class="Rambox"] move to workspace $ws4
 for_window [class="Lxappearance"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="^htop$"] floating enable
@@ -184,7 +185,7 @@ bindsym $mod+m mode "move"
 mode "applications" {
   bindsym c exec --no-startup-id $BROWSER; mode "default"
   bindsym s exec --no-startup-id ~/.local/bin/dspotify; mode "default"
-  bindsym z exec --no-startup-id franz-bin; mode "default"
+  bindsym z exec --no-startup-id rambox; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
   bindsym e exec --no-startup-id enpass; mode "default"
 
