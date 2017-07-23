@@ -37,9 +37,6 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+space exec --no-startup-id rofi -show combi
 
-# alt-tab switcher
-bindsym Mod1+Tab exec --no-startup-id rofi -show window
-
 # quickly move to (latest) urgent workspace
 bindsym $mod+u [urgent=latest] focus
 
