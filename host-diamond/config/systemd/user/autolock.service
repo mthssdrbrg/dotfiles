@@ -4,7 +4,7 @@ Description=Lock the screen automatically after a timeout
 [Service]
 Type=simple
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/xautolock -corners 000+ -cornersize 10 -cornerdelay 0 -cornerredelay 0 -time 5 -locker "%h/.local/bin/i3lock-less-fancy"
+ExecStart=/usr/bin/xautolock -corners 0000 -cornerdelay 0 -time 5 -locker "%h/.local/bin/i3lock-less-fancy"
 
 [Install]
 WantedBy=graphical.target
