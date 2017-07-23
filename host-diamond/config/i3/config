@@ -185,6 +185,7 @@ mode "applications" {
   bindsym z exec --no-startup-id rambox; mode "default"
   bindsym n exec --no-startup-id i3-sensible-terminal -t ncmpcpp -e ncmpcpp; mode "default"
   bindsym e exec --no-startup-id enpass; mode "default"
+  bindsym a exec --no-startup-id autorandr --change; mode "default"
 
   bindsym Escape mode "default"
   bindsym Return mode "default"
