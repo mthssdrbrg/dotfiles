@@ -6,7 +6,6 @@ bcm4350-firmware
 caps2esc
 direnv
 dropbox-cli
-dunst-git
 enpass-bin
 google-chrome
 gpaste-menu
@@ -15,12 +14,8 @@ hid-apple-patched-git-dkms
 kubectl-bin
 lain-git
 minikube
-mopidy-mpris
-mopidy-scrobbler
-mopidy-spotify
 nvm
 openvpn-update-resolv-conf
-otf-hermit
 peco
 polybar
 rambox-bin
@@ -29,11 +24,11 @@ rcm
 redshift-minimal
 ruby-build
 system-san-francisco-font-git
-terraform-bin
+transmission-remote-gtk
 ttf-font-awesome
 ttf-meslo
 twemoji-color-font
 vault-bin
 vimix-gtk-themes-git
-wavebox-bin
+virtualbox-ext-oracle
 zuki-themes-git
