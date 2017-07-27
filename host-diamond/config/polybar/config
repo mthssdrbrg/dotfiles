@@ -138,8 +138,24 @@ time-format = %H:%M
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-foreground = ${colors.cyan}
-label = %percentage:3:3%%
+format = <ramp-load> <label>
+label = %percentage:3:3%%
+ramp-load-0 = ▁
+ramp-load-0-foreground = ${colors.green}
+ramp-load-1 = ▂
+ramp-load-1-foreground = ${colors.green}
+ramp-load-2 = ▃
+ramp-load-2-foreground = ${colors.green}
+ramp-load-3 = ▄
+ramp-load-3-foreground = ${colors.green}
+ramp-load-4 = ▅
+ramp-load-4-foreground = ${colors.orange}
+ramp-load-5 = ▆
+ramp-load-5-foreground = ${colors.orange}
+ramp-load-6 = ▇
+ramp-load-6-foreground = ${colors.red}
+ramp-load-7 = █
+ramp-load-7-foreground = ${colors.red}
 
 [module/vpn]
 type = custom/script
