@@ -3,3 +3,6 @@
 .bundle
 /**/vendor/**/bundle/
 worktrees
+venv
+.venv
+.kubeconfig
