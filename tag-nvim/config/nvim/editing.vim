@@ -3,7 +3,7 @@ set nowritebackup
 set noswapfile     " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 set ruler          " show the cursor position all the time
 set showcmd        " display incomplete commands
-set timeoutlen=500 " Time to wait after ESC
+set timeoutlen=250 " Time to wait after ESC
 set mousehide      " Hide mouse after chars typed
 " tabs and such
 set list
@@ -31,7 +31,6 @@ set regexpengine=1
 " set colorcolumn=+1
 set ignorecase " Make searching case insensitive
 set smartcase " ... unless the query has capital letters.
-set gdefault " Use 'g' flag by default with :s/foo/bar/.
 set magic " Use 'magic' patterns (extended regular expressions).
 highlight TermCursor ctermfg=red guifg=red
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
