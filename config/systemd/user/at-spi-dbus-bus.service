@@ -1,0 +1,10 @@
+[Unit]
+Description=AT-SPI D-Bus bus
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/at-spi-bus-launcher --launch-immediately
+
+[Install]
+WantedBy=autostart.target

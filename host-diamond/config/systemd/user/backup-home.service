@@ -1,6 +1,0 @@
-[Unit]
-Description=Backup home directory
-
-[Service]
-Type=simple
-ExecStart=/home/dist/.local/bin/backup

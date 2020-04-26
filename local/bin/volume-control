@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare command="${1:-""}"
+readonly rumno="$HOME/.local/bin/rumno-client"
+readonly step="${2-5}"
+
+function is-muted() {
+  local value
+  value="$(pamixer --get-mute)"
+  if $value; then
+    return 0
+  fi
+  return 1
+}
+
+function get-volume() {
+  pamixer --get-volume
+}
+
+function display() {
+  local value="$1"
+  $rumno --volume-level "$value" --overreach-off --corner-radius 0.05
+}
+
+if [[ -z $command ]]; then
+  echo "missing required positional argument '<command>'" >&2
+  exit 1
+fi
+
+case "$command" in
+  up)
+    pamixer --increase $step &
+    ;;
+  down)
+    pamixer --decrease $step &
+    ;;
+  mute)
+    pamixer --toggle-mute
+    ;;
+  *)
+    echo "unknown command: $command" >&2
+    exit 1
+esac
+
+if is-muted; then
+  $rumno --muted --corner-radius 0.05
+else
+  display $(get-volume)
+fi
+wait

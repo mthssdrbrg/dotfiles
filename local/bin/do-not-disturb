@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+declare command="${1:-""}"
+
+function on() {
+  notify-send --urgency=critical "Do Not Disturb" "Notifications paused"
+  sleep 3
+  notify-send "DUNST_COMMAND_PAUSE"
+  systemctl --user stop xscreensaver.service
+}
+
+function off() {
+  notify-send "DUNST_COMMAND_RESUME"
+  notify-send "Do Not Disturb" "Notifications resumed"
+  systemctl --user start xscreensaver.service
+}
+
+if [[ -z $command ]]; then
+  echo "missing required positional argument '<command>'" >&2
+  exit 1
+fi
+
+case "$command" in
+  on)
+    on
+    ;;
+  off)
+    off
+    ;;
+  *)
+    echo "unknown command: '$command'" >&2
+    exit 1
+esac

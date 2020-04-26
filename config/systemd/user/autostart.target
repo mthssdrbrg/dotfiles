@@ -1,0 +1,5 @@
+[Unit]
+Description=Autostart applications that depend on a graphical environment
+Documentation=man:systemd.special(7)
+RefuseManualStart=false
+StopWhenUnneeded=false

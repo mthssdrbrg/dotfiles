@@ -1,0 +1,11 @@
+[Unit]
+Description=The XFCE settings daemon
+Documentation=man:xsettingsd(1)
+PartOf=autostart.target
+
+[Service]
+ExecStartPre=/usr/bin/xsetroot -cursor_name left_ptr
+ExecStart=/usr/bin/xfsettingsd --no-daemon --sm-client-disable
+
+[Install]
+WantedBy=autostart.target

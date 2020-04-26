@@ -1,23 +1,66 @@
 #!/usr/bin/env bash
 
-# redirect output to stderr
-exec 1>&2
+set -euo pipefail
 
-set -e
-
-declare -r rcm_functions="$(realpath "$(dirname "$0")"/../rcm/functions)"
+readonly RC_DEBUG="${RC_DEBUG:-""}"
 
 [[ -n $RC_DEBUG ]] && set -x
-[[ -f $rcm_functions ]] && source "$rcm_functions"
 
-if [[ -n $RCRC || -e ~/.rcrc ]]; then
-  source "${RCRC:-~/.rcrc}"
-  for tag in $TAGS; do
-    run-hook "tag-$tag" "pre-up"
-  done
-  if [[ -n $HOSTNAME ]]; then
-    run-hook "host-$HOSTNAME" "pre-up"
+function installed() {
+  local name="$1"
+  pacman -Qi "$name" > /dev/null 2> /dev/null
+}
+
+function pkg() {
+  local name="$1"
+  echo -n "checking $name: "
+  if installed "$name"; then
+    echo "found"
+  else
+    echo "not found"
+    sudo pacman -S "$name" --noconfirm
   fi
+}
+
+function aur() {
+  local name="$1"
+  echo -n "checking $name: "
+  if installed "$name"; then
+    echo "found"
+  else
+    echo "not found"
+    yay --aur --nocleanmenu --nodiffmenu --noeditmenu -S "$name"
+  fi
+}
+
+declare directories=(
+  "$XDG_CONFIG_HOME"
+  "$XDG_DATA_HOME"
+  "$XDG_CACHE_HOME"
+  "$DEV_HOME"
+  "$DEV_BIN"
+  "$DEV_SRC"
+  "$DEV_PKG"
+)
+
+mkdir -p ${directories[@]}
+
+if [[ -f ../packages/official.lst ]]; then
+  echo "> installing official packages"
+
+  for pkgname in $(grep -Ev '^#' ../packages/official.lst); do
+    pkg "$pkgname"
+  done
+else
+  echo "no official package list, skipping" >&2
 fi
 
-mkdir -p "$DEV_HOME" "$DEV_BIN" "$DEV_SRC" "$DEV_PKG"
+if [[ -f ../packages/aur.lst ]]; then
+  echo "> installing AUR packages"
+
+  for pkgname in $(grep -Ev '^#' ../packages/aur.lst); do
+    aur "$pkgname"
+  done
+else
+  echo "no AUR package list, skipping" >&2
+fi

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+declare desktop cmd
+
+if (( $# < 2 )); then
+  echo "usage: $(basename "$0") <desktop> <command>..."
+  exit 1
+fi
+
+desktop="$1" ; shift
+cmd="$*"
+
+bspc desktop --focus "$desktop"
+if ! bspc query --tree --desktop "$desktop" | jq --exit-status .root &> /dev/null; then
+  exec $cmd
+fi

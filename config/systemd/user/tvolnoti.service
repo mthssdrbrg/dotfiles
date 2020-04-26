@@ -1,0 +1,11 @@
+[Unit]
+Description=Media OSD notifications
+After=dbus.service
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/tvolnoti --no-daemon --theme nord --verbose
+
+[Install]
+WantedBy=autostart.target

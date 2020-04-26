@@ -1,0 +1,15 @@
+[Unit]
+Description=X screen saver
+PartOf=autostart.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStartPre=/usr/bin/xset +dpms
+ExecStartPre=/usr/bin/xset dpms 300 600
+ExecStart=/usr/bin/xset s 60 120
+ExecStop=/usr/bin/xset s off
+ExecStopPost=/usr/bin/xset -dpms
+
+[Install]
+WantedBy=autostart.target

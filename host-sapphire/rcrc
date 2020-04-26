@@ -1,3 +1,0 @@
-HOSTNAME="sapphire"
-TAGS="git peco ruby vim zsh"
-EXCLUDES="README.md rcm homebrew colors"

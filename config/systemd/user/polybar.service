@@ -1,0 +1,15 @@
+[Unit]
+Description=Bar provided via Polybar
+PartOf=autostart.target
+After=autorandr-launcher.service
+After=dropbox.service
+After=nm-applet.service
+After=udiskie.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/polybar --reload main
+ExecReload=/usr/bin/touch --time=modify %h/.config/polybar/config
+
+[Install]
+WantedBy=autostart.target

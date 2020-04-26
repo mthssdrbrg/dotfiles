@@ -1,8 +1,0 @@
-.DS_Store
-*.txt
-.bundle
-/**/vendor/**/bundle/
-worktrees
-venv
-.venv
-.kubeconfig

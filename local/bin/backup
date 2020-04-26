@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+exec 2>&1
+
+set -E
+
+trap 'notify-error $now' ERR
+
+readonly repo="/run/media/$(whoami)/backup/$(hostname)"
+declare passphrase_file passphrase now quiet=0
+
+function notify-error() {
+  local msg=$1
+  notify-send --urgency critical --app-name "backup" "error during backup of $msg"
+  exit 1
+}
+
+function notify-info() {
+  local msg=$1
+  if (( quiet == 0 )); then
+    notify-send --urgency low --app-name "backup" "$msg"
+  fi
+}
+
+function main() {
+  while (( $# > 0 )); do
+    case "$1" in
+      -q|--quiet) quiet=1 ;;
+      -p|--passphrase-file) passphrase_file="$2"; shift ;;
+      *) echo "unknown option: $1" >&2 ; usage; exit 1 ;;
+    esac
+    shift
+  done
+
+  if [[ ! -d $repo ]]; then
+    echo "repo doesn't exist, or disk isn't mounted, aborting" >&2
+    exit 0
+  elif [[ -z $passphrase ]]; then
+    echo "missing passphrase" >&2
+    exit 1
+  fi
+
+  notify-info "starting backup"
+
+  export BORG_PASSPHRASE="$passphrase"
+
+  borg create \
+    --info \
+    --stats \
+    --numeric-owner \
+    --compression zlib \
+    --exclude "*/.terraform" \
+    --exclude-if-present .no-backup \
+    "$repo::{now}"\
+    "$HOME"
+
+  notify-info "pruning old backups"
+
+  borg prune \
+    --info \
+    --list \
+    --keep-hourly 24 \
+    --keep-daily 7 \
+    --keep-weekly 4 \
+    --keep-monthly 6 \
+    "$repo"
+
+  notify-info "finished backup"
+}
+
+main $@

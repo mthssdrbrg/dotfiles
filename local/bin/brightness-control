@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -xeuo pipefail
+
+declare command="${1:-""}"
+readonly rumno="$HOME/.local/bin/rumno-client"
+readonly step="${2:-5}"
+
+function get-brightness {
+  xbacklight -get
+}
+
+function display() {
+  local value="$1"
+  $rumno --brightness-level "$value" --corner-radius 0.05 > /dev/null
+}
+
+if [[ -z $command ]]; then
+  echo "missing required positional argument '<command>'" >&2
+  exit 1
+fi
+
+case "$command" in
+  up)
+    display $(bc <<< "$(get-brightness) + $step") &
+    xbacklight -inc $step
+    ;;
+  down)
+    display $(bc <<< "$(get-brightness) - $step") &
+    xbacklight -dec $step
+    ;;
+  *)
+    echo "unknown command: $command" >&2
+    exit 1
+esac
+
+wait

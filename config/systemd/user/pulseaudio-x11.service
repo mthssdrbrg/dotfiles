@@ -1,0 +1,10 @@
+[Unit]
+Description=Pulseaudio X11
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/start-pulseaudio-x11
+
+[Install]
+WantedBy=autostart.target

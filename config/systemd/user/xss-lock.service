@@ -1,0 +1,13 @@
+[Unit]
+Description=X session lock
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xss-lock \
+  --verbose \
+  --notifier /usr/share/doc/xss-lock/dim-screen.sh \
+  -- /home/dist/.local/bin/lock
+
+[Install]
+WantedBy=autostart.target

@@ -1,0 +1,19 @@
+# vim:filetype=xdefaults
+rofi.kb-row-down: Down,Control+j
+rofi.kb-row-up: Up,Control+k
+rofi.kb-accept-entry: Return,KP_Enter
+rofi.kb-remove-to-eol: Alt+k
+
+rofi.terminal: alacritty
+rofi.sidebar-mode: false
+rofi.theme: nord
+rofi.drun-icon-theme: Zafiro-icons
+rofi.show-icons: true
+
+rofi.font: Source Code Pro Regular 9
+
+rofi.modi: combi
+rofi.combi-modi: drun,run,emoji
+
+rofi.separator-style: solid
+rofi.hide-scrollbar: true

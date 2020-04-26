@@ -1,0 +1,91 @@
+# ack
+alacritty
+arandr
+autorandr
+aws-cli
+bat
+bind-tools
+borg
+bspwm
+code
+cpupower
+dconf-editor
+discord
+dmidecode
+docker
+ethtool
+fd
+feh
+fish
+fzf
+git
+go
+gpaste
+hledger
+imagemagick
+ipcalc
+jq
+kustomize
+lightdm
+lightdm-settings
+lightdm-slick-greeter
+lm_sensors
+man
+openssh
+pacutils
+pamixer
+pass
+# pasystray
+pavucontrol
+playerctl
+polybar
+python-llfuse
+python-pip
+python-pynvim
+redshift
+ripgrep
+rofi
+sd
+seahorse
+smartmontools
+terminus-font
+texlive-core
+texlive-latexextra
+tig
+tlp
+tmux
+transmission-remote-gtk
+tree
+# ttf-fira-mono
+# ttf-fira-sans
+ttf-font-awesome
+# ttf-material-icons
+udiskie
+vault
+wireguard-tools
+# xautolock
+xdg-user-dirs
+# xfce4-notifyd
+# xfce4-power-manager
+# xfce4-volumed-pulse
+xorg-server-xephyr
+xorg-xbacklight
+xorg-xinput
+xorg-xev
+# xsettingsd
+zathura
+dunst
+ncdu
+rsync
+iwd
+gparted
+mhwd
+chromium
+bluez
+# Air 1 Go: FC:58:FA:90:8D:57
+pulseaudio-bluetooth
+bluez-utils
+ttf-liberation
+noto-fonts-emoji
+podman
+buildah

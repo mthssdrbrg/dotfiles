@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=BSPWM
+Comment=BSPWM launcher
+TryExec=bspwm
+Exec=bspwm

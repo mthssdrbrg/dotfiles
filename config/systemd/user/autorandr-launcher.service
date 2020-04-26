@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatically select a display configuration based on connected devices
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/autorandr --change --default default
+
+[Install]
+WantedBy=autostart.target

@@ -1,0 +1,151 @@
+super + a ; {p,w,m,s}
+  bspwm-launch-or-focus {www gtk-launch personal-ff, ww2 gtk-launch work-ff, music spotify, chat slack}
+
+super + a ; e
+  enpass
+
+super + a ; z
+  gtk-launch Zoom
+
+super + a ; shift + {p,w,m,t,s}
+  {gtk-launch personal-ff, gtk-launch work-ff, spotify, transmission-remote-gtk, slack}
+
+super + d ; t
+  bspwm-new-term
+
+super + d ; r
+  bspc desktop --remove
+
+super + d ; o
+  bspc desktop --to-monitor next --follow
+
+# swap the desktops of the monitors
+super + d ; s
+  bspc desktop -s next:focused
+
+super + p ; {l,s,p,r}
+  {xset s activate, systemctl suspend, systemctl poweroff, systemctl reboot}
+
+super + ctrl + Return
+  bspc node --swap biggest.local
+
+# alternate between the tiled and monocle layout
+super + m ; m
+  bspc desktop --layout next
+
+# focus next monitor
+super + m ; f
+  bspc monitor -f next
+
+# send the focused node to the newest preselected node
+super + y
+  bspc node focused.local -n newest.!automatic.local
+
+# close and kill
+super + {_,shift + }w
+  bspc node -{c,k}
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+# focus the last node/desktop
+super + {grave,Tab}
+  bspc {node,desktop} --focus last
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+  bspc desktop --focus {prev,next}.local
+
+# focus the next/previous node in the current desktop
+# TODO: maybe use super + ctrl?
+super + {_,shift + }n
+  bspc node --focus {next,prev}.local
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+  bspc {desktop --focus, node --to-desktop} '^{1-9, 10}'
+
+super + Return
+  env TERM=alacritty alacritty --command tmux
+
+super + space
+  rofi -show combi
+
+super + v
+  gpaste-menu -i -lines 30 -fixed-num-lines -p paste:
+
+super + shift + q
+  bspc quit
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+  bspc node -p {west,south,north,east}
+
+# preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+
+super + equal
+  bspc node @/ --equalize
+
+super + minus
+  bspc node @/ --balance
+
+# state / flags
+super + {t,shift + t,s,f}
+  bspc node --state {tiled,pseudo_tiled,floating,fullscreen}
+
+super + s; {t,f}
+  bspc node -t {$(bspc query -N -n -n .tiled > /dev/null && echo floating || echo tiled),fullscreen}
+
+shift + XF86MonBrightnessUp
+  brightness-control up 3
+
+XF86MonBrightnessUp
+  brightness-control up
+
+shift + XF86MonBrightnessDown
+  brightness-control down 3
+
+XF86MonBrightnessDown
+  brightness-control down
+
+XF86AudioRaiseVolume
+  volume-control up
+
+shift + XF86AudioRaiseVolume
+  volume-control up 3
+
+XF86AudioLowerVolume
+  volume-control down
+
+shift + XF86AudioLowerVolume
+  volume-control down 3
+
+XF86AudioMute
+  volume-control mute
+
+XF86AudioPlay
+  playerctl play-pause
+
+XF86AudioNext
+  playerctl next
+
+XF86AudioPrev
+  playerctl previous
+
+XF86AudioStop
+  playerctl stop

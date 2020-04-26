@@ -1,0 +1,22 @@
+[Unit]
+Description=Compositing manager
+Documentation=man:picom(1)
+PartOf=autostart.target
+After=autorandr-launcher.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/picom --show-all-xerrors
+; ExecStart=/usr/bin/picom \
+;   --config /dev/null \
+;   --backend glx \
+;   --no-dnd-shadow \
+;   --vsync \
+;   --fading \
+;   --fade-in-step 0.01 \
+;   --fade-out-step 0.01 \
+;   --fade-delta 2 \
+;   --show-all-xerrors
+
+[Install]
+WantedBy=autostart.target

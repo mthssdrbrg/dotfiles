@@ -1,0 +1,27 @@
+{
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    },
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "dhall": {
+      "command": "dhall-lsp-server",
+      "filetypes": ["dhall"]
+    }
+  },
+  "yaml.schemas": {
+    "kubernetes": "/*.yaml"
+  }
+}

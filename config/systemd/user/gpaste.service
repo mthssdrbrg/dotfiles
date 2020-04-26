@@ -1,0 +1,12 @@
+[Unit]
+Description=Clipboard manager
+Documentation=man:gpaste(1)
+After=dbus.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/gpaste-client start
+
+[Install]
+WantedBy=autostart.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=NetworkManager system tray applet
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/nm-applet
+
+[Install]
+WantedBy=autostart.target

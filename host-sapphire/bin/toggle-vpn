@@ -1,7 +1,0 @@
-#!/bin/bash
-name="$1"
-if /usr/sbin/scutil --nc show "$name" | grep Disconnected &> /dev/null; then
-  /usr/sbin/scutil --nc start "$name"
-else
-  /usr/sbin/scutil --nc stop "$name"
-fi

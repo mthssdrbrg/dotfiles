@@ -1,9 +1,0 @@
-export DOTFILES_HOME="$HOME/.dotfiles"
-export _Z_CMD="j"
-export GOPATH="$DEV_HOME"
-export GIT_TEMPLATE_DIR="$HOME/.git_templates"
-export HISTFILE="$HOME/.zhistory"
-export HISTSIZE=999999999
-export SAVEHIST=$HISTSIZE
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export PATH="$HOME/.local/bin:$PATH:$DEV_BIN"

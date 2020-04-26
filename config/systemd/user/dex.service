@@ -1,0 +1,7 @@
+[Unit]
+Description=Autostart applications
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=dex --autostart

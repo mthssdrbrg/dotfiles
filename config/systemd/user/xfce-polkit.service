@@ -1,0 +1,10 @@
+[Unit]
+Description=A simple PolkicyKit authentication agent for XFCE
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/xfce-polkit/xfce-polkit
+
+[Install]
+WantedBy=autostart.target

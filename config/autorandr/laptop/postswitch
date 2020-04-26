@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+readonly internal="eDP1"
+
+function query-desktops() {
+  local monitor="$1"
+  bspc query --desktops --names --monitor "$monitor" 2> /dev/null
+}
+
+function desktop-exist() {
+  local desktop="$1"
+  bspc query --desktops --names --monitor "$internal" | grep -q "$desktop"
+}
+
+function ensure-desktop() {
+  local desktop="$1"
+  if ! desktop-exist "$desktop"; then
+    bspc monitor "$internal" --add-desktops "$desktop"
+  fi
+}
+
+for monitor in $(bspc query --monitors --names | grep -v "$internal"); do
+  echo "processing monitor '$monitor'"
+  for desktop in $(query-desktops "$monitor"); do
+    echo "moving desktop '$desktop' to monitor '$internal'"
+    bspc desktop "$desktop" --to-monitor "$internal"
+  done
+  echo "removing monitor '$monitor'"
+  last_desktop=$(query-desktops "$monitor" | cut -d$'\n' -f1)
+  bspc monitor "$internal" --add-desktops "$last_desktop"
+  bspc monitor "$internal" --focus
+  bspc desktop "$last_desktop" --focus
+  bspc monitor "$monitor" --remove
+  bspc wm --adopt-orphans
+done
+
+ensure-desktop "www"
+ensure-desktop "ww2"
+ensure-desktop "chat"
+ensure-desktop "music"
+
+bspc monitor "$internal" --reorder-desktops www ww2
+
+if systemctl --user is-active polybar.service &> /dev/null; then
+  systemctl --user reload polybar.service
+fi
+sh $HOME/.fehbg

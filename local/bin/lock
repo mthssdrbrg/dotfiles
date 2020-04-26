@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# --indpos="1800:940" \
+
+i3lock --nofork \
+  --tiling \
+  --ignore-empty-password \
+  --linecolor=00000000 \
+  --keyhlcolor=eceff4ff \
+  --bshlcolor=bf616aff \
+  --separatorcolor=00000000 \
+  --radius=100 \
+  --ring-width=10 \
+  --insidevercolor=00000000 \
+  --insidewrongcolor=00000000 \
+  --insidecolor=00000000 \
+  --ringcolor=88c0d0ff \
+  --ringvercolor=a3be8cff \
+  --ringwrongcolor=bf616aff \
+  --clock \
+  --timecolor=eceff4ff \
+  --timestr="%H:%M" \
+  --time-font='Source Code Pro' \
+  --timesize=100 \
+  --time-align=1 \
+  --timepos="50:1050" \
+  --datecolor=d8dee9ff \
+  --datestr="%A, %d %B" \
+  --date-font='Source Code Pro' \
+  --datesize=40 \
+  --datepos="50:1100" \
+  --date-align=1 \
+  --veriftext="" \
+  --wrongtext="" \
+  --pointer=win \
+  --indicator \
+  --image="$HOME/pictures/lockscreens/colorful-digital-art-deviantart-abstract-wallpaper.png"

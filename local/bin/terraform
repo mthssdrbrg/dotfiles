@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if ip netns | grep --quiet wireguard; then
+  exec firejail \
+    --noprofile \
+    --netns=wireguard \
+    --writable-var \
+    --writable-run-user \
+    --quiet \
+    /usr/bin/terraform $@
+else
+  echo "\`wireguard\` network namespace doesn't exist, running in \`init\` namespace" >&2
+  exec /usr/bin/terraform $@
+fi

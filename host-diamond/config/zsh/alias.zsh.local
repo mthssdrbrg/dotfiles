@@ -1,6 +1,0 @@
-alias sc="sudo systemctl"
-alias scu="systemctl --user"
-alias pbpaste="xclip -out -rmlastnl"
-alias pbcopy="xclip -rmlastnl"
-alias aur="aurget"
-alias pkg="sudo pacman"

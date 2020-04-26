@@ -1,0 +1,10 @@
+[Unit]
+Description=Battery monitor and notifier
+PartOf=autostart.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/batsignal -f 0 -w 15 -d 2 -D 'systemctl suspend'
+
+[Install]
+WantedBy=autostart.target

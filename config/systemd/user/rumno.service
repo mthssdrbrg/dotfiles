@@ -1,0 +1,14 @@
+[Unit]
+Description=Media OSD notifications
+After=dbus.service
+PartOf=autostart.target
+
+[Service]
+Type=forking
+PIDFile=%t/rumno/rumno.pid
+ExecStart=%h/.local/bin/rumno-daemon
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=autostart.target

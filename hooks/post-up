@@ -1,21 +1,75 @@
 #!/usr/bin/env bash
 
-# redirect output to stderr
-exec 1>&2
+set -euo pipefail
 
-set -e
+readonly RC_DEBUG="${RC_DEBUG:-""}"
 
-declare -r rcm_functions="$(realpath "$(dirname "$0")"/../rcm/functions)"
+[[ -n $RC_DEBUG ]] && set -x
 
-[[ -n "$RC_DEBUG" ]] && set -x
-[[ -f "$rcm_functions" ]] && . "$rcm_functions"
+function nvim-plugins() {
+  echo "> install / update / clean nvim plugins"
+  command nvim +PlugInstall +qa
+  command nvim +PlugUpdate  +qa
+  command nvim +PlugClean!  +qa
+}
 
-if [[ -n $RCRC || -e ~/.rcrc ]]; then
-  source "${RCRC:-~/.rcrc}"
-  for tag in $TAGS; do
-    run-hook "tag-$tag" "post-up"
-  done
-  if [[ -n $HOSTNAME ]]; then
-    run-hook "host-$HOSTNAME" "post-up"
+function pam-env-patch() {
+  echo "> pam environment patch"
+  if ! grep --quiet pam_env.so /etc/pam.d/system-login; then
+    echo "session    optional   pam_env.so" | sudo tee --append /etc/pam.d/system-login
   fi
-fi
+}
+
+function daemon-reload() {
+  systemctl --user daemon-reload
+}
+
+function setup-tfenv() {
+  echo "> tfenv"
+  if ! tfenv list | grep -q 0.11.14; then
+    tfenv install 0.11.14
+  fi
+  if ! tfenv list | grep -q 0.12.24; then
+    tfenv install 0.12.24
+  fi
+  tfenv use 0.12.24
+}
+
+function setup-nodejs() {
+  echo -n "> nodejs (asdf):"
+  if ! asdf current nodejs | grep -q 12.16.3; then
+    echo
+    asdf install nodejs 12.16.3
+    asdf global  nodejs 12.16.3
+  else
+    echo " ok"
+  fi
+}
+
+function setup-ruby() {
+  echo -n "> ruby (asdf):"
+  if ! asdf current ruby | grep -q 2.7.1; then
+    echo
+    asdf install ruby 2.7.1
+    asdf global  ruby 2.7.1
+  else
+    echo " ok"
+  fi
+}
+
+function setup-kubectl() {
+  echo -n "> kubectl (asdf):"
+  if ! asdf current kubectl | grep -q 1.16.9; then
+    echo
+    asdf install kubectl 1.16.9
+    asdf global  kubectl 1.16.9
+  else
+    echo " ok"
+  fi
+}
+
+setup-tfenv
+setup-nodejs
+setup-ruby
+nvim-plugins
+daemon-reload

@@ -1,0 +1,40 @@
+asdf-vm
+corrupter-bin
+# dep-bin
+direnv
+dropbox-cli
+enpass-bin
+fisher
+ghq-bin
+google-chrome
+google-cloud-sdk
+gpaste-menu
+icdiff
+kail
+keybase-bin
+krew-bin
+picom
+quintom-cursor-theme-git
+# rbenv
+rcm
+# ruby-build
+slack-desktop
+spotify
+system-san-francisco-font-git
+terraform-ls-bin
+tfenv
+ttf-google-sans
+ttf-meslo
+zoom
+spicetify-cli
+spicetify-themes-git
+# ttf-material-design-icons
+# rumno
+tvolnoti
+github-cli-bin
+nextdns
+# batsignal
+xfce-polkit
+yubikey-agent
+rofi-emoji
+font-victor-mono

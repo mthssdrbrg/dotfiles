@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+readonly internal="eDP1"
+readonly external="DP1"
+
+function query-desktops() {
+  local monitor="$1"
+  bspc query --desktops --names --monitor "$monitor" 2> /dev/null
+}
+
+for desktop in $(query-desktops "$internal"); do
+  if [[ $desktop =~ ^(www|ww2|term) ]]; then
+    bspc desktop "$desktop" --to-monitor "$external"
+  fi
+done
+
+if ! $(query-desktops "$external" | grep --quiet "www"); then
+  bspc monitor "$external" --add-desktops www
+fi
+
+if ! $(query-desktops "$external" | grep --quiet "ww2"); then
+  bspc monitor "$external" --add-desktops ww2
+fi
+
+bspc config --monitor "$external" bottom_padding 0
+bspc monitor "$internal" --reorder-desktops chat music
+bspc monitor "$external" --reorder-desktops www ww2
+
+if systemctl --user is-active polybar.service &> /dev/null; then
+  systemctl --user reload polybar.service
+fi
+sh $HOME/.fehbg

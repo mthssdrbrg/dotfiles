@@ -1,0 +1,9 @@
+[Unit]
+Description=Removable disk auto-mounter
+PartOf=autostart.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --automount --notify --tray --no-file-manager
+
+[Install]
+WantedBy=autostart.target

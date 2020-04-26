@@ -1,0 +1,10 @@
+[Unit]
+Description=GNOME keyring daemon
+PartOf=autostart.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+
+[Install]
+WantedBy=autostart.target

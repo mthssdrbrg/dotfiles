@@ -1,8 +1,0 @@
---ignore-dir
-vendor
---ignore-dir
-coverage
---ignore-dir
-.bundle
---ignore-dir
-.terraform
