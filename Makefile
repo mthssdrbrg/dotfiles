@@ -10,18 +10,16 @@ user_services := at-spi-dbus-bus autorandr-launcher dropbox dunst \
                  redshift rumno udiskie xfce-polkit xfce-power-manager xfsettingsd \
                  xss-lock
 
-.DEFAULT_GOAL = all
+.DEFAULT_GOAL = rcup
 
-all: install
+install: rcup-with-hooks etc zoom system-services user-services
 
-install: up etc zoom system-services user-services
-
-.PHONY: up
-up:
+.PHONY: rcup
+rcup:
 	env RCRC=$(PWD)/rcrc rcup -K -v -d $(HOME)/.dotfiles
 
-.PHONY: up-with-hooks
-up-with-hooks:
+.PHONY: rcup-with-hooks
+rcup-with-hooks:
 	env RCRC=$(PWD)/rcrc rcup -v -d $(HOME)/.dotfiles
 
 .PHONY: etc
