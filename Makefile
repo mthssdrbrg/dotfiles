@@ -46,6 +46,9 @@ zoom: /usr/local/bin/zoom
 /usr/local/bin/zoom: /usr/bin/firejail
 	sudo ln --symbolic /usr/bin/firejail /usr/local/bin/zoom
 
+/usr/local/bin/dmenu:
+	sudo ln --symbolic /usr/bin/rofi /usr/local/bin/dmenu
+
 pictures = wallpapers lockscreens screenshots
 pictures: $(foreach p, $(pictures), $(HOME)/pictures/$(p))
 
