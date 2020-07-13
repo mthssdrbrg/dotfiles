@@ -1,0 +1,16 @@
+configuration {
+  modi: "combi";
+  font: "Source Code Pro Regular 9";
+  show-icons: true;
+  terminal: "alacritty";
+  drun-show-actions: true;
+  sidebar-mode: false;
+  combi-modi: "drun,run,emoji";
+  separator-style: "solid";
+  hide-scrollbar: true;
+  theme: "nord";
+  kb-remove-to-eol: "Alt+k";
+  kb-accept-entry: "Return,KP_Enter";
+  kb-row-up: "Up,Control+k";
+  kb-row-down: "Down,Control+j";
+}
