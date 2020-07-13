@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function spotify() {
+  echo "desktop=music"
+}
+
+function personal-firefox() {
+  echo "desktop=www"
+}
+
+function work-firefox() {
+  echo "desktop=ww2"
+}
+
+function main() {
+  readonly wid=$1 class=$2 instance=$3 consequences=$4
+  echo "wid=$wid, class=$class, instance=$instance" >> /tmp/bspwm-external-rules.log
+
+  case $instance.$class in
+    Navigator.firefox*)
+      local args=$(ps -p "$(xdo pid "$wid")" -o args= 2>/dev/null)
+      case $args in
+        (*work) work-firefox ;;
+        (*) personal-firefox ;;
+      esac ;;
+    .)
+      case $(ps -p "$(xdo pid "$wid")" -o comm= 2>/dev/null) in
+        (spotify*) spotify ;;
+      esac ;;
+  esac
+}
+
+main "$@"

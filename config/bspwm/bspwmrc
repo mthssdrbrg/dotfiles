@@ -16,18 +16,18 @@ bspc config border_width $border_width
 bspc config window_gap   $window_gap
 bspc config split_ratio  $split_ratio
 
-# TODO: not available in version on Manjaro
-# bspc config remomve_disabled_monitors  true
-# bspc config remomve_unplugged_monitors true
+bspc config pointer_follows_focus     true
+bspc config pointer_follows_monitor   true
+bspc config remove_disabled_monitors  true
+bspc config remove_unplugged_monitors true
 
+bspc config external_rules_command ~/.local/bin/bspwm-external-rules
 
 bspc rule --add Slack   desktop=chat
 bspc rule --add slack   desktop=chat
-bspc rule --add Spotify desktop=music
-bspc rule --add spotify desktop=music
 
-bspc rule --add Enpass                       state=floating
-bspc rule --add Blueman-manager              state=floating
-bspc rule --add xfce4-power-manager-settings state=floating
-bspc rule --add xfce4-settings-manager       state=floating
-bspc rule --add Pavucontrol                  state=floating
+bspc rule --add Enpass                       state=floating center=on
+bspc rule --add Blueman-manager              state=floating center=on
+bspc rule --add xfce4-power-manager-settings state=floating center=on
+bspc rule --add xfce4-settings-manager       state=floating center=on
+bspc rule --add Pavucontrol                  state=floating center=on
