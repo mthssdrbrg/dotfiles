@@ -1,2 +1,2 @@
-EXCLUDES="README.md NOTES.md rcrc Makefile hooks packages etc boot"
+EXCLUDES="README.md NOTES.md rcrc Makefile hooks packages etc"
 COPY_ALWAYS="config/fontconfig/conf.d/*.conf"
