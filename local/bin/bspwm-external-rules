@@ -12,6 +12,10 @@ function work-firefox() {
   echo "desktop=ww2"
 }
 
+function zoom-settings() {
+  echo "state=floating center=on"
+}
+
 function main() {
   readonly wid=$1 class=$2 instance=$3 consequences=$4
   echo "wid=$wid, class=$class, instance=$instance" >> /tmp/bspwm-external-rules.log
@@ -22,6 +26,10 @@ function main() {
       case $args in
         (*work) work-firefox ;;
         (*) personal-firefox ;;
+      esac ;;
+    zoom.*)
+      case "$(xprop -id "$wid" WM_NAME 2> /dev/null)" in
+        *Settings*) zoom-settings ;;
       esac ;;
     .)
       case $(ps -p "$(xdo pid "$wid")" -o comm= 2>/dev/null) in
