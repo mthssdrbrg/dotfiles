@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup $HOME directory
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/backup --quiet

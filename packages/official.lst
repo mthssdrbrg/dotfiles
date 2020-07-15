@@ -91,3 +91,4 @@ podman
 buildah
 xdo
 entr
+rclone

@@ -4,14 +4,17 @@ exec 2>&1
 
 set -E
 
-trap 'notify-error $now' ERR
+trap 'notify-error' ERR
 
-readonly repo="/run/media/$(whoami)/backup/$(hostname)"
-declare passphrase_file passphrase now quiet=0
+readonly repo_name=$(hostname)
+readonly repo="/run/media/$(whoami)/backup/$repo_name"
+readonly sync_dst="g:backup/$repo_name"
+
+declare passphrase quiet=0
 
 function notify-error() {
   local msg=$1
-  notify-send --urgency critical --app-name "backup" "error during backup of $msg"
+  notify-send --urgency critical --app-name "backup" "error during backup"
   exit 1
 }
 
@@ -26,15 +29,21 @@ function main() {
   while (( $# > 0 )); do
     case "$1" in
       -q|--quiet) quiet=1 ;;
-      -p|--passphrase-file) passphrase_file="$2"; shift ;;
       *) echo "unknown option: $1" >&2 ; usage; exit 1 ;;
     esac
     shift
   done
 
-  if [[ ! -d $repo ]]; then
-    echo "repo doesn't exist, or disk isn't mounted, aborting" >&2
+  if [[ ! -d $(dirname $repo) ]]; then
+    echo "backup disk isn't mounted, skipping" >&2
     exit 0
+  fi
+
+  passphrase="$(secret-tool lookup borg home)"
+
+  if [[ ! -d $repo ]]; then
+    echo "repo doesn't exist, aborting" >&2
+    exit 1
   elif [[ -z $passphrase ]]; then
     echo "missing passphrase" >&2
     exit 1
@@ -48,8 +57,8 @@ function main() {
     --info \
     --stats \
     --numeric-owner \
-    --compression zlib \
-    --exclude "*/.terraform" \
+    --compression zstd \
+    --exclude-from "$XDG_CONFIG_HOME/borg/no-backup.lst" \
     --exclude-if-present .no-backup \
     "$repo::{now}"\
     "$HOME"
@@ -64,6 +73,10 @@ function main() {
     --keep-weekly 4 \
     --keep-monthly 6 \
     "$repo"
+
+  notify-info "uploading backup"
+
+  borg with-lock "$repo" rclone sync "$repo" "$sync_dst" --progress
 
   notify-info "finished backup"
 }

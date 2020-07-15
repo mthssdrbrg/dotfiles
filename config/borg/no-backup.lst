@@ -1,0 +1,6 @@
+fm:*/dev/src/*/.terraform
+fm:*/dev/src/*/vendor
+fm:*/dev/src/*/node_modules
+fm:*/dev/bin
+fm:*/dev/pkg
+pp:/home/dist/.dropbox-dist
