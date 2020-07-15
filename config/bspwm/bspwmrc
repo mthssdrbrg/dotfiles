@@ -31,3 +31,4 @@ bspc rule --add Blueman-manager              state=floating center=on
 bspc rule --add xfce4-power-manager-settings state=floating center=on
 bspc rule --add xfce4-settings-manager       state=floating center=on
 bspc rule --add Pavucontrol                  state=floating center=on
+bspc rule --add Seahorse                     state=floating center=on
