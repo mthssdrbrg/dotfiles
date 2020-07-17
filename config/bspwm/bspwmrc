@@ -16,10 +16,13 @@ bspc config border_width $border_width
 bspc config window_gap   $window_gap
 bspc config split_ratio  $split_ratio
 
-bspc config pointer_follows_focus     true
-bspc config pointer_follows_monitor   true
+bspc config pointer_follows_focus     false
+bspc config pointer_follows_monitor   false
 bspc config remove_disabled_monitors  true
 bspc config remove_unplugged_monitors true
+bspc config honor_size_hints          true
+bspc config ignore_ewmh_focus         true
+bspc config ignore_ewmh_fullscreen    "all"
 
 bspc config external_rules_command ~/.local/bin/bspwm-external-rules
 
