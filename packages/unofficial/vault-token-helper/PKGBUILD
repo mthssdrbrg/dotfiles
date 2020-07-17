@@ -1,0 +1,16 @@
+# Maintainer: Mathias <mths@sdrbrg.se>
+
+pkgname=vault-token-helper
+pkgdesc="Vault token helper"
+pkgver=0.3.3
+pkgrel=0
+arch=('x86_64')
+url="https://github.com/joemiller/vault-token-helper"
+license=('MIT')
+_release_file=vault-token-helper_${pkgver}_linux_amd64
+source_x86_64=($_release_file::https://github.com/joemiller/vault-token-helper/releases/download/v${pkgver}/${_release_file})
+md5sums_x86_64=('b0ebd346a9aeed61ba2f993b75b374a8')
+
+package() {
+  install -Dm 755 "$srcdir/$_release_file" "$pkgdir/usr/bin/vault-token-helper"
+}

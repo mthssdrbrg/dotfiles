@@ -1,0 +1,16 @@
+# Maintainer: Mathias <mths@sdrbrg.se>
+
+pkgname=kubeseal
+pkgdesc="Sealed secrets client"
+pkgver=0.7.0
+pkgrel=1
+arch=('x86_64')
+url="https://github.com/bitnami-labs/sealed-secrets"
+license=('apache')
+_kubeseal_file=kubeseal-linux-amd64
+source_x86_64=($_kubeseal_file::https://github.com/bitnami-labs/sealed-secrets/releases/download/v$pkgver/kubeseal-linux-amd64)
+md5sums_x86_64=('fd50e874a94a7410ec8320b744cf37ee')
+
+package() {
+  install -Dm 755 "$srcdir/$_kubeseal_file" "$pkgdir/usr/bin/kubeseal"
+}

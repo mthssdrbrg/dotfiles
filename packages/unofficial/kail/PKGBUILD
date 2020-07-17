@@ -1,0 +1,15 @@
+# Maintainer: mthssdrbrg <mths@sdrbrg.se>
+
+pkgname=kail-bin
+pkgdesc='Kubernetes log viewer'
+pkgver=0.15.0
+pkgrel=1
+arch=('x86_64')
+url="https://github.com/boz/kail"
+license=('MIT')
+source_x86_64=(kail::https://github.com/boz/kail/releases/download/v$pkgver/kail_${pkgver}_linux_amd64.tar.gz)
+sha256sums_x86_64=('e37862bf4547329a3299aece4ae62bc7d3a277cafeadc81304c262a016816ce2')
+
+package() {
+  install -Dm 755 "$srcdir/kail" "$pkgdir/usr/bin/kail"
+}

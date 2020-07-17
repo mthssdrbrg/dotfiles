@@ -1,1 +1,1 @@
-token_helper = "/home/dist/.local/bin/vault-token-helper"
+token_helper = "/usr/bin/vault-token-helper"

@@ -92,3 +92,4 @@ buildah
 xdo
 entr
 rclone
+net-tools
