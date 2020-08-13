@@ -6,15 +6,15 @@ declare command="${1:-""}"
 
 function on() {
   notify-send --urgency=critical "Do Not Disturb" "Notifications paused"
-  sleep 3
+  sleep 0.5
   notify-send "DUNST_COMMAND_PAUSE"
-  systemctl --user stop xscreensaver.service
+  systemctl --user stop xss-lock.service
 }
 
 function off() {
   notify-send "DUNST_COMMAND_RESUME"
   notify-send "Do Not Disturb" "Notifications resumed"
-  systemctl --user start xscreensaver.service
+  systemctl --user start xss-lock.service
 }
 
 if [[ -z $command ]]; then
