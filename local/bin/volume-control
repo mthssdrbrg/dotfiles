@@ -4,7 +4,7 @@ set -euo pipefail
 
 declare command="${1:-""}"
 readonly rumno="$HOME/.local/bin/rumno-client"
-readonly step="${2-5}"
+readonly step="${2-3}"
 
 function is-muted() {
   local value

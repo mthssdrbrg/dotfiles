@@ -127,13 +127,13 @@ XF86AudioRaiseVolume
   volume-control up
 
 shift + XF86AudioRaiseVolume
-  volume-control up 3
+  volume-control up 1
 
 XF86AudioLowerVolume
   volume-control down
 
 shift + XF86AudioLowerVolume
-  volume-control down 3
+  volume-control down 1
 
 XF86AudioMute
   volume-control mute
