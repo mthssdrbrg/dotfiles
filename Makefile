@@ -55,10 +55,17 @@ pictures: $(foreach p, $(pictures), $(HOME)/pictures/$(p))
 $(HOME)/pictures/%: $(HOME)/Dropbox/%
 	@ test -L $@ || ln --verbose --symbolic --no-target-directory ../Dropbox/$* $@
 
-# (fish) shell completions
-completions:
-	test -f $(XDG_CONFIG_HOME)/fish/completions/vault.fish || vault -autocomplete-install
+fish-completions: $(XDG_CONFIG_HOME)/fish/completions/vault.fish $(XDG_CONFIG_HOME)/fish/completions/rustup.fish
+
+$(XDG_CONFIG_HOME)/fish/completions/vault.fish:
+	vault -autocomplete-install
+
+$(XDG_CONFIG_HOME)/fish/completions/rustup.fish:
 	rustup completions fish > $(XDG_CONFIG_HOME)/fish/completions/rustup.fish
+
+clean-fish-completions:
+	rm -f $(XDG_CONFIG_HOME)/fish/completions/vault.fish
+	rm -f $(XDG_CONFIG_HOME)/fish/completions/rustup.fish
 
 # rust-related targets
 rust-update:
