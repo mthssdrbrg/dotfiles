@@ -56,6 +56,7 @@ if status --is-interactive
   abbr --add --global juu   'journalctl --user --unit'
   abbr --add --global mk    'makepkg -sricC'
   abbr --add --global pu    'sudo pacman -Syu'
+  abbr --add --global yu    'yay -Syua'
 
   if command --quiet direnv
     eval (direnv hook fish)
