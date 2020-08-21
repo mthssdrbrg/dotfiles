@@ -49,6 +49,7 @@ let g:terraform_fmt_on_save   = 1
 
 " CoC.vim + vimtex
 let g:vimtex_compiler_progname = 'nvr'
+let g:tex_flavor = 'latex'
 
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
