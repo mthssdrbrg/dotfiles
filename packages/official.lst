@@ -4,7 +4,7 @@ arandr
 autorandr
 aws-cli
 bat
-bind-tools
+bind
 borg
 bspwm
 code
@@ -93,3 +93,5 @@ xdo
 entr
 rclone
 net-tools
+traceroute
+yq
