@@ -6,13 +6,7 @@ BindsTo=systemd-netns@%i.service
 [Service]
 Type=oneshot
 RemainAfterExit=true
-# EnvironmentFile=/etc/netns.d/%I/config
-Environment=GATEWAY_DEVICE=wlan0
-Environment=GATEWAY_IP=192.168.0.1
-Environment=NETWORK_IP=192.168.0.2
-Environment=NETWORK_NETMASK=24
-
-# Create system process
+EnvironmentFile=/etc/netns.d/%I/config
 ExecStartPre=/usr/bin/ip link add veth-${GATEWAY_DEVICE} type veth peer name veth-%I
 ExecStartPre=/usr/bin/ip addr add ${GATEWAY_IP}/${NETWORK_NETMASK} dev veth-${GATEWAY_DEVICE}
 ExecStartPre=/usr/bin/ip link set veth-%I netns %I
@@ -25,7 +19,6 @@ ExecStartPre=/usr/bin/iptables -A FORWARD -i ${GATEWAY_DEVICE} -o veth-${GATEWAY
 ExecStartPre=/usr/bin/iptables -t nat -A POSTROUTING -s ${NETWORK_IP}/${NETWORK_NETMASK} -o ${GATEWAY_DEVICE} -j MASQUERADE
 ExecStartPre=/usr/bin/sysctl -w net.ipv4.ip_forward=1
 ExecStart=/usr/bin/ip netns exec %I wg-quick up /etc/wireguard/wg0-uk.conf
-
 ExecStop=/usr/bin/ip netns exec %I wg-quick down /etc/wireguard/wg0-uk.conf
 ExecStopPost=-/usr/bin/ip netns del %I
 ExecStopPost=-/usr/bin/iptables -D FORWARD -o ${GATEWAY_DEVICE} -i veth-%I -j ACCEPT

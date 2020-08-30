@@ -8,15 +8,8 @@ After=syslog.target network.target
 Type=oneshot
 RemainAfterExit=true
 PrivateNetwork=true
-
-# Start process
-ExecStartPre=-/usr/bin/ip netns delete %I 2> /dev/null
 ExecStart=/usr/bin/ip netns add %I
 ExecStart=/usr/bin/ip netns exec %I ip link set lo up
-# ExecStart=/usr/bin/umount /var/run/netns/%I
-# ExecStart=/usr/bin/mount --bind /proc/self/ns/net /var/run/netns/%I
-
-# Stop process
 ExecStop=-/usr/bin/ip netns delete %I 2> /dev/null
 
 [Install]
