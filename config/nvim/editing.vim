@@ -35,8 +35,7 @@ set termguicolors
 autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType make setlocal noexpandtab
 " Set syntax highlighting for specific file types
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 autocmd BufRead,BufNewFile config.ru set filetype=ruby
-" autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead *.journal,*.ledger setf ledger | comp ledger
+autocmd BufRead,BufNewFile *.md setlocal textwidth=120 spell
