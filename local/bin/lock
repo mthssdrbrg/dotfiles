@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# --indpos="1800:940" \
+bspc node --focus first_ancestor
 
 i3lock --nofork \
   --tiling \
