@@ -6,13 +6,13 @@ declare command="${1:-""}"
 
 function on() {
   notify-send --urgency=critical "Do Not Disturb" "Notifications paused"
-  sleep 0.5
-  notify-send "DUNST_COMMAND_PAUSE"
+  sleep 1
+  dunstctl set-paused true
   systemctl --user stop xss-lock.service
 }
 
 function off() {
-  notify-send "DUNST_COMMAND_RESUME"
+  dunstctl set-paused false
   notify-send "Do Not Disturb" "Notifications resumed"
   systemctl --user start xss-lock.service
 }
