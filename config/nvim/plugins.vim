@@ -15,7 +15,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'ledger/vim-ledger'
 Plug 'vmchale/dhall-vim'
 Plug 'lervag/vimtex'
-" Plug 'fatih/vim-go'
+Plug 'fatih/vim-go'
+Plug 'vim-ruby/vim-ruby'
 
 Plug 'itchyny/vim-parenmatch'
 Plug 'lambdalisue/gina.vim'
@@ -85,3 +86,5 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 let g:sandwich#recipes = deepcopy(g:sandwich#default_recipes)
 " enable vim-surround like keymappings
 " runtime macros/sandwich/keymap/surround.vim
+
+let g:go_def_mapping_enabled = 0

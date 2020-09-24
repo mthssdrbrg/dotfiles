@@ -16,12 +16,15 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     },
-    "dhall": {
-      "command": "dhall-lsp-server",
-      "filetypes": ["dhall"]
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
     }
   },
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
-  }
+  },
+  "codeLens.enable": true,
+  "solargraph.commandPath": "/home/dist/.local/share/asdf/shims/solargraph"
 }
