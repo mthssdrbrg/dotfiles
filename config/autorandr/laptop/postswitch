@@ -39,7 +39,7 @@ ensure-desktop "ww2"
 ensure-desktop "chat"
 ensure-desktop "music"
 
-bspc monitor "$internal" --reorder-desktops www ww2
+bspc monitor "$internal" --reorder-desktops www ww2 chat music
 
 if systemctl --user is-active polybar.service &> /dev/null; then
   systemctl --user reload polybar.service
