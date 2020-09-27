@@ -14,7 +14,7 @@ function kubectx --argument-names context
     bind \cd __kubexit_exit
     bind -M visual \cd __kubexit_exit
 
-    commandline -f repaint
+    commandline --function repaint
   else
     echo "<context> must not be empty" >&2
     return 1
@@ -27,5 +27,5 @@ function __kubectx_exit
   bind --erase -M insert \cd
   bind --erase \cd
   bind --erase -M visual \cd
-  commandline -f repaint
+  commandline --function repaint
 end
