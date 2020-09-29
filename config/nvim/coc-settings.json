@@ -26,5 +26,6 @@
     "kubernetes": "/*.yaml"
   },
   "codeLens.enable": true,
-  "solargraph.commandPath": "/home/dist/.local/share/asdf/shims/solargraph"
+  "solargraph.commandPath": "/home/dist/.local/share/asdf/shims/solargraph",
+  "solargraph.checkGemVersion": false
 }
