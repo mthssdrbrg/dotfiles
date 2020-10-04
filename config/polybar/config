@@ -107,7 +107,7 @@ type = internal/xwindow
 format-foreground = ${colors.nord6}
 format-padding = 1
 
-label = %{F#8fbcbb}%{F-} %title%
+label = %{F-} %title%
 label-maxlen = 60
 
 ;---------------------------------------
@@ -123,7 +123,7 @@ date = %a %d
 
 time = %H:%M
 
-label = "%{F#5e81ac}%{F-} %date%  %{F#b48ead}%{F-} %time%"
+label = "%{F#5e81ac}󰃭%{F-} %date%  %{F#b48ead}󰅐%{F-} %time%"
 
 format-foreground = ${colors.nord6}
 format-padding = 1
@@ -154,22 +154,22 @@ label-discharging ="%percentage%% "
 label-discharging-foreground = ${colors.nord6}
 label-full = " %{F#a3be8c}%{F-} %percentage%% "
 
-ramp-capacity-0 = " %{F#bf616a}"
+ramp-capacity-0 = " %{F#bf616a}󰂃"
 ramp-capacity-0-foreground = ${colors.nord11}
-ramp-capacity-1 = " %{F#bf616a}"
+ramp-capacity-1 = " %{F#bf616a}󰁺"
 ramp-capacity-1-foreground = ${colors.nord11}
-ramp-capacity-2 = " %{F#a3be8c}"
-ramp-capacity-3 = " %{F#a3be8c}"
-ramp-capacity-4 = " %{F#a3be8c}"
-ramp-capacity-5 = " %{F#a3be8c}"
-ramp-capacity-6 = " %{F#a3be8c}"
-ramp-capacity-7 = " %{F#a3be8c}"
-ramp-capacity-8 = " %{F#a3be8c}"
-ramp-capacity-9 = " %{F#a3be8c}"
+ramp-capacity-2 = " %{F#a3be8c}󰁻"
+ramp-capacity-3 = " %{F#a3be8c}󰁼"
+ramp-capacity-4 = " %{F#a3be8c}󰁽"
+ramp-capacity-5 = " %{F#a3be8c}󰁾"
+ramp-capacity-6 = " %{F#a3be8c}󰁿"
+ramp-capacity-7 = " %{F#a3be8c}󰂀"
+ramp-capacity-8 = " %{F#a3be8c}󰂁"
+ramp-capacity-9 = " %{F#a3be8c}󰁹"
 
-animation-charging-0 = " %{F#a3be8c}%{F-}"
-animation-charging-1 = " %{F#a3be8c}%{F-}"
-animation-charging-2 = " %{F#a3be8c}%{F-}"
+; animation-charging-0 = " %{F#a3be8c}%{F-}"
+; animation-charging-1 = " %{F#a3be8c}%{F-}"
+; animation-charging-2 = " %{F#a3be8c}%{F-}"
 
 ;---------------------------------------
 ;	   AUDIO MODULE
@@ -177,9 +177,9 @@ animation-charging-2 = " %{F#a3be8c}%{F-}"
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = "%{F#ebcb8b}%{F-} <label-volume> "
+format-volume = "%{F#ebcb8b}󰕾%{F-} <label-volume> "
 
-label-muted = "%{F#eb8b8b}%{F-} Mute "
+label-muted = "%{F#eb8b8b}󰝟%{F-} Mute "
 
 ;---------------------------------------
 ;	   NETWORK MODULE
@@ -192,11 +192,11 @@ format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = "%{F#d08770}󰤫 "
 
-ramp-signal-0 = "%{F#d08770}蘭"
-ramp-signal-1 = "%{F#d08770}爛"
-ramp-signal-2 = "%{F#d08770}嵐"
-ramp-signal-3 = "%{F#d08770}襤"
-ramp-signal-4 = "%{F#d08770}蠟"
+ramp-signal-0 = "%{F#d08770}󰤫"
+ramp-signal-1 = "%{F#d08770}󰤟"
+ramp-signal-2 = "%{F#d08770}󰤢"
+ramp-signal-3 = "%{F#d08770}󰤥"
+ramp-signal-4 = "%{F#d08770}󰤨"
 
 label-disconnected = "%{F#d08770}來 %{F-} Disconnected  "
 :label-connected = "%{F#eceff4}Connected  "
