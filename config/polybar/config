@@ -140,7 +140,7 @@ adapter = ACAD
 
 full-at = 99
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <ramp-capacity> <label-charging>
 format-charging-foreground = ${colors.nord6}
 
 format-full = <label-full>
