@@ -14,6 +14,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'hashivim/vim-terraform'
 Plug 'ledger/vim-ledger'
 Plug 'vmchale/dhall-vim'
+Plug 'google/vim-jsonnet'
 Plug 'lervag/vimtex'
 Plug 'fatih/vim-go'
 Plug 'vim-ruby/vim-ruby'
