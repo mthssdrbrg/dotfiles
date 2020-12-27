@@ -13,7 +13,7 @@ set --export --global AWS_SESSION_TOKEN_TTL 8h
 set --export --global TF_PLUGIN_CACHE_DIR $XDG_CACHE_HOME/terraform/plugin-cache
 set --export --global KUBECTL_EXTERNAL_DIFF colordiff
 
-set --universal FZF_DEFAULT_OPTS '--exact --color=fg:#d8dee9,bg:#2e3440,hl:#81a1c1 --color=fg+:#d8dee9,bg+:#2e3440,hl+:#81a1c1 --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
+set --universal FZF_DEFAULT_OPTS --exact --color=fg:#d8dee9,bg:#2e3440,hl:#81a1c1 --color=fg+:#d8dee9,bg+:#2e3440,hl+:#81a1c1 --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b
 set --universal FZF_LEGACY_KEYBINDINGS 0
 set --universal GHQ_SELECTOR_OPTS $FZF_DEFAULT_OPTS
 set --universal __done_min_cmd_duration 60000
