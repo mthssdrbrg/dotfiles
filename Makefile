@@ -63,9 +63,17 @@ $(XDG_CONFIG_HOME)/fish/completions/vault.fish:
 $(XDG_CONFIG_HOME)/fish/completions/rustup.fish:
 	rustup completions fish > $(XDG_CONFIG_HOME)/fish/completions/rustup.fish
 
+$(XDG_CONFIG_HOME)/fish/completions/kubectl.fish:
+	kubectl completion fish > $(XDG_CONFIG_HOME)/fish/completions/kubectl.fish
+
+$(XDG_CONFIG_HOME)/fish/completions/limactl.fish:
+	limactl completion fish > $(XDG_CONFIG_HOME)/fish/completions/limactl.fish
+
 clean-fish-completions:
 	rm -f $(XDG_CONFIG_HOME)/fish/completions/vault.fish
 	rm -f $(XDG_CONFIG_HOME)/fish/completions/rustup.fish
+	rm -f $(XDG_CONFIG_HOME)/fish/completions/kubectl.fish:
+	rm -f $(XDG_CONFIG_HOME)/fish/completions/limactl.fish:
 
 # rust-related targets
 rust-update:
