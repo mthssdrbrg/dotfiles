@@ -4,8 +4,16 @@
 [user]
   useConfigOnly = true
 
+[init]
+  templatedir = ~/.git_template
+  defaultBranch = main
+
 [core]
   excludesfile = ~/.gitignore
+  abbrev = 8
+
+[log]
+  abbrevcommit = yes
 
 [color]
   branch = auto
@@ -17,10 +25,6 @@
   autosetuprebase = always
   mergeoptions = --no-ff
 
-[init]
-  templatedir = ~/.git_template
-  defaultBranch = main
-
 [push]
   default = tracking
 
@@ -31,6 +35,7 @@
 
 [merge]
   tool = vimdiff
+  conflictstyle = diff3
 
 [rebase]
   autosquash = true
@@ -71,5 +76,5 @@
 [includeIf "gitdir:~/dev/src/"]
   path = ~/.gitconfig.sdrbrg
 
-[includeIf "gitdir:~/dev/src/github.com/pusher*/"]
-  path = ~/.gitconfig.pusher
+[includeIf "gitdir:~/dev/src/github.com/improbable*/"]
+  path = ~/.gitconfig.io
